@@ -2,6 +2,7 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.border.LineBorder;
 
 
 public class Randomizer {
@@ -9,79 +10,140 @@ public class Randomizer {
 	private JFrame frmPokemon;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-				try {
-					Randomizer window = new Randomizer();
-					window.frmPokemon.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-
-	/**
 	 * Create the application.
 	 */
 	public Randomizer() {
 		initialize();
 	}
-	 
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	public void initialize() {
 		frmPokemon = new JFrame();
 		frmPokemon.setTitle("Pokemon Randomizer");
-		frmPokemon.setBounds(100, 100, 733, 473);
+		frmPokemon.setSize(1000, 800);
+		frmPokemon.setVisible(true);
 		frmPokemon.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		//Action Component
-		JLabel ActionLabel = new JLabel("Actions:");
-		ActionLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
+		/**
+		 * Action Panel Component
+		 */
+		JPanel ActionPanel = new JPanel();
+		ActionPanel.setBorder(new LineBorder(Color.BLACK));
 		
 		JButton OpenButton = new JButton("Open ROM File");
-		JButton SaveButton = new JButton("Save ROM File");		
-		JButton SeedButton = new JButton("Seed Modification");		
+		JButton SaveButton = new JButton("Save ROM File");
+		JButton SeedButton = new JButton("Seed Modification");
 		JButton SettingButton = new JButton("Setting");
+		JLabel ActionLabel = new JLabel("Actions:");
+		ActionLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
+		ActionLabel.setBounds(10, 18, 68, 14);
 		
-		 
+		GroupLayout gl_ActionPanel = new GroupLayout(ActionPanel);
+		gl_ActionPanel.setHorizontalGroup(
+			gl_ActionPanel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_ActionPanel.createSequentialGroup()
+					.addGroup(gl_ActionPanel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_ActionPanel.createSequentialGroup()
+							.addGap(23)
+							.addComponent(ActionLabel, GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_ActionPanel.createSequentialGroup()
+							.addGap(33)
+							.addGroup(gl_ActionPanel.createParallelGroup(Alignment.LEADING)
+								.addComponent(OpenButton, GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+								.addComponent(SaveButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(SeedButton, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(SettingButton, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+					.addGap(31))
+		);
+		gl_ActionPanel.setVerticalGroup(
+			gl_ActionPanel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_ActionPanel.createSequentialGroup()
+					.addGap(27)
+					.addComponent(ActionLabel)
+					.addGap(18)
+					.addComponent(OpenButton, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(SaveButton, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(SeedButton, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(SettingButton, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(61, Short.MAX_VALUE))
+		);
 		
-		//Using GroupLayout for resizable property of the subcomponent
+		/**
+		 * ROM Panel Component
+		 */
+		JPanel ROMPanel = new JPanel();
+		ROMPanel.setBorder(new LineBorder(Color.BLACK));
+	
+		JLabel FileLabel = new JLabel("ROM File:");
+		JLabel ROMValue = new JLabel("NONE LOADED");
+		JLabel StatusLabel = new JLabel("Status:");
+		JLabel StatusValue = new JLabel("Not Detected");
+		JLabel FileInfoLabel = new JLabel("ROM File Information:");
+		FileInfoLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
 		
+		GroupLayout gl_ROMPanel = new GroupLayout(ROMPanel);
+		gl_ROMPanel.setHorizontalGroup(
+			gl_ROMPanel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_ROMPanel.createSequentialGroup()
+					.addGap(23)
+					.addGroup(gl_ROMPanel.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_ROMPanel.createSequentialGroup()
+							.addComponent(FileInfoLabel)
+							.addPreferredGap(ComponentPlacement.RELATED, 136, Short.MAX_VALUE))
+						.addGroup(gl_ROMPanel.createSequentialGroup()
+							.addGroup(gl_ROMPanel.createParallelGroup(Alignment.LEADING)
+								.addComponent(FileLabel, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
+								.addComponent(StatusLabel, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE))
+							.addGap(18)
+							.addGroup(gl_ROMPanel.createParallelGroup(Alignment.LEADING)
+								.addComponent(StatusValue, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(ROMValue, GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))))
+					.addGap(22))
+		);
+		gl_ROMPanel.setVerticalGroup(
+			gl_ROMPanel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_ROMPanel.createSequentialGroup()
+					.addGap(27)
+					.addComponent(FileInfoLabel)
+					.addGap(18)
+					.addGroup(gl_ROMPanel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(FileLabel)
+						.addComponent(ROMValue))
+					.addGap(33)
+					.addGroup(gl_ROMPanel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(StatusLabel)
+						.addComponent(StatusValue))
+					.addContainerGap(140, Short.MAX_VALUE))
+		);
+		ROMPanel.setLayout(gl_ROMPanel);
 		GroupLayout groupLayout = new GroupLayout(frmPokemon.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(28)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addComponent(SettingButton, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(SeedButton, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(SaveButton, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(OpenButton, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE))
-					.addGap(538))
-				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(ActionLabel, GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-					.addGap(635))
+					.addGap(32)
+					.addComponent(ActionPanel, GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
+					.addGap(32)
+					.addComponent(ROMPanel, GroupLayout.PREFERRED_SIZE, 289, Short.MAX_VALUE)
+					.addGap(308))
 		);
 		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
+			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(15)
-					.addComponent(ActionLabel, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(OpenButton)
-					.addGap(4)
-					.addComponent(SaveButton)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(SeedButton)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(SettingButton)
-					.addContainerGap(288, Short.MAX_VALUE))
+					.addGap(30)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(ROMPanel, GroupLayout.PREFERRED_SIZE, 264, GroupLayout.PREFERRED_SIZE)
+						.addComponent(ActionPanel, GroupLayout.PREFERRED_SIZE, 264, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(471, Short.MAX_VALUE))
 		);
+
+		ActionPanel.setLayout(gl_ActionPanel);
 		frmPokemon.getContentPane().setLayout(groupLayout);
+		
 
 	}
 }
