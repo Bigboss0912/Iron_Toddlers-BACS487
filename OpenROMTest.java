@@ -24,7 +24,8 @@ class testFrame extends JFrame {
     
     private Container container;
     private JButton btnOpen;
-    byte[] OpenedRom = new byte[17000000];
+    private JButton btnSave;
+    byte[] OpenedRom;
 
     public testFrame() {
 
@@ -38,11 +39,10 @@ class testFrame extends JFrame {
     container = getContentPane();
     container.setLayout(null);
 
-    // Setup create account button, add action, and add to container
     btnOpen = new JButton(new AbstractAction("Open") {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				//code
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //code
 
                 // // create an object of JFileChooser class
                 // JFileChooser j = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
@@ -53,7 +53,7 @@ class testFrame extends JFrame {
                 // File file = j.getSelectedFile();
                 // readFile(file);
 
-                OpenedRom = openROM();
+                openROM();
                 String strROM = OpenedRom.toString();
 
                 StringBuilder sb = new StringBuilder();
@@ -66,11 +66,24 @@ class testFrame extends JFrame {
                 //     System.out.println(b);
                 // }
             }   
-		});
-		btnOpen.setFont(new Font("Century Gothic", Font.BOLD, 15));
-		btnOpen.setSize(175, 20);
-		btnOpen.setLocation(200, 250);
-		container.add(btnOpen);
+        });
+        btnOpen.setFont(new Font("Century Gothic", Font.BOLD, 15));
+        btnOpen.setSize(125, 20);
+        btnOpen.setLocation(100, 250);
+        container.add(btnOpen);
+
+
+    btnSave = new JButton(new AbstractAction("Save") {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            //code
+            saveROM();
+        }   
+    });
+    btnSave.setFont(new Font("Century Gothic", Font.BOLD, 15));
+    btnSave.setSize(125, 20);
+    btnSave.setLocation(400, 250);
+    container.add(btnSave);
 
     // set frame to visible
     setVisible(true);
@@ -101,14 +114,8 @@ public void readFile(File fileName) {
     }
 }
 
-public byte[] openROM(){
-
-    boolean tstPass = false;
-    String romPath = "";
-    byte[] rom;
-    byte[] rom2 = new byte[10];
-    boolean saved = true;
-    String[] empty = {"---"};
+public void openROM(){
+    String romPath;
 
     try{
             JFileChooser fc = new JFileChooser();
@@ -120,11 +127,9 @@ public byte[] openROM(){
                 romPath = romFile.getAbsolutePath();
                 FileInputStream ist = new FileInputStream(romPath);
 
-                rom = new byte[ist.available()];
-                ist.read(rom,0,ist.available());
+                OpenedRom = new byte[ist.available()];
+                ist.read(OpenedRom,0,ist.available());
                 ist.close();
-                tstPass = true;
-                return rom;
             }
         } catch (java.lang.StringIndexOutOfBoundsException jsioobe){
             JOptionPane.showMessageDialog(null,"Error reading file!");
@@ -135,7 +140,30 @@ public byte[] openROM(){
         } catch (IOException ioe){
             JOptionPane.showMessageDialog(null,"I/O problem! : "+ioe);
         }
-        return rom2;
-}
 }
 
+public void saveROM() {
+
+                // create an object of JFileChooser class
+                JFileChooser fc = new JFileChooser();
+ 
+                // invoke the showsSaveDialog function to show the save dialog
+                int r = fc.showSaveDialog(null);
+     
+                // if the user selects a file
+                if (r == JFileChooser.APPROVE_OPTION)
+     
+                {
+                    String filePath = fc.getSelectedFile().getAbsolutePath();
+
+                    try {
+                        FileOutputStream os = new FileOutputStream(filePath);
+                        os.write(OpenedRom);
+                        os.close();
+                        JOptionPane.showMessageDialog(null, "File saved successfully!");
+                    } catch (IOException ioe) {
+                        JOptionPane.showMessageDialog(null, "There was an error while saving:\n" + ioe);
+                    }
+                }
+}
+}
