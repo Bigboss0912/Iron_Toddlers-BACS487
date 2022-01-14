@@ -111,7 +111,7 @@ public byte[] openROM(){
     String[] empty = {"---"};
 
     try{
-            JFileChooser fc = new JFileChooser("C:/Users/mike_/Desktop/Randomizer Stuff/GBA/Open ROM Tests");
+            JFileChooser fc = new JFileChooser();
             int returnVal = fc.showOpenDialog(null);
             if (returnVal==JFileChooser.APPROVE_OPTION){
                 File romFile = fc.getSelectedFile();
