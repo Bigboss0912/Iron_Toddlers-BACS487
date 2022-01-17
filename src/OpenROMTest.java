@@ -12,6 +12,8 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 import javax.swing.filechooser.*;
 import java.util.ArrayList;
+import java.io.File;
+
 
 public class OpenROMTest {
 
@@ -120,9 +122,15 @@ public void openROM(){
 
     try{
             JFileChooser fc = new JFileChooser();
+
+            FileNameExtensionFilter gbaFilter = new FileNameExtensionFilter("GBA File", "gba");
+            fc.setFileFilter(gbaFilter);
+            //only shows files with ".gba" suffix
+
             int returnVal = fc.showOpenDialog(null);
             if (returnVal==JFileChooser.APPROVE_OPTION){
                 File romFile = fc.getSelectedFile();
+
 
                 //get data from selected save file
                 romPath = romFile.getAbsolutePath();
@@ -149,7 +157,7 @@ public void saveROM() {
                 // create an object of JFileChooser class
                 JFileChooser fc = new JFileChooser();
 
-                FileNameExtensionFilter gbaFilter = new FileNameExtensionFilter("GBA File", "*.gba");
+                FileNameExtensionFilter gbaFilter = new FileNameExtensionFilter("GBA File", "gba");
                 fc.addChoosableFileFilter(gbaFilter);
                 fc.setFileFilter(gbaFilter);
  
