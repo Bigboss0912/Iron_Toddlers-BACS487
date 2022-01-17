@@ -17,6 +17,7 @@ public class OpenROMTest {
 
     public static void main(String[] args) {
         testFrame tf = new testFrame();
+
     }
 }
 
@@ -130,6 +131,7 @@ public void openROM(){
                 OpenedRom = new byte[ist.available()];
                 ist.read(OpenedRom,0,ist.available());
                 ist.close();
+                //TODO Add a "loading..." message so user knows program isn't frozen
             }
         } catch (java.lang.StringIndexOutOfBoundsException jsioobe){
             JOptionPane.showMessageDialog(null,"Error reading file!");
@@ -146,15 +148,24 @@ public void saveROM() {
 
                 // create an object of JFileChooser class
                 JFileChooser fc = new JFileChooser();
+
+                FileNameExtensionFilter gbaFilter = new FileNameExtensionFilter("GBA File", "*.gba");
+                fc.addChoosableFileFilter(gbaFilter);
+                fc.setFileFilter(gbaFilter);
  
                 // invoke the showsSaveDialog function to show the save dialog
                 int r = fc.showSaveDialog(null);
      
                 // if the user selects a file
                 if (r == JFileChooser.APPROVE_OPTION)
-     
                 {
                     String filePath = fc.getSelectedFile().getAbsolutePath();
+                    if(!filePath.endsWith(".gba")){
+                        filePath += ".gba";
+                    }
+
+                    System.out.println(filePath);
+
 
                     try {
                         FileOutputStream os = new FileOutputStream(filePath);
