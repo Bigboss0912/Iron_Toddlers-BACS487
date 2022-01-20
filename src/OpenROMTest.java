@@ -17,10 +17,10 @@ import java.io.File;
 
 public class OpenROMTest {
 
-    public static void main(String[] args) {
-        testFrame tf = new testFrame();
+    // public static void main(String[] args) {
+    //     testFrame tf = new testFrame();
 
-    }
+    // }
 }
 
 class testFrame extends JFrame {
