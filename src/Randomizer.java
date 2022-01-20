@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -7,6 +8,7 @@ import javax.swing.border.LineBorder;
 
 public class Randomizer {
 
+	OpenCloseROM openCloseROM = new OpenCloseROM();
 	private JFrame frmPokemon;
 
 	/**
@@ -32,9 +34,29 @@ public class Randomizer {
 		JPanel ActionPanel = new JPanel();
 		ActionPanel.setBorder(new LineBorder(Color.BLACK));
 		
-		JButton OpenButton = new JButton("Open ROM File");
-		JButton SaveButton = new JButton("Save ROM File");
+
+		// Open Button
+		JButton OpenButton = new JButton(new AbstractAction("Open ROM File") {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+					//code
+					openCloseROM.openROM();
+			}   
+	});
+
+		//Close Button
+		JButton SaveButton = new JButton(new AbstractAction("Save ROM File") {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+					//code
+					openCloseROM.saveROM();
+			}   
+	});
+		
+		
 		JButton SeedButton = new JButton("Seed Modification");
+
+    
 		JButton SettingButton = new JButton("Setting");
 		JLabel ActionLabel = new JLabel("Actions:");
 		ActionLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
