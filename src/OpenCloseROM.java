@@ -8,7 +8,7 @@ import javax.swing.filechooser.*;
 
 public class OpenCloseROM {
 
-  byte[] OpenedRom;
+  private byte[] OpenedRom;
 
   public void openROM(){
     String romPath;
