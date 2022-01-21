@@ -192,6 +192,13 @@ public class Randomizer {
 				new SettingForm();
 			}
 		});
+//		//Seed Modification Action
+		SeedButton.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			new SeedMod();
+		}
+	});
 
 	}
 }
