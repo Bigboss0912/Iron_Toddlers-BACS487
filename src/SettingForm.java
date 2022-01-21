@@ -18,7 +18,6 @@ public class SettingForm implements ActionListener {
 		frmsetting.setTitle("Setting");
 		frmsetting.setSize(500, 500);
 		frmsetting.setVisible(true);
-		frmsetting.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmsetting.getContentPane().setLayout(null);
 		
 		JPanel themePanel = new JPanel();
