@@ -142,7 +142,21 @@ public class Randomizer {
 						.addComponent(StatusValue))
 					.addContainerGap(140, Short.MAX_VALUE))
 		);
-		ROMPanel.setLayout(gl_ROMPanel);
+		
+		
+		/**
+		 * Picture Label (Charmander)
+		 */
+		JLabel CharImgLabel = new JLabel();
+		ImageIcon CharImg = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Charmander.png")));
+		Image newImg = CharImg.getImage();
+		Image setImg = newImg.getScaledInstance(240,240, Image.SCALE_SMOOTH);
+		ImageIcon scaledImg = new ImageIcon(setImg);
+		CharImgLabel.setIcon(scaledImg);
+		/**
+		 * Layout Component
+		 */
+		
 		GroupLayout groupLayout = new GroupLayout(frmPokemon.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -151,21 +165,33 @@ public class Randomizer {
 					.addComponent(ActionPanel, GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
 					.addGap(32)
 					.addComponent(ROMPanel, GroupLayout.PREFERRED_SIZE, 289, Short.MAX_VALUE)
-					.addGap(308))
+					.addGap(52)
+					.addComponent(CharImgLabel, GroupLayout.PREFERRED_SIZE, 231, Short.MAX_VALUE)
+					.addGap(25))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(30)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(ROMPanel, GroupLayout.PREFERRED_SIZE, 264, GroupLayout.PREFERRED_SIZE)
-						.addComponent(ActionPanel, GroupLayout.PREFERRED_SIZE, 264, GroupLayout.PREFERRED_SIZE))
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
+						.addComponent(CharImgLabel, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 264, GroupLayout.PREFERRED_SIZE)
+						.addGroup(Alignment.LEADING, groupLayout.createParallelGroup(Alignment.TRAILING, false)
+							.addComponent(ROMPanel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+							.addComponent(ActionPanel, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)))
 					.addContainerGap(471, Short.MAX_VALUE))
 		);
 
+		ROMPanel.setLayout(gl_ROMPanel);
 		ActionPanel.setLayout(gl_ActionPanel);
 		frmPokemon.getContentPane().setLayout(groupLayout);
 		
+		//Setting Button Action
+		SettingButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				new SettingForm();
+			}
+		});
 
 	}
 }
