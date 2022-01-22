@@ -55,10 +55,10 @@ public class OpenCloseROM {
 
   public void saveROM() {
     EditRom test = new EditRom(OpenedRom, 12345);
-    test.editRom(2443168, 1, 254);
-    System.out.println("  kjkjnn    "+OpenedRom[2443168]);
+    test.editRom(2443174, 1, 3);
+    System.out.println("  kjkjnn    "+OpenedRom[2443174]);
     OpenedRom = test.getRom();
-    System.out.println("   jhgjdj    "+OpenedRom[2443168]);
+    System.out.println("   jhgjdj    "+OpenedRom[2443174]);
 
     // create an object of JFileChooser class
     JFileChooser fc = new JFileChooser();
