@@ -24,7 +24,7 @@ public class OpenROMTest {
 }
 
 class testFrame extends JFrame {
-    
+
     private Container container;
     private JButton btnOpen;
     private JButton btnSave;
@@ -32,27 +32,27 @@ class testFrame extends JFrame {
 
     public testFrame() {
 
-    // Set up frame
-    setTitle("Pokemon Randomizer");
-    setBounds(300, 90, 600, 400);
-    setDefaultCloseOperation(EXIT_ON_CLOSE);
-    setLocationRelativeTo(null);
-    setResizable(false);
+        // Set up frame
+        setTitle("Pokemon Randomizer");
+        setBounds(300, 90, 600, 400);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setResizable(false);
 
-    container = getContentPane();
-    container.setLayout(null);
+        container = getContentPane();
+        container.setLayout(null);
 
-    btnOpen = new JButton(new AbstractAction("Open") {
+        btnOpen = new JButton(new AbstractAction("Open") {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //code
 
                 // // create an object of JFileChooser class
                 // JFileChooser j = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
-    
+
                 // // invoke the showsOpenDialog function to show the save dialog
                 // int r = j.showOpenDialog(null);
-                
+
                 // File file = j.getSelectedFile();
                 // readFile(file);
 
@@ -68,7 +68,7 @@ class testFrame extends JFrame {
                 // for (byte b : OpenedRom) {
                 //     System.out.println(b);
                 // }
-            }   
+            }
         });
         btnOpen.setFont(new Font("Century Gothic", Font.BOLD, 15));
         btnOpen.setSize(125, 20);
@@ -76,51 +76,51 @@ class testFrame extends JFrame {
         container.add(btnOpen);
 
 
-    btnSave = new JButton(new AbstractAction("Save") {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            //code
-            saveROM();
-        }   
-    });
-    btnSave.setFont(new Font("Century Gothic", Font.BOLD, 15));
-    btnSave.setSize(125, 20);
-    btnSave.setLocation(400, 250);
-    container.add(btnSave);
+        btnSave = new JButton(new AbstractAction("Save") {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //code
+                saveROM();
+            }
+        });
+        btnSave.setFont(new Font("Century Gothic", Font.BOLD, 15));
+        btnSave.setSize(125, 20);
+        btnSave.setLocation(400, 250);
+        container.add(btnSave);
 
-    // set frame to visible
-    setVisible(true);
+        // set frame to visible
+        setVisible(true);
     }
 
 
-public void readFile(File fileName) {
-    try {
+    public void readFile(File fileName) {
+        try {
 
-        Scanner inputFile = new Scanner(fileName);
-        ArrayList<String> text = new ArrayList<>();
+            Scanner inputFile = new Scanner(fileName);
+            ArrayList<String> text = new ArrayList<>();
 
-        while(inputFile.hasNext()) {
-            int i = 1;
-            String info = inputFile.nextLine();
-            text.add(info);
-            System.out.println(i);
-            i++;
+            while (inputFile.hasNext()) {
+                int i = 1;
+                String info = inputFile.nextLine();
+                text.add(info);
+                System.out.println(i);
+                i++;
+            }
+
+            for (String str : text) {
+                System.out.println(str);
+            }
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-        for (String str : text) {
-            System.out.println(str);
-        }
-        
-
-    } catch (IOException e) {
-        e.printStackTrace();
     }
-}
 
-public void openROM(){
-    String romPath;
+    public void openROM() {
+        String romPath;
 
-    try{
+        try {
             JFileChooser fc = new JFileChooser();
 
             FileNameExtensionFilter gbaFilter = new FileNameExtensionFilter("GBA File", "gba");
@@ -128,7 +128,7 @@ public void openROM(){
             //only shows files with ".gba" suffix
 
             int returnVal = fc.showOpenDialog(null);
-            if (returnVal==JFileChooser.APPROVE_OPTION){
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
                 File romFile = fc.getSelectedFile();
 
 
@@ -137,52 +137,51 @@ public void openROM(){
                 FileInputStream ist = new FileInputStream(romPath);
 
                 OpenedRom = new byte[ist.available()];
-                ist.read(OpenedRom,0,ist.available());
+                ist.read(OpenedRom, 0, ist.available());
                 ist.close();
                 //TODO Add a "loading..." message so user knows program isn't frozen
             }
-        } catch (java.lang.StringIndexOutOfBoundsException jsioobe){
-            JOptionPane.showMessageDialog(null,"Error reading file!");
-        } catch (NullPointerException npe){
-            JOptionPane.showMessageDialog(null,"No filename given!\n"+npe);
-        } catch (FileNotFoundException fnfe){
-            JOptionPane.showMessageDialog(null,"ROM could not be read!");
-        } catch (IOException ioe){
-            JOptionPane.showMessageDialog(null,"I/O problem! : "+ioe);
+        } catch (java.lang.StringIndexOutOfBoundsException jsioobe) {
+            JOptionPane.showMessageDialog(null, "Error reading file!");
+        } catch (NullPointerException npe) {
+            JOptionPane.showMessageDialog(null, "No filename given!\n" + npe);
+        } catch (FileNotFoundException fnfe) {
+            JOptionPane.showMessageDialog(null, "ROM could not be read!");
+        } catch (IOException ioe) {
+            JOptionPane.showMessageDialog(null, "I/O problem! : " + ioe);
         }
-}
+    }
 
-public void saveROM() {
+    public void saveROM() {
 
-                // create an object of JFileChooser class
-                JFileChooser fc = new JFileChooser();
+        // create an object of JFileChooser class
+        JFileChooser fc = new JFileChooser();
 
-                FileNameExtensionFilter gbaFilter = new FileNameExtensionFilter("GBA File", "gba");
-                fc.addChoosableFileFilter(gbaFilter);
-                fc.setFileFilter(gbaFilter);
- 
-                // invoke the showsSaveDialog function to show the save dialog
-                int r = fc.showSaveDialog(null);
-     
-                // if the user selects a file
-                if (r == JFileChooser.APPROVE_OPTION)
-                {
-                    String filePath = fc.getSelectedFile().getAbsolutePath();
-                    if(!filePath.endsWith(".gba")){
-                        filePath += ".gba";
-                    }
+        FileNameExtensionFilter gbaFilter = new FileNameExtensionFilter("GBA File", "gba");
+        fc.addChoosableFileFilter(gbaFilter);
+        fc.setFileFilter(gbaFilter);
 
-                    System.out.println(filePath);
+        // invoke the showsSaveDialog function to show the save dialog
+        int r = fc.showSaveDialog(null);
+
+        // if the user selects a file
+        if (r == JFileChooser.APPROVE_OPTION) {
+            String filePath = fc.getSelectedFile().getAbsolutePath();
+            if (!filePath.endsWith(".gba")) {
+                filePath += ".gba";
+            }
+
+            System.out.println(filePath);
 
 
-                    try {
-                        FileOutputStream os = new FileOutputStream(filePath);
-                        os.write(OpenedRom);
-                        os.close();
-                        JOptionPane.showMessageDialog(null, "File saved successfully!");
-                    } catch (IOException ioe) {
-                        JOptionPane.showMessageDialog(null, "There was an error while saving:\n" + ioe);
-                    }
-                }
-}
+            try {
+                FileOutputStream os = new FileOutputStream(filePath);
+                os.write(OpenedRom);
+                os.close();
+                JOptionPane.showMessageDialog(null, "File saved successfully!");
+            } catch (IOException ioe) {
+                JOptionPane.showMessageDialog(null, "There was an error while saving:\n" + ioe);
+            }
+        }
+    }
 }

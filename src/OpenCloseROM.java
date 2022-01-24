@@ -1,22 +1,14 @@
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.util.Scanner;
 import javax.swing.filechooser.*;
-import java.util.ArrayList;
-import java.io.File;
 
 public class OpenCloseROM {
 
-  byte[] OpenedRom;
+  private byte[] OpenedRom;
 
   public void openROM(){
     String romPath;
@@ -40,7 +32,9 @@ public class OpenCloseROM {
                 OpenedRom = new byte[ist.available()];
                 ist.read(OpenedRom,0,ist.available());
                 ist.close();
+
                 //TODO Add a "loading..." message so user knows program isn't frozen
+                JOptionPane.showMessageDialog(null, "ROM Loaded Successfully!");
             }
         } catch (java.lang.StringIndexOutOfBoundsException jsioobe){
             JOptionPane.showMessageDialog(null,"Error reading file!");
@@ -54,6 +48,11 @@ public class OpenCloseROM {
 }
 
   public void saveROM() {
+    EditRom test = new EditRom(OpenedRom, 12345678);
+      int[] possibleValues = new int[]{0,1,2,3,4,5};
+      test.editRom(2443174, possibleValues);
+    OpenedRom = test.getRom();
+
 
     // create an object of JFileChooser class
     JFileChooser fc = new JFileChooser();
