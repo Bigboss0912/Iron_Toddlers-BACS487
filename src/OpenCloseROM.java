@@ -48,11 +48,13 @@ public class OpenCloseROM {
 }
 
   public void saveROM() {
-    EditRom test = new EditRom(OpenedRom, 12345);
-    test.editRom(2443174, 1, 3);
-    System.out.println("  kjkjnn    "+OpenedRom[2443174]);
+    EditRom test = new EditRom(OpenedRom, 12345678);
+      System.out.println("  OCR Before function:   "+OpenedRom[2443174]);
+      int[] possibleValues = new int[]{0,1,2,3,4,5};
+      test.editRom(2443174, possibleValues);
+    System.out.println("  OCR Before Assign:   "+OpenedRom[2443174]);
     OpenedRom = test.getRom();
-    System.out.println("   jhgjdj    "+OpenedRom[2443174]);
+    System.out.println("  OCR After Assign:    "+OpenedRom[2443174]);
 
     // create an object of JFileChooser class
     JFileChooser fc = new JFileChooser();
