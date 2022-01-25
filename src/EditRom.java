@@ -1,5 +1,4 @@
 import java.util.Random;
-import java.lang.Integer;
 
 public class EditRom {
     //All randomization needs to be seeded with object seed.
@@ -34,7 +33,7 @@ public class EditRom {
         return this.rom;
     }
 
-    public void editRom(int index, byte lowerBound, byte upperBound){
+    public void editRom(int index, int lowerBound, int upperBound){
         //this method randomizes value with a value between upper and lower bounds.
         //lowerbound and upperbound are INCLUSIVE
         upperBound += 1;
