@@ -38,14 +38,10 @@ public class EditRom {
         //this method randomizes value with a value between upper and lower bounds.
         //lowerbound and upperbound are INCLUSIVE
         upperBound += 1;
-        System.out.println("upperBound " + upperBound + "   lowerBound " + lowerBound);
         byte newByte = (byte)(this.random.nextInt(upperBound - lowerBound) + lowerBound);
         // creates int between the bounds and casts to byte type.
-
-        System.out.println("bit before edit" + this.rom[index]);
         this.rom[index] = newByte;
-        System.out.println("bit after edit" + this.rom[index]);
-        System.out.println("Offset: " + index + "    New Byte: " +  Byte.toString(newByte));
+        System.out.println("Random Bit-- Offset: " + index + "    New Byte: " +  Byte.toString(newByte));
 
     }
 
@@ -61,9 +57,7 @@ public class EditRom {
             System.out.println("Array of possible values contain values outside of byte range");
         }
         this.rom[index] = newByte;
-        System.out.println("Offset: " + index + "    New Byte: " +  Byte.toString(newByte));
+        System.out.println("Random Bit -- Offset: " + index + "    New Byte: " +  Byte.toString(newByte));
     }
-
-
 
 }
