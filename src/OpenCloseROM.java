@@ -48,13 +48,7 @@ public class OpenCloseROM {
 }
 
   public void saveROM() {
-    EditRom test = new EditRom(OpenedRom, 12345678);
-      int[] possibleValues = new int[]{0,1,2,3,4,5};
-      test.editRom(2443174, possibleValues);
-    OpenedRom = test.getRom();
-
-
-    // create an object of JFileChooser class
+      // create an object of JFileChooser class
     JFileChooser fc = new JFileChooser();
 
     FileNameExtensionFilter gbaFilter = new FileNameExtensionFilter("GBA File", "gba");
