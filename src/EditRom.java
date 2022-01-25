@@ -6,19 +6,20 @@ public class EditRom {
     //Seed is generated on instance creation.
     protected long seed;
     protected byte[] rom;
+    protected Random random;
 
 
     public EditRom(byte[] rom){
         this.rom = rom;
         Random random = new Random();
         this.seed = random.nextLong();
-
-
+        this.random = new Random(this.seed);
     }
 
     public EditRom(byte[] rom, long seed){
         this.rom = rom;
         this.seed = seed;
+        this.random = new Random(this.seed);
     }
 
     public void setSeed(long seed){
@@ -37,13 +38,8 @@ public class EditRom {
         //this method randomizes value with a value between upper and lower bounds.
         //lowerbound and upperbound are INCLUSIVE
         upperBound += 1;
-
-
-
         System.out.println("upperBound " + upperBound + "   lowerBound " + lowerBound);
-
-        Random random = new Random(this.seed);
-        byte newByte = (byte)(random.nextInt(upperBound - lowerBound) + lowerBound);
+        byte newByte = (byte)(this.random.nextInt(upperBound - lowerBound) + lowerBound);
         // creates int between the bounds and casts to byte type.
 
         System.out.println("bit before edit" + this.rom[index]);
@@ -57,8 +53,7 @@ public class EditRom {
 
         //this method randomizes a value based off a list of possible values.
         int upperBound = possibleValuesInt.length;
-        Random random = new Random(this.seed);
-        int randomIndex = random.nextInt(upperBound);
+        int randomIndex = this.random.nextInt(upperBound);
         byte newByte = 0;
         try {
             newByte = (byte) possibleValuesInt[randomIndex];
