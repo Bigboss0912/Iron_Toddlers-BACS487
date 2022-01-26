@@ -34,7 +34,7 @@ public class EditRom {
         return this.rom;
     }
 
-    public void editRom(int index, byte lowerBound, byte upperBound){
+    public void editRom(int index, int lowerBound, int upperBound){
         //this method randomizes value with a value between upper and lower bounds.
         //lowerbound and upperbound are INCLUSIVE
         upperBound += 1;
