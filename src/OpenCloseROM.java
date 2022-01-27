@@ -50,8 +50,8 @@ public class OpenCloseROM {
   public void saveROM() {
 
     EditRom editRom = new EditRom(OpenedRom);
-    StarterModule start = new StarterModule(editRom);
-    start.randomizeStarters();
+    StarterModule start = new StarterModule(editRom,6,10);
+    start.randomizeStartersThreeStage();
 
 
     // create an object of JFileChooser class

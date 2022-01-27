@@ -40,7 +40,7 @@ public class EditRom {
         byte newByte = (byte)(this.random.nextInt(upperBound - lowerBound) + lowerBound);
         // creates int between the bounds and casts to byte type.
         this.rom[index] = newByte;
-        System.out.println("Random Bit-- Offset: " + index + "    New Byte: " +  Byte.toString(newByte));
+        System.out.println("Random Bit -- Offset: " + index + "    New Byte: " +  Byte.toString(newByte));
 
     }
 
@@ -54,6 +54,7 @@ public class EditRom {
             newByte = (byte) possibleValuesInt[randomIndex];
         }catch(Exception e){
             System.out.println("Array of possible values contain values outside of byte range");
+            return;
         }
         this.rom[index] = newByte;
         System.out.println("Random Bit -- Offset: " + index + "    New Byte: " +  Byte.toString(newByte));
