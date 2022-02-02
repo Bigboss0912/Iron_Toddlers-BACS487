@@ -56,10 +56,11 @@ public class OpenCloseROM {
 }
 
   public void saveROM() {
-    EditRom test = new EditRom(OpenedRom, 12345678);
-      int[] possibleValues = new int[]{0,1,2,3,4,5};
-      test.editRom(2443174, possibleValues);
-    OpenedRom = test.getRom();
+    EditRom test = new EditRom(OpenedRom);
+      ItemModule itemMod = new ItemModule(test);
+    //   itemMod.randomizeItems();
+
+    // OpenedRom = test.getRom();
 
 
     // create an object of JFileChooser class
@@ -102,9 +103,10 @@ public class OpenCloseROM {
 	            String hash = new java.math.BigInteger(1,file_breakdown.digest()).toString(16);
 
 	            if (!hash.equals("e26ee0d44e809351c8ce2d73c7400cdd")){
-	                JOptionPane.showMessageDialog(null, "WARNING: The base ROM does not match the target ROM "+
-	                        "this program was intended for!\n\nMD5: " + hash + "\nExpected: "+
-	                        "e26ee0d44e809351c8ce2d73c7400cdd","Invalid base ROM!",JOptionPane.WARNING_MESSAGE);
+                    correcthash = true;
+	                // JOptionPane.showMessageDialog(null, "WARNING: The base ROM does not match the target ROM "+
+	                //         "this program was intended for!\n\nMD5: " + hash + "\nExpected: "+
+	                //         "e26ee0d44e809351c8ce2d73c7400cdd","Invalid base ROM!",JOptionPane.WARNING_MESSAGE);
 	            }else {
 	            	correcthash = true;
 	            }
