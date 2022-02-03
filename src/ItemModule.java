@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class ItemModule {
 
     private EditRom editRom;
@@ -19,9 +21,12 @@ public class ItemModule {
         317,318,319,320,321,322,323,324,325,326,327,328,329,330,331,332,333,334,335,336,337,338};
     }
 
+    
+    int[] allItems = getUsableItems();
 
+// these offset values did not work
     public void randomizeItems() {
-        editRom.editRom(136652524,136652531,136652531);
+        editRom.editRom(0,0,0);
     }
 
     public void randomizeItems(byte[] possibleValues) {
