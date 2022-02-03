@@ -44,6 +44,18 @@ public class EditRom {
 
     }
 
+    public void setByte(int index, int value){
+        byte newByte = (byte) value;
+        this.rom[index] = newByte;
+        System.out.println("Random Bit -- Offset: " + index + "    New Byte: " + Byte.toString(newByte));
+    }
+
+    public int chooseFromList(int[] list){
+        int upperBound = list.length;
+        int randomIndex = this.random.nextInt(upperBound);
+        return list[randomIndex];
+    }
+
     public void editRom(int index, int[] possibleValuesInt){
 
         //this method randomizes a value based off a list of possible values.
