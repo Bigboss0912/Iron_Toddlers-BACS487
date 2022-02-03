@@ -7,12 +7,14 @@ public class TrainerPokemon {
     public TrainerPokemon(EditRom editRom) {
         
         this.editRom = editRom;
-        this.starterLevel = 5;
 
     }
 
     public void randomizeTrainerPokemon(){
-        editRom.editRom(2335714,1,151);        
+
+        // Bug Catcher Ricks Pokemon
+        editRom.editRom(2336044,1,151);
+        editRom.editRom(2336052,1,151);
     }
 
 }
