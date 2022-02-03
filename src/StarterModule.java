@@ -1,5 +1,8 @@
 public class StarterModule{
-    
+    private final static int[] threeStagePokemon = new int[]{1, 4, 7, 10, 13, 16, 29, 32, 43, 60, 63, 66, 69, 74, 92, 147};
+    private final static int[] allPokemonNoLegendary = new int[]{}
+
+
     private EditRom editRom;
     //starterLevel bounds must be > 0 and <= 100
     private int startLevelUpper = 5;
@@ -8,6 +11,7 @@ public class StarterModule{
     private int startIndex2 = 1482114;
     private int startIndex3 = 1482168;
     private int starterLevelIndex = 1481870;
+    private boolean allowLegendary = true;
     
 
 
@@ -23,12 +27,27 @@ public class StarterModule{
 
     }
 
+    public void setAllowLegendary(boolean allow){
+        if (allow){
+            this.allowLegendary = true;
+        }
+        else{
+            this.allowLegendary = false;
+        }
+    }
+
     public void randomizeStarters(){
         //default randomization - starter is replaced by random value from 1-151.
-        editRom.editRom(startIndex1,1,151);
-        editRom.editRom(startIndex2,1,151);
-        editRom.editRom(startIndex3,1,151);
-        randomizeStarterLevel();
+        if(allowLegendary){
+            editRom.editRom(startIndex1,1,151);
+            editRom.editRom(startIndex2,1,151);
+            editRom.editRom(startIndex3,1,151);
+            randomizeStarterLevel();
+        }
+        else{
+
+            randomizeStarters()
+        }
         
     }
 
@@ -39,7 +58,6 @@ public class StarterModule{
     }
 
     public void randomizeStartersThreeStage(){
-        int[] threeStagePokemon = new int[]{1, 4, 7, 10, 13, 16, 29, 32, 43, 60, 63, 66, 69, 74, 92, 147};
         randomizeStarters(threeStagePokemon);
     }
 
