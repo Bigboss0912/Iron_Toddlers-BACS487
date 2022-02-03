@@ -12,9 +12,11 @@ public class TrainerPokemon {
 
     public void randomizeTrainerPokemon(){
 
-        // Bug Catcher Ricks Pokemon
-        editRom.editRom(2336044,1,151);
-        editRom.editRom(2336052,1,151);
+        // Randomize Trainers Pokemon
+        for (int i = 2335140; i < 2352476; i+=8) {
+            editRom.editRom(i,1,151);
+        }
+        
     }
 
 }
