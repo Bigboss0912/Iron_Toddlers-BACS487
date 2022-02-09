@@ -10,6 +10,10 @@ public class OpenCloseROM {
 
   private byte[] OpenedRom;
 
+  public byte[] getRom(){
+      return this.OpenedRom;
+  }
+
   public void openROM(){
     String romPath;
 
