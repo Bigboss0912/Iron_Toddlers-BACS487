@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.util.Random;
+
+
 
 public class ItemModule {
 
@@ -24,12 +27,85 @@ public class ItemModule {
     
     int[] allItems = getUsableItems();
 
-// these offset values did not work
-    public void randomizeItems() {
-        editRom.editRom(0,0,0);
+    public int get_item_index() {
+
+        Random rd = new Random();
+        int usable_items_array_size = allItems.length;
+
+        int item_index = rd.nextInt(usable_items_array_size);
+        return Math.abs(allItems[item_index]);
     }
 
-    public void randomizeItems(byte[] possibleValues) {
-        editRom.editRom(0,0,0);
+    public void get_Bike() {
+        editRom.editRom(1464156,26);
+        editRom.editRom(1464157,0);
+        editRom.editRom(1464158,128);
+        editRom.editRom(1464159,3);
+        editRom.editRom(1464160,1);
+        editRom.editRom(1464161,26);
+        editRom.editRom(1464162,1);
+        editRom.editRom(1464163,128);
+        editRom.editRom(1464164,1);
+        editRom.editRom(1464165,0);
+        editRom.editRom(1464166,9);
+        editRom.editRom(1464167,1);
+        editRom.editRom(1464168,2);
+    }
+
+    public void randomize_Mart_Items_Viridian_City() {
+        int first_item_index = 1483416;
+        int last_item_index  = 1483422;
+
+        for (int i = first_item_index; i <= last_item_index; i+=2) {
+            int item_index = Math.abs(get_item_index());
+            editRom.editRom(i,item_index,item_index - 1); 
+        }
+    }
+
+    
+    public void randomize_Items_Viridian_City_Mart() {
+        int first_item_index = 1483416;
+        int last_item_index  = 1483422;
+
+        for (int i = first_item_index; i <= last_item_index; i+=2) {
+            editRom.editRom(i, allItems);        
+        }
+    }
+
+
+    public void randomize_Items_Pewter_City_Mart() {
+        int first_item_index = 1484552;
+        int last_item_index  = 1484566;
+
+        for (int i = first_item_index; i <= last_item_index; i+=2) {
+            editRom.editRom(i, allItems);        
+        }
+    }
+
+    public void randomize_Items_Cerulean_City_Mart() {
+        int first_item_index = 1486040;
+        int last_item_index  = 1486056;
+
+        for (int i = first_item_index; i <= last_item_index; i+=2) {
+            editRom.editRom(i, allItems);            
+        }
+    }
+
+    public void randomize_Items_Lavender_Town_Mart() {
+        int first_item_index = 1487760;
+        int last_item_index  = 1487776;
+
+        for (int i = first_item_index; i <= last_item_index; i+=2) {
+            editRom.editRom(i, allItems);      
+        }
+    }
+
+    public void randomize_Items_Vermilion_City_Mart() {
+        int first_item_index = 1488524;
+        int last_item_index  = 1488536;
+
+        for (int i = first_item_index; i <= last_item_index; i+=2) {
+            editRom.editRom(i, allItems);          
+        }
     }
 }
