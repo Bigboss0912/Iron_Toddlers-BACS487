@@ -56,8 +56,13 @@ public class OpenCloseROM {
 }
 
   public void saveROM() {
+
+      EditRom ed = new EditRom(OpenedRom);
+      TrainerPokemon tP = new TrainerPokemon(ed);
+      tP.randomizeAllTrainerPokemon("All");
+
       // create an object of JFileChooser class
-    JFileChooser fc = new JFileChooser();
+      JFileChooser fc = new JFileChooser();
 
     FileNameExtensionFilter gbaFilter = new FileNameExtensionFilter("GBA File", "gba");
     fc.addChoosableFileFilter(gbaFilter);
