@@ -122,6 +122,7 @@ public class TrainerPokemon {
 
     public void randomizeGymLeadersByTheirType() {
         // Todo
+        // Test Edit
     }
 
 }
