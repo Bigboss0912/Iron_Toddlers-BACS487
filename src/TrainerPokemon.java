@@ -179,15 +179,47 @@ public class TrainerPokemon {
             int[] arrGiovanniPokemon = {27, 28, 50, 51, 104, 105, 111, 112, 207, 231, 232, 318,
                                         319, 332, 333, 334, 405};
 
-            setPokemon(2344468, randPokemon(arrMistyPokemon));
-            setPokemon((2344468+8), randPokemon(arrMistyPokemon));
+            // Brock's Party
+            setPokemon(2344468, randPokemon(arrBrockPokemon));
+            setPokemon(2344484, randPokemon(arrBrockPokemon));
 
-            setPokemon(2344496, randPokemon(arrMistyPokemon));
-            setPokemon(2344528, randPokemon(arrLtSurgePokemon));
-            setPokemon(2344576, randPokemon(arrErikaPokemon));
-            setPokemon(2344624, randPokemon(arrKogaPokemon));
-            setPokemon(2344752, randPokemon(arrSabrinaPokemon));
+            // Misty's Party
+            setPokemon(2344500, randPokemon(arrMistyPokemon));
+            setPokemon(2344516, randPokemon(arrMistyPokemon));
+
+            // Lt Surge's Party
+            setPokemon(2344532, randPokemon(arrLtSurgePokemon));
+            setPokemon(2344548, randPokemon(arrLtSurgePokemon));
+            setPokemon(2344564, randPokemon(arrLtSurgePokemon));
+
+            // Erika's Party
+            setPokemon(2344580, randPokemon(arrErikaPokemon));
+            setPokemon(2344596, randPokemon(arrErikaPokemon));
+            setPokemon(2344612, randPokemon(arrErikaPokemon));
+
+            // Koga's Party
+            setPokemon(2344628, randPokemon(arrKogaPokemon));
+            setPokemon(2344644, randPokemon(arrKogaPokemon));
+            setPokemon(2344660, randPokemon(arrKogaPokemon));
+            setPokemon(2344676, randPokemon(arrKogaPokemon));
+
+            // Sabrina's Party
+            setPokemon(2344756, randPokemon(arrSabrinaPokemon));
+            setPokemon(2344772, randPokemon(arrSabrinaPokemon));
+            setPokemon(2344788, randPokemon(arrSabrinaPokemon));
+            setPokemon(2344804, randPokemon(arrSabrinaPokemon));
+
+            // Blaine's Party
             setPokemon(2344688, randPokemon(arrBlainePokemon));
+            setPokemon(2344688, randPokemon(arrBlainePokemon));
+            setPokemon(2344688, randPokemon(arrBlainePokemon));
+            setPokemon(2344688, randPokemon(arrBlainePokemon));
+
+            // Giovanni's Party
+            setPokemon(2341640, randPokemon(arrGiovanniPokemon));
+            setPokemon(2341640, randPokemon(arrGiovanniPokemon));
+            setPokemon(2341640, randPokemon(arrGiovanniPokemon));
+            setPokemon(2341640, randPokemon(arrGiovanniPokemon));
             setPokemon(2341640, randPokemon(arrGiovanniPokemon));
         }
     }
