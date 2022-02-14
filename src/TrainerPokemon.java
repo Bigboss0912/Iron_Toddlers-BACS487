@@ -157,8 +157,36 @@ public class TrainerPokemon {
 
     }
 
-    public void randomizeGymLeadersByTheirType() {
+    public void randomizeGymLeadersByTheirType(String pokemonSetType) {
         // Todo
+        if (pokemonSetType.equals("All")) {
+            int[] arrBrockPokemon = {74, 75, 76, 95, 138, 139, 140, 141, 142, 185, 246, 247, 248, 320, 348, 349,
+                                    381, 388, 389, 390, 391, 401};
+            int[] arrMistyPokemon = {7, 8, 9, 54, 55, 60, 61, 62, 72, 73, 79, 80, 86, 87, 90, 91, 98, 99,
+                                    116, 117, 118, 119, 120, 121, 129, 130, 131, 134, 158, 159, 160, 170,
+                                    171, 183, 184, 186, 194, 195, 199, 211, 222, 223, 224, 226, 230, 245, 249, 283,
+                                    284, 285, 295, 296, 297, 309, 310, 313, 314, 323, 324, 325, 326, 327, 328, 329,
+                                    330, 331, 373, 374, 375, 404};
+            int[] arrLtSurgePokemon = {25, 26, 81, 82, 100, 101, 125, 135, 172, 179, 180, 181, 239, 243, 337, 338, 353, 354};
+            int[] arrErikaPokemon = {1, 2, 3, 43, 44, 45, 69, 70, 71, 102, 103, 114, 152,
+                                    153, 154, 182, 187, 188, 189, 191, 192, 277, 278, 279,
+                                    298, 299, 300, 306, 307, 344, 345, 363, 369};
+            int[] arrKogaPokemon = {23, 24, 29, 30, 31, 32, 33, 34, 41, 42, 88, 89, 109, 110, 169, 367,
+                                    368, 379};
+            int[] arrSabrinaPokemon = {63, 64, 65, 96, 97, 122, 177, 178, 196, 201, 202, 251, 252, 352, 360, 392, 393, 394, 409, 410, 411};
+            int[] arrBlainePokemon = {4, 5, 6, 37, 38, 58, 59, 77, 78, 126, 136, 155, 156,
+                                        157, 218, 219, 240, 244, 250, 280, 281, 282, 321, 339, 340};
+            int[] arrGiovanniPokemon = {27, 28, 50, 51, 104, 105, 111, 112, 207, 231, 232, 318,
+                                        319, 332, 333, 334, 405};
+            setPokemon(2344464, randPokemon(arrMistyPokemon));
+            setPokemon(2344496, randPokemon(arrMistyPokemon));
+            setPokemon(2344528, randPokemon(arrLtSurgePokemon));
+            setPokemon(2344576, randPokemon(arrErikaPokemon));
+            setPokemon(2344624, randPokemon(arrKogaPokemon));
+            setPokemon(2344752, randPokemon(arrSabrinaPokemon));
+            setPokemon(2344688, randPokemon(arrBlainePokemon));
+            setPokemon(2341640, randPokemon(arrGiovanniPokemon));
+        }
     }
 
 }

@@ -59,7 +59,7 @@ public class OpenCloseROM {
 
       EditRom ed = new EditRom(OpenedRom);
       TrainerPokemon tP = new TrainerPokemon(ed);
-      tP.randomizeAllTrainerPokemonTypeAllPokemon("Water");
+      tP.randomizeGymLeadersByTheirType("All");
 
       // create an object of JFileChooser class
       JFileChooser fc = new JFileChooser();
