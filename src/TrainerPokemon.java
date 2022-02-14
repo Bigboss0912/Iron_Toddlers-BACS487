@@ -178,7 +178,10 @@ public class TrainerPokemon {
                                         157, 218, 219, 240, 244, 250, 280, 281, 282, 321, 339, 340};
             int[] arrGiovanniPokemon = {27, 28, 50, 51, 104, 105, 111, 112, 207, 231, 232, 318,
                                         319, 332, 333, 334, 405};
-            setPokemon(2344464, randPokemon(arrMistyPokemon));
+
+            setPokemon(2344468, randPokemon(arrMistyPokemon));
+            setPokemon((2344468+8), randPokemon(arrMistyPokemon));
+
             setPokemon(2344496, randPokemon(arrMistyPokemon));
             setPokemon(2344528, randPokemon(arrLtSurgePokemon));
             setPokemon(2344576, randPokemon(arrErikaPokemon));
