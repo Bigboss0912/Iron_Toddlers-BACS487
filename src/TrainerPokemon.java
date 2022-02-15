@@ -6,9 +6,7 @@ public class TrainerPokemon {
 
 
     public TrainerPokemon(EditRom editRom) {
-
         this.editRom = editRom;
-
     }
 
     public int randPokemon(int[] arrPokemon) {
@@ -31,7 +29,6 @@ public class TrainerPokemon {
     }
 
     public void randomizeAllTrainerPokemon(String pokemonSetType){
-
         if (pokemonSetType.equals("All")) {
             int[] arrPokemon = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
                                 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
@@ -88,77 +85,143 @@ public class TrainerPokemon {
         }
     }
 
-    public void randomizeAllTrainerPokemonTypeAllPokemon(String pokemonType) {
-        if (pokemonType.equals("Bug")) {
-            int[] arrPokemon = {10, 11, 12, 13, 14, 15, 46, 47, 48, 49, 123, 127,
-                                165, 166, 167, 168, 193, 204, 205, 212, 213, 214, 290, 291,
-                                292, 293, 294, 301, 302, 303, 311, 312, 386, 387};
-            randomizeAllTrainers(arrPokemon);
-        } else if (pokemonType.equals("Dark")) {
-            int [] arrPokemon = {197, 198, 215, 228, 229, 286, 287, 322, 376};
-            randomizeAllTrainers(arrPokemon);
-        } else if (pokemonType.equals("Dragon")) {
-            int [] arrPokemon = {147, 148, 149, 359, 395, 396, 397, 406, 407, 408};
-            randomizeAllTrainers(arrPokemon);
-        } else if (pokemonType.equals("Electric")) {
-            int [] arrPokemon = {25, 26, 81, 82, 100, 101, 125, 135, 172, 179, 180,
-                    181, 239, 243, 337, 338, 353, 354};
-            randomizeAllTrainers(arrPokemon);
-        } else if (pokemonType.equals("Fighting")) {
-            int [] arrPokemon = {56, 57, 66, 67, 68, 106, 107, 236, 237, 335, 336, 356, 357};
-            randomizeAllTrainers(arrPokemon);
-        } else if (pokemonType.equals("Fire")) {
-            int [] arrPokemon = {4, 5, 6, 37, 38, 58, 59, 77, 78, 126, 136, 155, 156,
-                    157, 218, 219, 240, 244, 250, 280, 281, 282, 321, 339, 340};
-            randomizeAllTrainers(arrPokemon);
-        } else if (pokemonType.equals("Ghost")) {
-            int [] arrPokemon = {92, 93, 94, 200, 361, 362, 377, 378};
-            randomizeAllTrainers(arrPokemon);
-        } else if (pokemonType.equals("Grass")) {
-            int [] arrPokemon = {1, 2, 3, 43, 44, 45, 69, 70, 71, 102, 103, 114, 152,
-                                153, 154, 182, 187, 188, 189, 191, 192, 277, 278, 279,
-                                298, 299, 300, 306, 307, 344, 345, 363, 369};
-            randomizeAllTrainers(arrPokemon);
-        } else if (pokemonType.equals("Ground")) {
-            int [] arrPokemon = {27, 28, 50, 51, 104, 105, 111, 112, 207, 231, 232, 318,
-                                319, 332, 333, 334, 405};
-            randomizeAllTrainers(arrPokemon);
-        } else if (pokemonType.equals("Ice")) {
-            int [] arrPokemon = {124, 220, 221, 225, 238, 341, 342, 343, 346, 347, 402};
-            randomizeAllTrainers(arrPokemon);
-        } else if (pokemonType.equals("Normal")) {
-            int [] arrPokemon = {16, 17, 18, 19, 20, 21, 22, 35, 36, 39, 40, 52, 53, 83, 84, 85, 108,
-                    113, 115, 128, 132, 133, 137, 143, 161, 162, 163, 164, 173, 174, 175,
-                    176, 190, 203, 206, 209, 210, 216, 217, 233, 234, 235, 241, 242};
-            randomizeAllTrainers(arrPokemon);
-        } else if (pokemonType.equals("Poison")) {
-            int [] arrPokemon = {23, 24, 29, 30, 31, 32, 33, 34, 41, 42, 88, 89, 109, 110, 169, 367,
-                                368, 379};
-            randomizeAllTrainers(arrPokemon);
-        } else if (pokemonType.equals("Psychic")) {
-            int [] arrPokemon = {63, 64, 65, 96, 97, 122, 177, 178, 196, 201, 202, 251, 252, 352, 360,
-                                392, 393, 394, 409, 410, 411};
-            randomizeAllTrainers(arrPokemon);
-        } else if (pokemonType.equals("Rock")) {
-            int [] arrPokemon = {74, 75, 76, 95, 138, 139, 140, 141, 142, 185, 246, 247, 248, 320, 348, 349,
-                                381, 388, 389, 390, 391, 401};
-            randomizeAllTrainers(arrPokemon);
-        } else if (pokemonType.equals("Steel")) {
-            int [] arrPokemon = {208, 227, 355, 382, 383, 384, 398, 399, 400, 403};
-            randomizeAllTrainers(arrPokemon);
-        } else if (pokemonType.equals("Water")) {
-            int [] arrPokemon = {7, 8, 9, 54, 55, 60, 61, 62, 72, 73, 79, 80, 86, 87, 90, 91, 98, 99,
-                                116, 117, 118, 119, 120, 121, 129, 130, 131, 134, 158, 159, 160, 170,
-                                171, 183, 184, 186, 194, 195, 199, 211, 222, 223, 224, 226, 230, 245, 249, 283,
-                                284, 285, 295, 296, 297, 309, 310, 313, 314, 323, 324, 325, 326, 327, 328, 329,
-                                330, 331, 373, 374, 375, 404};
-            randomizeAllTrainers(arrPokemon);
+    public void randomizeAllTrainerPokemonByType(String pokemonSetType, String pokemonType) {
+        if (pokemonSetType.equals("All")) {
+            if (pokemonType.equals("Bug")) {
+                int[] arrPokemon = {10, 11, 12, 13, 14, 15, 46, 47, 48, 49, 123, 127,
+                        165, 166, 167, 168, 193, 204, 205, 212, 213, 214, 290, 291,
+                        292, 293, 294, 301, 302, 303, 311, 312, 386, 387};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Dark")) {
+                int [] arrPokemon = {197, 198, 215, 228, 229, 286, 287, 322, 376};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Dragon")) {
+                int [] arrPokemon = {147, 148, 149, 359, 395, 396, 397, 406, 407, 408};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Electric")) {
+                int [] arrPokemon = {25, 26, 81, 82, 100, 101, 125, 135, 145, 172, 179, 180,
+                        181, 239, 243, 337, 338, 353, 354};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Fighting")) {
+                int [] arrPokemon = {56, 57, 66, 67, 68, 106, 107, 236, 237, 335, 336, 356, 357};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Fire")) {
+                int [] arrPokemon = {4, 5, 6, 37, 38, 58, 59, 77, 78, 126, 136, 146, 155, 156,
+                        157, 218, 219, 240, 244, 250, 280, 281, 282, 321, 339, 340};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Ghost")) {
+                int [] arrPokemon = {92, 93, 94, 200, 361, 362, 377, 378};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Grass")) {
+                int [] arrPokemon = {1, 2, 3, 43, 44, 45, 69, 70, 71, 102, 103, 114, 152,
+                        153, 154, 182, 187, 188, 189, 191, 192, 277, 278, 279,
+                        298, 299, 300, 306, 307, 344, 345, 363, 369};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Ground")) {
+                int [] arrPokemon = {27, 28, 50, 51, 104, 105, 111, 112, 207, 231, 232, 318,
+                        319, 332, 333, 334, 405};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Ice")) {
+                int [] arrPokemon = {124, 144, 220, 221, 225, 238, 341, 342, 343, 346, 347, 402};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Normal")) {
+                int [] arrPokemon = {16, 17, 18, 19, 20, 21, 22, 35, 36, 39, 40, 52, 53, 83, 84, 85, 108,
+                        113, 115, 128, 132, 133, 137, 143, 161, 162, 163, 164, 173, 174, 175,
+                        176, 190, 203, 206, 209, 210, 216, 217, 233, 234, 235, 241, 242};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Poison")) {
+                int [] arrPokemon = {23, 24, 29, 30, 31, 32, 33, 34, 41, 42, 88, 89, 109, 110, 169, 367,
+                        368, 379};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Psychic")) {
+                int [] arrPokemon = {63, 64, 65, 96, 97, 122, 150, 151, 177, 178, 196, 201, 202, 251, 352, 360,
+                        392, 393, 394, 409, 410, 411};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Rock")) {
+                int [] arrPokemon = {74, 75, 76, 95, 138, 139, 140, 141, 142, 185, 246, 247, 248, 320, 348, 349,
+                        381, 388, 389, 390, 391, 401};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Steel")) {
+                int [] arrPokemon = {208, 227, 355, 382, 383, 384, 398, 399, 400, 403};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Water")) {
+                int [] arrPokemon = {7, 8, 9, 54, 55, 60, 61, 62, 72, 73, 79, 80, 86, 87, 90, 91, 98, 99,
+                        116, 117, 118, 119, 120, 121, 129, 130, 131, 134, 158, 159, 160, 170,
+                        171, 183, 184, 186, 194, 195, 199, 211, 222, 223, 224, 226, 230, 245, 249, 283,
+                        284, 285, 295, 296, 297, 309, 310, 313, 314, 323, 324, 325, 326, 327, 328, 329,
+                        330, 331, 373, 374, 375, 404};
+                randomizeAllTrainers(arrPokemon);
+            }
+        } else if (pokemonSetType.equals("No Legendary")) {
+            if (pokemonType.equals("Bug")) {
+                int[] arrPokemon = {10, 11, 12, 13, 14, 15, 46, 47, 48, 49, 123, 127,
+                        165, 166, 167, 168, 193, 204, 205, 212, 213, 214, 290, 291,
+                        292, 293, 294, 301, 302, 303, 311, 312, 386, 387};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Dark")) {
+                int [] arrPokemon = {197, 198, 215, 228, 229, 286, 287, 322, 376};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Dragon")) {
+                int [] arrPokemon = {147, 148, 149, 359, 395, 396, 397};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Electric")) {
+                int [] arrPokemon = {25, 26, 81, 82, 100, 101, 125, 135, 172, 179, 180,
+                        181, 239, 337, 338, 353, 354};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Fighting")) {
+                int [] arrPokemon = {56, 57, 66, 67, 68, 106, 107, 236, 237, 335, 336, 356, 357};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Fire")) {
+                int [] arrPokemon = {4, 5, 6, 37, 38, 58, 59, 77, 78, 126, 136, 155, 156,
+                        157, 218, 219, 240, 280, 281, 282, 321, 339, 340};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Ghost")) {
+                int [] arrPokemon = {92, 93, 94, 200, 361, 362, 377, 378};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Grass")) {
+                int [] arrPokemon = {1, 2, 3, 43, 44, 45, 69, 70, 71, 102, 103, 114, 152,
+                        153, 154, 182, 187, 188, 189, 191, 192, 277, 278, 279,
+                        298, 299, 300, 306, 307, 344, 345, 363, 369};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Ground")) {
+                int [] arrPokemon = {27, 28, 50, 51, 104, 105, 111, 112, 207, 231, 232, 318,
+                        319, 332, 333, 334};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Ice")) {
+                int [] arrPokemon = {124, 220, 221, 225, 238, 341, 342, 343, 346, 347};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Normal")) {
+                int [] arrPokemon = {16, 17, 18, 19, 20, 21, 22, 35, 36, 39, 40, 52, 53, 83, 84, 85, 108,
+                        113, 115, 128, 132, 133, 137, 143, 161, 162, 163, 164, 173, 174, 175,
+                        176, 190, 203, 206, 209, 210, 216, 217, 233, 234, 235, 241, 242};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Poison")) {
+                int [] arrPokemon = {23, 24, 29, 30, 31, 32, 33, 34, 41, 42, 88, 89, 109, 110, 169, 367,
+                        368, 379};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Psychic")) {
+                int [] arrPokemon = {63, 64, 65, 96, 97, 122, 177, 178, 196, 201, 202, 352, 360,
+                        392, 393, 394, 411};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Rock")) {
+                int [] arrPokemon = {74, 75, 76, 95, 138, 139, 140, 141, 142, 185, 246, 247, 248, 320, 348, 349,
+                        381, 388, 389, 390, 391};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Steel")) {
+                int [] arrPokemon = {208, 227, 355, 382, 383, 384, 398, 399, 400};
+                randomizeAllTrainers(arrPokemon);
+            } else if (pokemonType.equals("Water")) {
+                int [] arrPokemon = {7, 8, 9, 54, 55, 60, 61, 62, 72, 73, 79, 80, 86, 87, 90, 91, 98, 99,
+                        116, 117, 118, 119, 120, 121, 129, 130, 131, 134, 158, 159, 160, 170,
+                        171, 183, 184, 186, 194, 195, 199, 211, 222, 223, 224, 226, 230, 283,
+                        284, 285, 295, 296, 297, 309, 310, 313, 314, 323, 324, 325, 326, 327, 328, 329,
+                        330, 331, 373, 374, 375};
+                randomizeAllTrainers(arrPokemon);
+            }
         }
-
     }
 
     public void randomizeGymLeadersByTheirType(String pokemonSetType) {
-        // Todo
         if (pokemonSetType.equals("All")) {
             int[] arrBrockPokemon = {74, 75, 76, 95, 138, 139, 140, 141, 142, 185, 246, 247, 248, 320, 348, 349,
                                     381, 388, 389, 390, 391, 401};
@@ -167,14 +230,14 @@ public class TrainerPokemon {
                                     171, 183, 184, 186, 194, 195, 199, 211, 222, 223, 224, 226, 230, 245, 249, 283,
                                     284, 285, 295, 296, 297, 309, 310, 313, 314, 323, 324, 325, 326, 327, 328, 329,
                                     330, 331, 373, 374, 375, 404};
-            int[] arrLtSurgePokemon = {25, 26, 81, 82, 100, 101, 125, 135, 172, 179, 180, 181, 239, 243, 337, 338, 353, 354};
+            int[] arrLtSurgePokemon = {25, 26, 81, 82, 100, 101, 125, 135, 145, 172, 179, 180, 181, 239, 243, 337, 338, 353, 354};
             int[] arrErikaPokemon = {1, 2, 3, 43, 44, 45, 69, 70, 71, 102, 103, 114, 152,
                                     153, 154, 182, 187, 188, 189, 191, 192, 277, 278, 279,
                                     298, 299, 300, 306, 307, 344, 345, 363, 369};
             int[] arrKogaPokemon = {23, 24, 29, 30, 31, 32, 33, 34, 41, 42, 88, 89, 109, 110, 169, 367,
                                     368, 379};
-            int[] arrSabrinaPokemon = {63, 64, 65, 96, 97, 122, 177, 178, 196, 201, 202, 251, 252, 352, 360, 392, 393, 394, 409, 410, 411};
-            int[] arrBlainePokemon = {4, 5, 6, 37, 38, 58, 59, 77, 78, 126, 136, 155, 156,
+            int[] arrSabrinaPokemon = {63, 64, 65, 96, 97, 122, 150, 151, 177, 178, 196, 201, 202, 251, 352, 360, 392, 393, 394, 409, 410, 411};
+            int[] arrBlainePokemon = {4, 5, 6, 37, 38, 58, 59, 77, 78, 126, 136, 155, 156, 146,
                                         157, 218, 219, 240, 244, 250, 280, 281, 282, 321, 339, 340};
             int[] arrGiovanniPokemon = {27, 28, 50, 51, 104, 105, 111, 112, 207, 231, 232, 318,
                                         319, 332, 333, 334, 405};
@@ -210,17 +273,79 @@ public class TrainerPokemon {
             setPokemon(2344804, randPokemon(arrSabrinaPokemon));
 
             // Blaine's Party
-            setPokemon(2344688, randPokemon(arrBlainePokemon));
-            setPokemon(2344688, randPokemon(arrBlainePokemon));
-            setPokemon(2344688, randPokemon(arrBlainePokemon));
-            setPokemon(2344688, randPokemon(arrBlainePokemon));
+            setPokemon(2344692, randPokemon(arrBlainePokemon));
+            setPokemon(2344708, randPokemon(arrBlainePokemon));
+            setPokemon(2344724, randPokemon(arrBlainePokemon));
+            setPokemon(2344740, randPokemon(arrBlainePokemon));
 
             // Giovanni's Party
-            setPokemon(2341640, randPokemon(arrGiovanniPokemon));
-            setPokemon(2341640, randPokemon(arrGiovanniPokemon));
-            setPokemon(2341640, randPokemon(arrGiovanniPokemon));
-            setPokemon(2341640, randPokemon(arrGiovanniPokemon));
-            setPokemon(2341640, randPokemon(arrGiovanniPokemon));
+            setPokemon(2341644, randPokemon(arrGiovanniPokemon));
+            setPokemon(2341660, randPokemon(arrGiovanniPokemon));
+            setPokemon(2341676, randPokemon(arrGiovanniPokemon));
+            setPokemon(2341692, randPokemon(arrGiovanniPokemon));
+            setPokemon(2341708, randPokemon(arrGiovanniPokemon));
+        } else if (pokemonSetType.equals("No Legendary")) {
+            int[] arrBrockPokemon = {74, 75, 76, 95, 138, 139, 140, 141, 142, 185, 246, 247, 248, 320, 348, 349,
+                    381, 388, 389, 390, 391};
+            int[] arrMistyPokemon = {7, 8, 9, 54, 55, 60, 61, 62, 72, 73, 79, 80, 86, 87, 90, 91, 98, 99,
+                    116, 117, 118, 119, 120, 121, 129, 130, 131, 134, 158, 159, 160, 170,
+                    171, 183, 184, 186, 194, 195, 199, 211, 222, 223, 224, 226, 230, 283,
+                    284, 285, 295, 296, 297, 309, 310, 313, 314, 323, 324, 325, 326, 327, 328, 329,
+                    330, 331, 373, 374, 375};
+            int[] arrLtSurgePokemon = {25, 26, 81, 82, 100, 101, 125, 135, 172, 179, 180, 181, 239, 337, 338, 353, 354};
+            int[] arrErikaPokemon = {1, 2, 3, 43, 44, 45, 69, 70, 71, 102, 103, 114, 152,
+                    153, 154, 182, 187, 188, 189, 191, 192, 277, 278, 279,
+                    298, 299, 300, 306, 307, 344, 345, 363, 369};
+            int[] arrKogaPokemon = {23, 24, 29, 30, 31, 32, 33, 34, 41, 42, 88, 89, 109, 110, 169, 367,
+                    368, 379};
+            int[] arrSabrinaPokemon = {63, 64, 65, 96, 97, 122, 177, 178, 196, 201, 202, 352, 360, 392, 393, 394, 411};
+            int[] arrBlainePokemon = {4, 5, 6, 37, 38, 58, 59, 77, 78, 126, 136, 155, 156,
+                    157, 218, 219, 240, 280, 281, 282, 321, 339, 340};
+            int[] arrGiovanniPokemon = {27, 28, 50, 51, 104, 105, 111, 112, 207, 231, 232, 318,
+                    319, 332, 333, 334};
+
+            // Brock's Party
+            setPokemon(2344468, randPokemon(arrBrockPokemon));
+            setPokemon(2344484, randPokemon(arrBrockPokemon));
+
+            // Misty's Party
+            setPokemon(2344500, randPokemon(arrMistyPokemon));
+            setPokemon(2344516, randPokemon(arrMistyPokemon));
+
+            // Lt Surge's Party
+            setPokemon(2344532, randPokemon(arrLtSurgePokemon));
+            setPokemon(2344548, randPokemon(arrLtSurgePokemon));
+            setPokemon(2344564, randPokemon(arrLtSurgePokemon));
+
+            // Erika's Party
+            setPokemon(2344580, randPokemon(arrErikaPokemon));
+            setPokemon(2344596, randPokemon(arrErikaPokemon));
+            setPokemon(2344612, randPokemon(arrErikaPokemon));
+
+            // Koga's Party
+            setPokemon(2344628, randPokemon(arrKogaPokemon));
+            setPokemon(2344644, randPokemon(arrKogaPokemon));
+            setPokemon(2344660, randPokemon(arrKogaPokemon));
+            setPokemon(2344676, randPokemon(arrKogaPokemon));
+
+            // Sabrina's Party
+            setPokemon(2344756, randPokemon(arrSabrinaPokemon));
+            setPokemon(2344772, randPokemon(arrSabrinaPokemon));
+            setPokemon(2344788, randPokemon(arrSabrinaPokemon));
+            setPokemon(2344804, randPokemon(arrSabrinaPokemon));
+
+            // Blaine's Party
+            setPokemon(2344692, randPokemon(arrBlainePokemon));
+            setPokemon(2344708, randPokemon(arrBlainePokemon));
+            setPokemon(2344724, randPokemon(arrBlainePokemon));
+            setPokemon(2344740, randPokemon(arrBlainePokemon));
+
+            // Giovanni's Party
+            setPokemon(2341644, randPokemon(arrGiovanniPokemon));
+            setPokemon(2341660, randPokemon(arrGiovanniPokemon));
+            setPokemon(2341676, randPokemon(arrGiovanniPokemon));
+            setPokemon(2341692, randPokemon(arrGiovanniPokemon));
+            setPokemon(2341708, randPokemon(arrGiovanniPokemon));
         }
     }
 
