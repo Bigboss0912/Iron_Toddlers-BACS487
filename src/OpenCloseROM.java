@@ -58,13 +58,24 @@ public class OpenCloseROM {
   public void saveROM() {
     EditRom test = new EditRom(OpenedRom);
       ItemModule itemMod = new ItemModule(test);
-      itemMod.get_Bike();
-      itemMod.randomize_Items_Viridian_City_Mart();
-      itemMod.randomize_Items_Pewter_City_Mart();
-      itemMod.randomize_Items_Cerulean_City_Mart();
-      itemMod.randomize_Items_Lavender_Town_Mart();
-      itemMod.randomize_Items_Vermilion_City_Mart();
-    //   itemMod.randomizeItems();
+
+      itemMod.randomize_Ground_Items();
+    //   itemMod.get_Bike();
+    //   itemMod.randomize_Items_Viridian_City_Mart();
+    //   itemMod.randomize_Items_Pewter_City_Mart();
+    //   itemMod.randomize_Items_Cerulean_City_Mart();
+    //   itemMod.randomize_Items_Lavender_Town_Mart();
+    //   itemMod.randomize_Items_Vermilion_City_Mart();
+    //   itemMod.randomize_Items_Celadon_City_Mart();
+    //   itemMod.randomize_Items_Saffron_City_Mart();
+    //   itemMod.randomize_Items_Fuschia_City_Mart();
+    //   itemMod.randomize_Items_Cinnabar_Island_Mart();
+    //   itemMod.randomize_Items_Pokemon_League_Mart();
+    //   itemMod.randomize_Items_Three_Island_Mart();
+    //   itemMod.randomize_Items_Four_Island_Mart();
+    //   itemMod.randomize_Items_Six_Island_Mart();
+    //   itemMod.randomize_Items_Seven_Island_Mart();
+    //   itemMod.randomize_Items_Trainer_Tower_Mart();
 
     OpenedRom = test.getRom();
 

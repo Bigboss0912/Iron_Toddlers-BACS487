@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 
@@ -108,4 +109,127 @@ public class ItemModule {
             editRom.editRom(i, allItems);          
         }
     }
+
+    public void randomize_Items_Celadon_City_Mart() {
+        int first_item_index = 1489720;
+        int last_item_index  = 1489734;
+
+        int second_mart_first_item_index = 1489780;
+        int second_mart_last_item_index  = 1489790;
+
+        for (int i = first_item_index; i <= last_item_index; i+=2) {
+            editRom.editRom(i, allItems);          
+        }
+
+        for (int i = second_mart_first_item_index; i <= second_mart_last_item_index; i+=2) {
+            editRom.editRom(i, allItems);          
+        }
+    }
+
+
+    public void randomize_Items_Saffron_City_Mart() {
+        int first_item_index = 1503196;
+        int last_item_index  = 1503206;
+
+        for (int i = first_item_index; i <= last_item_index; i+=2) {
+            editRom.editRom(i, allItems);          
+        }
+    }    
+    
+    public void randomize_Items_Fuschia_City_Mart() {
+        int first_item_index = 1496344;
+        int last_item_index  = 1496354;
+
+        for (int i = first_item_index; i <= last_item_index; i+=2) {
+            editRom.editRom(i, allItems);          
+        }
+    }    
+    
+    public void randomize_Items_Cinnabar_Island_Mart() {
+        int first_item_index = 1501768;
+        int last_item_index  = 1501780;
+
+        for (int i = first_item_index; i <= last_item_index; i+=2) {
+            editRom.editRom(i, allItems);          
+        }
+    }    
+    
+    public void randomize_Items_Pokemon_League_Mart() {
+        int first_item_index = 1501940;
+        int last_item_index  = 1501952;
+
+        for (int i = first_item_index; i <= last_item_index; i+=2) {
+            editRom.editRom(i, allItems);          
+        }
+    }    
+    
+    public void randomize_Items_Three_Island_Mart() {
+        int first_item_index = 1513652;
+        int last_item_index  = 1513662;
+
+        for (int i = first_item_index; i <= last_item_index; i+=2) {
+            editRom.editRom(i, allItems);          
+        }
+    }    
+    
+    public void randomize_Items_Four_Island_Mart() {
+        int first_item_index = 1514708;
+        int last_item_index  = 1514722;
+
+        for (int i = first_item_index; i <= last_item_index; i+=2) {
+            editRom.editRom(i, allItems);          
+        }
+    }    
+    
+    public void randomize_Items_Six_Island_Mart() {
+        int first_item_index = 1515148;
+        int last_item_index  = 1515162;
+
+        for (int i = first_item_index; i <= last_item_index; i+=2) {
+            editRom.editRom(i, allItems);          
+        }
+    }   
+    
+    public void randomize_Items_Seven_Island_Mart() {
+        int first_item_index = 1510232;
+        int last_item_index  = 1510248;
+
+        for (int i = first_item_index; i <= last_item_index; i+=2) {
+            editRom.editRom(i, allItems);          
+        }
+    }    
+    
+    public void randomize_Items_Trainer_Tower_Mart() {
+        int first_item_index = 1460664;
+        int last_item_index  = 1460680;
+
+        for (int i = first_item_index; i <= last_item_index; i+=2) {
+            editRom.editRom(i, allItems);          
+        }
+    }    
+    
+    public void randomize_Ground_Items() {
+        ArrayList<Integer> ground_item_indexes = new ArrayList<Integer>();
+        Collections.addAll(ground_item_indexes, 
+            1829827, 
+            1829554,
+            1829944,
+            1829931,
+            1828410,
+            1829632,
+            1828540,
+            1829788,
+            1829801,
+            1828787,
+            1828813,
+            1828423,
+            1828436
+            );
+
+        for (int i = 0; i < ground_item_indexes.size(); i++) {
+            int index = ground_item_indexes.get(i);
+            editRom.editRom(index, allItems);
+        }
+    }
+    
 }
