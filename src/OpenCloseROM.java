@@ -54,7 +54,8 @@ public class OpenCloseROM {
   public void saveROM() {
     EditRom editRom = new EditRom(OpenedRom);
     StarterModule starter = new StarterModule(editRom);
-    starter.randomizeStartersAllPokemon();
+    EncounterModule encounter = new EncounterModule(editRom);
+    encounter.randomizeEncounters();
 
     // create an object of JFileChooser class
     JFileChooser fc = new JFileChooser();
