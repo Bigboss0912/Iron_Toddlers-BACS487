@@ -208,6 +208,80 @@ public class Randomizer {
 		JPanel TrainerPanel = new JPanel();
 		TrainerPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
 		tabbedPane.addTab("Trainer Teams", null, TrainerPanel, null);
+		TrainerPanel.setLayout(null);
+		
+		JPanel OpeningPanel = new JPanel();
+		OpeningPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		OpeningPanel.setBounds(29, 27, 791, 344);
+		TrainerPanel.add(OpeningPanel);
+		OpeningPanel.setLayout(null);
+		
+		JLabel OpeningLabel = new JLabel("Main Options:");
+		OpeningLabel.setBounds(10, 19, 112, 22);
+		OpeningLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
+		OpeningPanel.add(OpeningLabel);
+		
+		JToggleButton tglButtonTrainer_NoChg = new JToggleButton("No Change");
+		buttonGroup.add(tglButtonTrainer_NoChg);
+		tglButtonTrainer_NoChg.setToolTipText("No randomization will be made");
+		tglButtonTrainer_NoChg.setBounds(37, 54, 232, 42);
+		OpeningPanel.add(tglButtonTrainer_NoChg);
+		
+		JToggleButton tglButtonFul_Rand_Trainer = new JToggleButton("Fully Randomized Teams");
+		buttonGroup.add(tglButtonFul_Rand_Trainer);
+		tglButtonFul_Rand_Trainer.setToolTipText("Trainers teams will be completely random\r\n"
+				+ "");
+		tglButtonFul_Rand_Trainer.setBounds(37, 110, 232, 42);
+		OpeningPanel.add(tglButtonFul_Rand_Trainer);
+		
+		JComboBox combx_type = new JComboBox();
+		combx_type.setModel(new DefaultComboBoxModel(new String[] {"N/A", "Bug", "Dark", "Dragon", "Electric", "Fighting", "Fire", "Ghost", "Gorund", "Grass", "Ground", "Ice", "Normal", "Poison", "Psychic", "Rock","Steel",
+				"Water"}));
+		combx_type.setBounds(114, 235, 155, 22);
+		OpeningPanel.add(combx_type);
+		
+		JLabel lbltype = new JLabel("Types:");
+		lbltype.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		lbltype.setBounds(56, 238, 66, 14);
+		OpeningPanel.add(lbltype);
+		
+		JCheckBox chckbxKeepGymLeader = new JCheckBox("  Keep Gym Leader Type Theme");
+		chckbxKeepGymLeader.setBounds(315, 235, 232, 23);
+		OpeningPanel.add(chckbxKeepGymLeader);
+		
+		JCheckBox chckbxExcludeLegendaries = new JCheckBox("  Exclude legendaries");
+		chckbxExcludeLegendaries.setBounds(570, 235, 201, 23);
+		OpeningPanel.add(chckbxExcludeLegendaries);
+		
+		JCheckBox chckbxEnableTypeThemes = new JCheckBox("Enable Type Themes Randomization");
+		chckbxEnableTypeThemes.setHorizontalAlignment(SwingConstants.LEFT);
+		chckbxEnableTypeThemes.setBounds(37, 186, 262, 23);
+		OpeningPanel.add(chckbxEnableTypeThemes);
+		
+		JToggleButton tglButtonFul_Rand_Trainer_Type = new JToggleButton("Randomized with Type Themes");
+		tglButtonFul_Rand_Trainer_Type.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AbstractButton abstractButton = (AbstractButton) e.getSource();
+                boolean selected = abstractButton.getModel().isSelected();
+	            // if selected print selected in console
+	            if (selected) {	
+	            	
+	            	combx_type.setEnabled(false);
+	            	chckbxKeepGymLeader.setEnabled(false);
+	            	chckbxExcludeLegendaries.setEnabled(false);
+	            }
+	            else {
+	            	combx_type.setEnabled(true);
+	            	chckbxKeepGymLeader.setEnabled(true);
+	            	chckbxExcludeLegendaries.setEnabled(true);
+	            }
+			}
+		});
+		tglButtonFul_Rand_Trainer_Type.setToolTipText("Select a type theme for trainers to have when randomizing (Pairs with Keep Gym Leader Type Theme)\r\n"+ "");
+		tglButtonFul_Rand_Trainer_Type.setBounds(37, 277, 232, 42);
+		OpeningPanel.add(tglButtonFul_Rand_Trainer_Type);
+		
+		
 		
 		/**
 		 * Field items Tab 
@@ -311,6 +385,15 @@ public class Randomizer {
 			RandomizePanel_list[i].setEnabled(false);
 		}
 		
+		//TrainerTab- TrainerPanel disabled unless hash value is correct
+		
+		Component [] OpeningPanel_list = OpeningPanel.getComponents();
+		for (int i = 0; i < OpeningPanel_list.length; i++) {
+			OpeningPanel_list[i].setEnabled(false);
+		}
+		
+		
+		
 		// Open Button
 		JButton OpenButton = new JButton(new AbstractAction("Open ROM File") {
 			@Override
@@ -331,14 +414,29 @@ public class Randomizer {
 						for (int i = 0; i < RandomizePanel_list.length; i++) {
 							RandomizePanel_list[i].setEnabled(true);
 						}
+						//enable trainer tab randomize panel
+						for (int i = 0; i < OpeningPanel_list.length; i++) {
+							OpeningPanel_list[i].setEnabled(true);
+						}
+						//Exception for the Trainer Pokemon theme subtasks
+						combx_type.setEnabled(false);
+						lbltype.setEnabled(false);
+						chckbxKeepGymLeader.setEnabled(false);
+						chckbxExcludeLegendaries.setEnabled(false);
+						tglButtonFul_Rand_Trainer_Type.setEnabled(false);
+						
 						//enabling starter tab level panel
 						Boundlbl.setEnabled(true);
 						ChckBxLevelRandom.setEnabled(true);
 						lblFrom.setEnabled(true);
 						lblTo.setEnabled(true);
-						LevelLabel.setEnabled(true);
-						
-						
+						LevelLabel.setEnabled(true);	
+					}
+					//Incorrect ROM file loaded
+					if (openCloseROM.correcthash == false) {
+						JOptionPane.showMessageDialog(null, "Not Valid!! Please, reload the correct ROM file");
+						ROMValue.setText("");
+		            	StatusValue.setText("");
 					}
 				}  
 	});
@@ -354,9 +452,11 @@ public class Randomizer {
 		ImageIcon scaledImg = new ImageIcon(setImg);
 		CharImgLabel.setIcon(scaledImg);
 		
+		/**
+		 * Sub Tasks in each tab
+		 */
 		
-		
-		
+		// Wild Pokemon Sub Tasks enable checkbox
 		ChckBxLevelRandom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (ChckBxLevelRandom.isSelected()) {
@@ -375,6 +475,32 @@ public class Randomizer {
 				
 			}
 		});
+		// Trainer Pokemon Sub tasks enable checkbox
+		chckbxEnableTypeThemes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (chckbxEnableTypeThemes.isSelected()) {
+					combx_type.setEnabled(true);
+	            	lbltype.setEnabled(true);
+	            	chckbxKeepGymLeader.setEnabled(true);
+	            	chckbxExcludeLegendaries.setEnabled(true);
+	            	tglButtonFul_Rand_Trainer_Type.setEnabled(true);
+				}
+				else {
+					combx_type.setSelectedItem("N/A");
+					combx_type.setEnabled(false);
+	            	lbltype.setEnabled(false);
+	            	chckbxKeepGymLeader.setEnabled(false);
+	            	chckbxExcludeLegendaries.setEnabled(false);
+	            	tglButtonFul_Rand_Trainer_Type.setEnabled(false);
+	            	
+	            	chckbxExcludeLegendaries.setSelected(false);
+	            	chckbxKeepGymLeader.setSelected(false);
+	            	tglButtonFul_Rand_Trainer_Type.setSelected(false);
+				}
+				
+			}
+		});
+		
 		
 		/**
 		 * All Layout component and configurations
@@ -453,24 +579,26 @@ public class Randomizer {
 		GroupLayout groupLayout = new GroupLayout(frmPokemon.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.TRAILING)
-				.addGroup(groupLayout.createSequentialGroup()
+				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
 					.addGap(32)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-						.addComponent(tabbedPane, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 931, Short.MAX_VALUE)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(tabbedPane, GroupLayout.DEFAULT_SIZE, 931, Short.MAX_VALUE)
+							.addContainerGap())
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(ActionPanel, GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
 							.addGap(32)
 							.addComponent(ROMPanel, GroupLayout.PREFERRED_SIZE, 303, GroupLayout.PREFERRED_SIZE)
 							.addGap(38)
-							.addComponent(CharImgLabel, GroupLayout.PREFERRED_SIZE, 231, Short.MAX_VALUE)))
-					.addGap(25))
+							.addComponent(CharImgLabel, GroupLayout.PREFERRED_SIZE, 231, Short.MAX_VALUE)
+							.addGap(25))))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGap(30)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(ROMPanel, GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(ROMPanel, GroupLayout.PREFERRED_SIZE, 264, GroupLayout.PREFERRED_SIZE)
 						.addComponent(CharImgLabel, GroupLayout.PREFERRED_SIZE, 264, GroupLayout.PREFERRED_SIZE)
 						.addComponent(ActionPanel, GroupLayout.PREFERRED_SIZE, 264, GroupLayout.PREFERRED_SIZE))
 					.addGap(18)
