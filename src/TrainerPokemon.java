@@ -4,9 +4,15 @@ public class TrainerPokemon {
 
     private EditRom editRom;
 
+    public TrainerPokemon() {
+    }
 
     public TrainerPokemon(EditRom editRom) {
         this.editRom = editRom;
+    }
+
+    public void setEditRom(EditRom newEditRom) {
+        this.editRom = newEditRom;
     }
 
     public int randPokemon(int[] arrPokemon) {

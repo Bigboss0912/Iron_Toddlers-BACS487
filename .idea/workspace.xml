@@ -3,7 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="21575b80-8f52-4378-8f22-6c6be8a72f07" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/EditRom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/EditRom.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/OpenCloseROM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/OpenCloseROM.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/TrainerPokemon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/TrainerPokemon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EditRom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditRom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OpenCloseROM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OpenCloseROM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Randomizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Randomizer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TrainerPokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TrainerPokemon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -13,6 +23,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -25,6 +43,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunManager">
@@ -51,5 +70,16 @@
       <updated>1644648442956</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
