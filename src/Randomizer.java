@@ -406,6 +406,11 @@ public class Randomizer {
 				if (openCloseROM.correcthash == true) {
 					ROMValue.setText("Pokemon-FireRed Version (USA)");
 					StatusValue.setText("Success!!!");
+
+					openedRom = openCloseROM.getOpenedRom();
+					editRom.setRom(openedRom);
+					trainersPokemon.setEditRom(editRom);
+
 					//TODO Add a "loading..." message so user knows program isn't frozen
 					JOptionPane.showMessageDialog(null, "ROM Loaded Successfully!");
 					//enabling action panel
