@@ -358,10 +358,64 @@ public class Randomizer {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//code
+
+				// Code for Trainers Teams
 				if(tglButtonFul_Rand_Trainer.isSelected()) {
-					trainersPokemon.randomizeAllTrainerPokemon("All");
-					System.out.println("Success");
-				}
+					String pokemonSetType;
+
+					if (chckbxExcludeLegendaries.isSelected()) {
+						pokemonSetType = "No Legendary";
+					} else {
+						pokemonSetType = "All";
+					}
+					trainersPokemon.randomizeAllTrainerPokemon(pokemonSetType);
+
+					if(chckbxEnableTypeThemes.isSelected()) {
+						String trainerPartyType;
+						trainerPartyType = (String) combx_type.getSelectedItem();
+
+						if(tglButtonFul_Rand_Trainer_Type.isSelected()) {
+							trainersPokemon.randomizeAllTrainerPokemonByType(pokemonSetType, trainerPartyType);
+						}
+
+						if (chckbxKeepGymLeader.isSelected()) {
+							trainersPokemon.randomizeGymLeadersByTheirType(pokemonSetType);
+						}
+					}
+				} else if (chckbxEnableTypeThemes.isSelected() && !tglButtonTrainer_NoChg.isSelected() &&
+							!tglButtonFul_Rand_Trainer.isSelected() && !tglButtonFul_Rand_Trainer_Type.isSelected()) {
+					String pokemonSetType;
+					if (chckbxExcludeLegendaries.isSelected()) {
+						pokemonSetType = "No Legendary";
+					} else {
+						pokemonSetType = "All";
+					}
+					if (chckbxKeepGymLeader.isSelected()) {
+						trainersPokemon.randomizeGymLeadersByTheirType(pokemonSetType);
+					}
+				} else if (chckbxEnableTypeThemes.isSelected() && !tglButtonFul_Rand_Trainer.isSelected() &&
+							tglButtonFul_Rand_Trainer_Type.isSelected() && !tglButtonTrainer_NoChg.isSelected()) {
+					String pokemonSetType;
+
+					if (chckbxExcludeLegendaries.isSelected()) {
+						pokemonSetType = "No Legendary";
+					} else {
+						pokemonSetType = "All";
+					}
+
+					String trainerPartyType;
+					trainerPartyType = (String) combx_type.getSelectedItem();
+
+					trainersPokemon.randomizeAllTrainerPokemonByType(pokemonSetType, trainerPartyType);
+
+					if (chckbxKeepGymLeader.isSelected()) {
+						trainersPokemon.randomizeGymLeadersByTheirType(pokemonSetType);
+					}
+				}else if (tglButtonTrainer_NoChg.isSelected()) {
+
+				} // End Pokemon Trainers Teams Module
+
+
 				openCloseROM.saveROM();
 			}
 		});
