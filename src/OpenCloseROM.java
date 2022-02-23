@@ -13,14 +13,6 @@ public class OpenCloseROM {
   private byte[] OpenedRom;
   boolean correcthash;
 
-  public void setOpenedRom(byte[] editedRom) {
-      OpenedRom = editedRom;
-  }
-
-  public byte[] getOpenedRom() {
-      return OpenedRom;
-  }
-
   public void openROM(){
       String romPath;
 
@@ -55,7 +47,6 @@ public class OpenCloseROM {
       } catch (IOException ioe){
           JOptionPane.showMessageDialog(null,"I/O problem! : "+ioe);
       }
-
   }
 
   public void saveROM() {
