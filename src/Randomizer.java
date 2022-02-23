@@ -9,13 +9,16 @@ import javax.swing.border.LineBorder;
 
 public class Randomizer {
 
-	OpenCloseROM openCloseROM = new OpenCloseROM();
 	private JFrame frmPokemon;
 	public JLabel StatusValue, ROMValue;
 	private JTextField txtBoundFrom;
 	private JTextField txtBoundTo;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private byte[] openedRom;
 
+	OpenCloseROM openCloseROM = new OpenCloseROM();
+	EditRom editRom = new EditRom();
+	TrainerPokemon trainersPokemon = new TrainerPokemon();
 
 	/**
 	 * Create the application.
