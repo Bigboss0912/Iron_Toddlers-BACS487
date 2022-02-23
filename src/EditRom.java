@@ -7,6 +7,11 @@ public class EditRom {
     protected byte[] rom;
     protected Random random;
 
+    public EditRom(){
+        Random random = new Random();
+        this.seed = random.nextLong();
+        this.random = new Random(this.seed);
+    }
 
     public EditRom(byte[] rom){
         this.rom = rom;
@@ -19,6 +24,10 @@ public class EditRom {
         this.rom = rom;
         this.seed = seed;
         this.random = new Random(this.seed);
+    }
+
+    public void setRom(byte newRom[]) {
+        this.rom = newRom;
     }
 
     public void setSeed(long seed){
