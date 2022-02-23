@@ -33,18 +33,219 @@ public class Randomizer {
 	 * Initialize the contents of the frame.
 	 */
 	public void initialize() {
-
+		
 		/**
 		 * Frame configuration
 		 */
-
+		
 		frmPokemon = new JFrame();
 		frmPokemon.setTitle("Pokemon Randomizer");
 		frmPokemon.setSize(1000, 800);
 		frmPokemon.setVisible(true);
 		frmPokemon.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-
+				
+		/**
+		 * Tab Panel
+		 */
+		
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		
+		/**
+		 * Starter and its component
+		 */
+		
+		JPanel StarterTab = new JPanel();
+		StarterTab.setBorder(new LineBorder(new Color(0, 0, 0)));
+		tabbedPane.addTab("Starter Pokemon", null, StarterTab, null);
+		StarterTab.setLayout(null);
+		
+		JPanel RandomizePanel = new JPanel();
+		RandomizePanel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		RandomizePanel.setBounds(25, 25, 411, 256);
+		StarterTab.add(RandomizePanel);
+		RandomizePanel.setLayout(null);
+		
+		JToggleButton tglButtonNoChange = new JToggleButton("No Change");
+		buttonGroup.add(tglButtonNoChange);
+		tglButtonNoChange.setBounds(105, 58, 161, 36);
+		tglButtonNoChange.setToolTipText("No randomization will be made");
+		RandomizePanel.add(tglButtonNoChange);
+		
+		JToggleButton tglButtonFul_Rand = new JToggleButton("Fully Randomized");
+		buttonGroup.add(tglButtonFul_Rand);
+		tglButtonFul_Rand.setBounds(105, 105, 161, 36);
+		tglButtonFul_Rand.setToolTipText("Completely randomize the starter pokemon to be any possible pokemon");
+		RandomizePanel.add(tglButtonFul_Rand);
+		
+		JToggleButton tglButtonThreeStg = new JToggleButton("Three Stage");
+		buttonGroup.add(tglButtonThreeStg);
+		tglButtonThreeStg.setBounds(105, 152, 161, 36);
+		tglButtonThreeStg.setToolTipText("Randomize the starters to be any one of the first stage pokemon in a \n three stage evolution (ex. Geodude but not Graveler or Golem)");
+		RandomizePanel.add(tglButtonThreeStg);
+		
+		JLabel StarterRandLabel = new JLabel("Press Buttons to Randomize your Option");
+		StarterRandLabel.setBounds(10, 11, 380, 36);
+		StarterRandLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
+		RandomizePanel.add(StarterRandLabel);
+		
+		JToggleButton exLegendButton = new JToggleButton("Exclude Legendaries");
+		buttonGroup.add(exLegendButton);
+		exLegendButton.setToolTipText("TBD");
+		exLegendButton.setBounds(105, 199, 161, 36);
+		RandomizePanel.add(exLegendButton);
+		
+		/**
+		 * Starter Tab Level Panel
+		 */
+		
+		JPanel LevelPanel = new JPanel();
+		LevelPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		LevelPanel.setBounds(472, 25, 411, 256);
+		StarterTab.add(LevelPanel);
+		LevelPanel.setLayout(null);
+		
+		JLabel Boundlbl = new JLabel("Randomization Bound");
+		Boundlbl.setBounds(20, 76, 161, 14);
+		LevelPanel.add(Boundlbl);
+		Boundlbl.setEnabled(false);
+		
+		JCheckBox ChckBxLevelRandom = new JCheckBox("Enable Level Randomization");
+		ChckBxLevelRandom.setHorizontalAlignment(SwingConstants.LEFT);
+		ChckBxLevelRandom.setBounds(20, 27, 262, 23);
+		LevelPanel.add(ChckBxLevelRandom);
+		ChckBxLevelRandom.setEnabled(false);
+		
+		JLabel lblFrom = new JLabel("From:");
+		lblFrom.setBounds(177, 76, 37, 14);
+		LevelPanel.add(lblFrom);
+		lblFrom.setEnabled(false);
+		
+		
+		txtBoundFrom = new JTextField();
+		txtBoundFrom.setBounds(217, 73, 65, 20);
+		LevelPanel.add(txtBoundFrom);
+		txtBoundFrom.setEditable(false);
+		txtBoundFrom.setColumns(10);
+		
+		JLabel lblTo = new JLabel("To:");
+		lblTo.setBounds(290, 76, 30, 14);
+		LevelPanel.add(lblTo);
+		lblTo.setEnabled(false);
+		
+		txtBoundTo = new JTextField();
+		txtBoundTo.setBounds(313, 73, 65, 20);
+		LevelPanel.add(txtBoundTo);
+		txtBoundTo.setEditable(false);
+		txtBoundTo.setColumns(10);
+		
+		JToggleButton tglButtonLevelRandomization = new JToggleButton(new AbstractAction("Level Randomization") {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				AbstractButton abstractButton = (AbstractButton) e.getSource();
+                boolean selected = abstractButton.getModel().isSelected();
+	            // if selected print selected in console
+	            if (selected) {	            	
+	            	try {
+		            	String fromtext = txtBoundFrom.getText();
+		            	String totext = txtBoundTo.getText();
+		            	int fromnum = Integer.parseInt(fromtext);
+		            	int tonum = Integer.parseInt(totext);
+		            	
+		            	txtBoundFrom.setEditable(false);
+		            	txtBoundTo.setEditable(false);
+		            	
+		            	if (tonum <= fromnum) {
+		            		throw new ArithmeticException(); 
+		            	}
+		            	
+	            	}catch (NumberFormatException ex){
+	            		txtBoundFrom.setText("");
+		            	txtBoundTo.setText("");
+		            	abstractButton.setSelected(false);
+	            		JOptionPane.showMessageDialog (null, "Please enter only numbers");
+	            	}
+	            	catch (ArithmeticException e1){
+	            		txtBoundFrom.setText("");
+		            	txtBoundTo.setText("");
+		            	txtBoundFrom.setEditable(true);
+		            	txtBoundTo.setEditable(true);
+		            	abstractButton.setSelected(false);
+	            		JOptionPane.showMessageDialog (null, "'To' number is greater or equal to 'From' number");
+	            	}
+	            }
+	            else {
+            		txtBoundFrom.setEditable(true);
+	            	txtBoundTo.setEditable(true);
+	            	txtBoundTo.setText("");
+	            	txtBoundFrom.setText("");
+	            	
+	            }
+			}
+		});
+		
+		tglButtonLevelRandomization.setBounds(217, 120, 161, 36);
+		LevelPanel.add(tglButtonLevelRandomization);
+		tglButtonLevelRandomization.setToolTipText("Randomize the starters initial level");
+    	tglButtonLevelRandomization.setEnabled(false);
+		
+		JLabel LevelLabel = new JLabel("Press Button to Activate");
+		LevelLabel.setBounds(20, 130, 161, 14);
+		LevelLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
+		LevelPanel.add(LevelLabel);
+		LevelLabel.setEnabled(false);
+			
+		
+		/**
+		 * Wild Tab 
+		 */
+		
+		
+		
+		JPanel WildTab = new JPanel();
+		WildTab.setBorder(new LineBorder(new Color(0, 0, 0)));
+		tabbedPane.addTab("Wild Pokemon", null, WildTab, null);
+		
+		/**
+		 * Trainer Tab 
+		 */
+		
+		JPanel TrainerPanel = new JPanel();
+		TrainerPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		tabbedPane.addTab("Trainer Teams", null, TrainerPanel, null);
+		
+		/**
+		 * Field items Tab 
+		 */
+		
+		JPanel FieldTab = new JPanel();
+		FieldTab.setBorder(new LineBorder(new Color(0, 0, 0)));
+		tabbedPane.addTab("Field Items", null, FieldTab, null);
+		
+		/**
+		 * Statistic Tab 
+		 */
+		JPanel StatsTabs = new JPanel();
+		StatsTabs.setBorder(new LineBorder(new Color(0, 0, 0)));
+		tabbedPane.addTab("Pokemon Stats", null, StatsTabs, null);
+		
+		/**
+		 * Moves Tab 
+		 */
+		
+		JPanel CompMovesTab = new JPanel();
+		CompMovesTab.setBorder(new LineBorder(new Color(0, 0, 0)));
+		tabbedPane.addTab("Compatability & Moves", null, CompMovesTab, null);
+		
+		/**
+		 * Summary Tab 
+		 */
+		
+		JPanel SummaryTab = new JPanel();
+		SummaryTab.setBorder(new LineBorder(new Color(0, 0, 0)));
+		tabbedPane.addTab("Summary", null, SummaryTab, null);
+		
+		
 		/**
 		 * Tab Panel
 		 */
@@ -513,7 +714,7 @@ public class Randomizer {
 		/**
 		 * Picture Label (Charmander)
 		 */
-
+    
 		JLabel CharImgLabel = new JLabel();
 		ImageIcon CharImg = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("Charmander.png")));
 		Image newImg = CharImg.getImage();
@@ -532,6 +733,7 @@ public class Randomizer {
 					txtBoundFrom.setEditable(true);
 					txtBoundTo.setEditable(true);
 					tglButtonLevelRandomization.setEnabled(true);
+
 				}
 				else {
 					txtBoundFrom.setText("");
@@ -681,7 +883,6 @@ public class Randomizer {
 		ROMPanel.setLayout(gl_ROMPanel);
 		ActionPanel.setLayout(gl_ActionPanel);
 		frmPokemon.getContentPane().setLayout(groupLayout);
-
 
 	}
 }
