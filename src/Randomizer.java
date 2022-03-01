@@ -5,6 +5,7 @@ import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.LineBorder;
+import javax.swing.border.BevelBorder;
 
 
 public class Randomizer {
@@ -14,7 +15,10 @@ public class Randomizer {
 	public JLabel StatusValue, ROMValue;
 	private JTextField txtBoundFrom;
 	private JTextField txtBoundTo;
-	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private final ButtonGroup Trainer_MainBtngrp = new ButtonGroup();
+	private final ButtonGroup MartBtngrp = new ButtonGroup();
+	private final ButtonGroup Starter_MainBtngrp = new ButtonGroup();
+	private final ButtonGroup Wild_MainBtngrp = new ButtonGroup();
 	
 
 	/**
@@ -62,19 +66,19 @@ public class Randomizer {
 		RandomizePanel.setLayout(null);
 		
 		JToggleButton tglButtonNoChange = new JToggleButton("No Change");
-		buttonGroup.add(tglButtonNoChange);
+		Starter_MainBtngrp.add(tglButtonNoChange);
 		tglButtonNoChange.setBounds(105, 58, 161, 36);
 		tglButtonNoChange.setToolTipText("No randomization will be made");
 		RandomizePanel.add(tglButtonNoChange);
 		
 		JToggleButton tglButtonFul_Rand = new JToggleButton("Fully Randomized");
-		buttonGroup.add(tglButtonFul_Rand);
+		Starter_MainBtngrp.add(tglButtonFul_Rand);
 		tglButtonFul_Rand.setBounds(105, 105, 161, 36);
 		tglButtonFul_Rand.setToolTipText("Completely randomize the starter pokemon to be any possible pokemon");
 		RandomizePanel.add(tglButtonFul_Rand);
 		
 		JToggleButton tglButtonThreeStg = new JToggleButton("Three Stage");
-		buttonGroup.add(tglButtonThreeStg);
+		Starter_MainBtngrp.add(tglButtonThreeStg);
 		tglButtonThreeStg.setBounds(105, 152, 161, 36);
 		tglButtonThreeStg.setToolTipText("Randomize the starters to be any one of the first stage pokemon in a \n three stage evolution (ex. Geodude but not Graveler or Golem)");
 		RandomizePanel.add(tglButtonThreeStg);
@@ -85,7 +89,7 @@ public class Randomizer {
 		RandomizePanel.add(StarterRandLabel);
 		
 		JToggleButton exLegendButton = new JToggleButton("Exclude Legendaries");
-		buttonGroup.add(exLegendButton);
+		Starter_MainBtngrp.add(exLegendButton);
 		exLegendButton.setToolTipText("TBD");
 		exLegendButton.setBounds(105, 199, 161, 36);
 		RandomizePanel.add(exLegendButton);
@@ -200,6 +204,38 @@ public class Randomizer {
 		JPanel WildTab = new JPanel();
 		WildTab.setBorder(new LineBorder(new Color(0, 0, 0)));
 		tabbedPane.addTab("Wild Pokemon", null, WildTab, null);
+		WildTab.setLayout(null);
+		
+		JLabel Openinglbl_Wild = new JLabel("Main Options:");
+		Openinglbl_Wild.setFont(new Font("Tahoma", Font.BOLD, 16));
+		Openinglbl_Wild.setBounds(33, 38, 112, 22);
+		Openinglbl_Wild.setEnabled(false);
+		WildTab.add(Openinglbl_Wild);
+		
+		
+		JPanel MainOptPanel_Wild = new JPanel();
+		MainOptPanel_Wild.setLayout(null);
+		MainOptPanel_Wild.setBorder(new LineBorder(new Color(0, 0, 0)));
+		MainOptPanel_Wild.setBounds(170, 38, 340, 269);
+		WildTab.add(MainOptPanel_Wild);
+		
+		JToggleButton tglBtnWild_NoChg_ = new JToggleButton("No Change");
+		Wild_MainBtngrp.add(tglBtnWild_NoChg_);
+		tglBtnWild_NoChg_.setToolTipText("No randomization will be made");
+		tglBtnWild_NoChg_.setBounds(23, 25, 294, 42);
+		MainOptPanel_Wild.add(tglBtnWild_NoChg_);
+		
+		JToggleButton tglbtn1to1AreaRandz = new JToggleButton("1-to-1 Area Randomization");
+		Wild_MainBtngrp.add(tglbtn1to1AreaRandz);
+		tglbtn1to1AreaRandz.setToolTipText("");
+		tglbtn1to1AreaRandz.setBounds(23, 107, 294, 42);
+		MainOptPanel_Wild.add(tglbtn1to1AreaRandz);
+		
+		JToggleButton tglbtn1to1PokemonRandomization = new JToggleButton("1-to-1 Pokemon Randomization");
+		tglbtn1to1PokemonRandomization.setToolTipText("");
+		Wild_MainBtngrp.add(tglbtn1to1PokemonRandomization);
+		tglbtn1to1PokemonRandomization.setBounds(23, 190, 294, 42);
+		MainOptPanel_Wild.add(tglbtn1to1PokemonRandomization);
 		
 		/**
 		 * Trainer Tab 
@@ -222,13 +258,13 @@ public class Randomizer {
 		OpeningPanel.add(OpeningLabel);
 		
 		JToggleButton tglButtonTrainer_NoChg = new JToggleButton("No Change");
-		buttonGroup.add(tglButtonTrainer_NoChg);
+		Trainer_MainBtngrp.add(tglButtonTrainer_NoChg);
 		tglButtonTrainer_NoChg.setToolTipText("No randomization will be made");
 		tglButtonTrainer_NoChg.setBounds(37, 54, 232, 42);
 		OpeningPanel.add(tglButtonTrainer_NoChg);
 		
 		JToggleButton tglButtonFul_Rand_Trainer = new JToggleButton("Fully Randomized Teams");
-		buttonGroup.add(tglButtonFul_Rand_Trainer);
+		Trainer_MainBtngrp.add(tglButtonFul_Rand_Trainer);
 		tglButtonFul_Rand_Trainer.setToolTipText("Trainers teams will be completely random\r\n"
 				+ "");
 		tglButtonFul_Rand_Trainer.setBounds(37, 110, 232, 42);
@@ -259,6 +295,41 @@ public class Randomizer {
 		OpeningPanel.add(chckbxEnableTypeThemes);
 		
 		JToggleButton tglButtonFul_Rand_Trainer_Type = new JToggleButton("Randomized with Type Themes");
+		tglButtonFul_Rand_Trainer_Type.setToolTipText("Select a type theme for trainers to have when randomizing (Pairs with Keep Gym Leader Type Theme)\r\n"+ "");
+		tglButtonFul_Rand_Trainer_Type.setBounds(37, 277, 232, 42);
+		OpeningPanel.add(tglButtonFul_Rand_Trainer_Type);
+		
+		/*
+		 * /StarterTab- RandomizePanel disabled unless hash value is correct
+		 */
+		
+		Component [] RandomizePanel_list = RandomizePanel.getComponents();
+		for (int i = 0; i < RandomizePanel_list.length; i++) {
+			RandomizePanel_list[i].setEnabled(false);
+		}
+		
+		/*
+		 * /TrainerTab- TrainerPanel disabled unless hash value is correct
+		 */
+		
+		Component [] OpeningPanel_list = OpeningPanel.getComponents();
+		for (int i = 0; i < OpeningPanel_list.length; i++) {
+			OpeningPanel_list[i].setEnabled(false);
+		}
+		
+		/*
+		 * /WildTab- WildPanel disabled unless hash value is correct
+		 */
+		
+		Component [] MainOptPanel_Wild_list = MainOptPanel_Wild.getComponents();
+		for (int i = 0; i < MainOptPanel_Wild_list.length; i++) {
+			MainOptPanel_Wild_list[i].setEnabled(false);
+		}
+		
+		/*
+		 * Trainer Tab Button logic/
+		 */
+		
 		tglButtonFul_Rand_Trainer_Type.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AbstractButton abstractButton = (AbstractButton) e.getSource();
@@ -277,10 +348,6 @@ public class Randomizer {
 	            }
 			}
 		});
-		tglButtonFul_Rand_Trainer_Type.setToolTipText("Select a type theme for trainers to have when randomizing (Pairs with Keep Gym Leader Type Theme)\r\n"+ "");
-		tglButtonFul_Rand_Trainer_Type.setBounds(37, 277, 232, 42);
-		OpeningPanel.add(tglButtonFul_Rand_Trainer_Type);
-		
 		
 		
 		/**
@@ -290,7 +357,260 @@ public class Randomizer {
 		JPanel FieldTab = new JPanel();
 		FieldTab.setBorder(new LineBorder(new Color(0, 0, 0)));
 		tabbedPane.addTab("Field Items", null, FieldTab, null);
+		FieldTab.setLayout(null);
 		
+		JPanel FieldMainPanel = new JPanel();
+		FieldMainPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		FieldMainPanel.setBounds(25, 23, 893, 341);
+		FieldTab.add(FieldMainPanel);
+		FieldMainPanel.setLayout(null);
+		
+		JLabel Openinglbl_FieldItem = new JLabel("Main Options:");
+		Openinglbl_FieldItem.setFont(new Font("Tahoma", Font.BOLD, 16));
+		Openinglbl_FieldItem.setBounds(21, 22, 112, 22);
+		FieldMainPanel.add(Openinglbl_FieldItem);
+		
+		JPanel MartsPanel = new JPanel();
+		MartsPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		MartsPanel.setBounds(421, 22, 449, 294);
+		FieldMainPanel.add(MartsPanel);
+		MartsPanel.setLayout(null);
+		
+		JCheckBox chckbxEnablePokeMart = new JCheckBox(" Enable Poke Marts Items");
+		chckbxEnablePokeMart.setToolTipText("Randomize the items sold in Pokemarts");
+		chckbxEnablePokeMart.setBounds(6, 18, 171, 23);
+		MartsPanel.add(chckbxEnablePokeMart);
+		chckbxEnablePokeMart.setHorizontalAlignment(SwingConstants.LEFT);
+		
+		JPanel CityPanel = new JPanel();
+		CityPanel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		CityPanel.setBounds(179, 11, 260, 272);
+		MartsPanel.add(CityPanel);
+		CityPanel.setLayout(null);
+		
+
+		JToggleButton tglBtnPickCity = new JToggleButton("Choose Cities");
+		MartBtngrp.add(tglBtnPickCity);
+		tglBtnPickCity.setBounds(17, 66, 152, 36);
+		MartsPanel.add(tglBtnPickCity);
+		tglBtnPickCity.setToolTipText("Pick the cities whose marts will be randomized ");		
+		
+		
+		JRadioButton rdbtnViridian = new JRadioButton("Viridian City");
+		rdbtnViridian.setBounds(6, 7, 136, 23);
+		CityPanel.add(rdbtnViridian);
+		
+		JRadioButton rdbtnPewter = new JRadioButton("Pewter City");
+		rdbtnPewter.setBounds(6, 33, 136, 23);
+		CityPanel.add(rdbtnPewter);
+		
+		JRadioButton rdbtnCerulean = new JRadioButton("Cerulean City");
+		rdbtnCerulean.setBounds(6, 59, 136, 23);
+		CityPanel.add(rdbtnCerulean);
+		
+		JRadioButton rdbtnVermilion = new JRadioButton("Vermilion City");
+		rdbtnVermilion.setBounds(6, 85, 136, 23);
+		CityPanel.add(rdbtnVermilion);
+		
+		JRadioButton rdbtnLavender = new JRadioButton("Lavender Town");
+		rdbtnLavender.setBounds(6, 111, 136, 23);
+		CityPanel.add(rdbtnLavender);
+		
+		JRadioButton rdbtnSaffron = new JRadioButton("Saffron City");
+		rdbtnSaffron.setBounds(6, 137, 136, 23);
+		CityPanel.add(rdbtnSaffron);
+		
+		JRadioButton rdbtnFuchsia = new JRadioButton("Fuchsia City");
+		rdbtnFuchsia.setBounds(6, 163, 136, 23);
+		CityPanel.add(rdbtnFuchsia);
+		
+		JRadioButton rdbtnCinnabarIsland = new JRadioButton("Cinnabar Island");
+		rdbtnCinnabarIsland.setBounds(6, 215, 136, 23);
+		CityPanel.add(rdbtnCinnabarIsland);
+		
+		JRadioButton rdbtnPokemonLeague = new JRadioButton("Pokemon League");
+		rdbtnPokemonLeague.setBounds(6, 189, 136, 23);
+		CityPanel.add(rdbtnPokemonLeague);
+		
+		JRadioButton rdbtnCeladonCityDepartment = new JRadioButton("Celadon City Department Store");
+		rdbtnCeladonCityDepartment.setBounds(6, 242, 222, 23);
+		CityPanel.add(rdbtnCeladonCityDepartment);
+		
+		JRadioButton rdbtnThreeIsland = new JRadioButton("Three Island");
+		rdbtnThreeIsland.setBounds(144, 7, 109, 23);
+		CityPanel.add(rdbtnThreeIsland);
+		
+		JRadioButton rdbtnFourIsland = new JRadioButton("Four Island");
+		rdbtnFourIsland.setBounds(144, 33, 109, 23);
+		CityPanel.add(rdbtnFourIsland);
+		
+		JRadioButton rdbtnSixIsland = new JRadioButton("Six Island ");
+		rdbtnSixIsland.setBounds(144, 59, 109, 23);
+		CityPanel.add(rdbtnSixIsland);
+		
+		JRadioButton rdbtnSevenIsland = new JRadioButton("Seven Island");
+		rdbtnSevenIsland.setBounds(144, 85, 109, 23);
+		CityPanel.add(rdbtnSevenIsland);
+		
+		JRadioButton rdbtnTrainerTower = new JRadioButton("Trainer Tower");
+		rdbtnTrainerTower.setBounds(144, 111, 109, 23);
+		CityPanel.add(rdbtnTrainerTower);
+		
+		JToggleButton tglbtnRandomizeAllCities = new JToggleButton("Randomize all Cities");
+		MartBtngrp.add(tglbtnRandomizeAllCities);
+		tglbtnRandomizeAllCities.setToolTipText("Randomize all cities Pokemarts");
+		tglbtnRandomizeAllCities.setBounds(16, 113, 153, 36);
+		MartsPanel.add(tglbtnRandomizeAllCities);
+		
+		JToggleButton btnMartNone = new JToggleButton("None");
+		btnMartNone.setBounds(17, 160, 152, 36);
+		MartBtngrp.add(btnMartNone);
+		btnMartNone.setEnabled(false);
+		MartsPanel.add(btnMartNone);
+		
+		JPanel MainOptPanel = new JPanel();
+		MainOptPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		MainOptPanel.setBounds(143, 22, 258, 123);
+		FieldMainPanel.add(MainOptPanel);
+		MainOptPanel.setLayout(null);
+		
+		JToggleButton tglButtonFieldItem_NoChg = new JToggleButton("No Change");
+		Trainer_MainBtngrp.add(tglButtonFieldItem_NoChg);
+		tglButtonFieldItem_NoChg.setBounds(23, 11, 213, 42);
+		MainOptPanel.add(tglButtonFieldItem_NoChg);
+		tglButtonFieldItem_NoChg.setToolTipText("No randomization will be made");
+		
+		JToggleButton tglBtnRandWorldItems = new JToggleButton("Randomize World Items");
+		Trainer_MainBtngrp.add(tglBtnRandWorldItems);
+		tglBtnRandWorldItems.setBounds(23, 67, 213, 42);
+		MainOptPanel.add(tglBtnRandWorldItems);
+		tglBtnRandWorldItems.setToolTipText("Randomize the items found and bought in the world ");
+		
+		JCheckBox chckbxNewCheckBox = new JCheckBox("   Ground Item Randomization");
+		chckbxNewCheckBox.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		chckbxNewCheckBox.setBounds(143, 153, 258, 30);
+		FieldMainPanel.add(chckbxNewCheckBox);
+		
+		JPanel subOptPanel = new JPanel();
+		subOptPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		subOptPanel.setBounds(143, 195, 258, 75);
+		FieldMainPanel.add(subOptPanel);
+		subOptPanel.setLayout(null);
+		
+		JCheckBox chckbxExcludeKeyItem = new JCheckBox("  Exclude Key Items");
+		chckbxExcludeKeyItem.setToolTipText("Exclude key items from the possible items being randomized ");
+		chckbxExcludeKeyItem.setBounds(6, 7, 167, 23);
+		subOptPanel.add(chckbxExcludeKeyItem);
+		
+		JCheckBox chckbxEarlyBike = new JCheckBox("  Early Bike");
+		chckbxEarlyBike.setBounds(6, 38, 110, 23);
+		subOptPanel.add(chckbxEarlyBike);
+		
+		JLabel SubOptlbl_FieldItem = new JLabel("Sub Options:");
+		SubOptlbl_FieldItem.setFont(new Font("Tahoma", Font.BOLD, 16));
+		SubOptlbl_FieldItem.setBounds(21, 195, 112, 22);
+		FieldMainPanel.add(SubOptlbl_FieldItem);
+		
+		/*
+		 * /Field Item Tab- TrainerPanel disabled unless hash value is correct
+		 */
+		
+		Component [] FieldMainPanel_list = FieldMainPanel.getComponents();
+		for (int i = 0; i < FieldMainPanel_list.length; i++) {
+			FieldMainPanel_list[i].setEnabled(false);
+		}
+		// Sub Panel of Field Item Tab
+		Component [] MartsPanel_list = MartsPanel.getComponents();
+		for (int i = 0; i < MartsPanel_list.length; i++) {
+			MartsPanel_list[i].setEnabled(false);
+		}
+		// Sub Panel of Field Item Tab
+		Component [] MainOptPanel_list = MainOptPanel.getComponents();
+		for (int i = 0; i < MainOptPanel_list.length; i++) {
+			MainOptPanel_list[i].setEnabled(false);
+		}
+		// Sub Panel of Field Item Tab
+		Component [] subOptPanel_list = subOptPanel.getComponents();
+		for (int i = 0; i < subOptPanel_list.length; i++) {
+			subOptPanel_list[i].setEnabled(false);
+		}
+		
+		// Sub Panel of Field Item Tab
+		Component [] CityPanel_list = CityPanel.getComponents();
+		for (int i = 0; i < CityPanel_list.length; i++) {
+			CityPanel_list[i].setEnabled(false);
+		}
+				
+		/*
+		 * Field Item Button logic/
+		 */
+		tglBtnPickCity.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			AbstractButton abstractButton = (AbstractButton) e.getSource();
+            boolean selected = abstractButton.getModel().isSelected();
+            // if selected print selected in console
+            if (selected) {
+            	for (int i = 0; i < CityPanel_list.length; i++) {
+        			CityPanel_list[i].setEnabled(true);
+            	}
+            }
+		}
+	});
+		tglbtnRandomizeAllCities.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AbstractButton abstractButton = (AbstractButton) e.getSource();
+	            boolean selected = abstractButton.getModel().isSelected();
+	            // if selected print selected in console
+	            if (selected) {	
+	            	for (int i = 0; i < CityPanel_list.length; i++) {
+	            		rdbtnViridian.setSelected(false);
+	            		rdbtnPewter.setSelected(false);
+	            		rdbtnCerulean.setSelected(false);
+	            		rdbtnVermilion.setSelected(false);
+	            		rdbtnLavender.setSelected(false);
+	            		rdbtnSaffron.setSelected(false);
+	            		rdbtnFuchsia.setSelected(false);
+	            		rdbtnCinnabarIsland.setSelected(false);
+	            		rdbtnPokemonLeague.setSelected(false);
+	            		rdbtnThreeIsland.setSelected(false);
+	            		rdbtnCeladonCityDepartment.setSelected(false);
+	            		rdbtnFourIsland.setSelected(false);
+	            		rdbtnSixIsland.setSelected(false);
+	            		rdbtnSevenIsland.setSelected(false);
+	            		rdbtnTrainerTower.setSelected(false);
+	        			CityPanel_list[i].setEnabled(false);
+	            	}
+	            }
+			}
+		});
+		btnMartNone.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AbstractButton abstractButton = (AbstractButton) e.getSource();
+	            boolean selected = abstractButton.getModel().isSelected();
+	            // if selected print selected in console
+	            if (selected) {	
+	            	for (int i = 0; i < CityPanel_list.length; i++) {
+	            		rdbtnViridian.setSelected(false);
+	            		rdbtnPewter.setSelected(false);
+	            		rdbtnCerulean.setSelected(false);
+	            		rdbtnVermilion.setSelected(false);
+	            		rdbtnLavender.setSelected(false);
+	            		rdbtnSaffron.setSelected(false);
+	            		rdbtnFuchsia.setSelected(false);
+	            		rdbtnCinnabarIsland.setSelected(false);
+	            		rdbtnPokemonLeague.setSelected(false);
+	            		rdbtnThreeIsland.setSelected(false);
+	            		rdbtnCeladonCityDepartment.setSelected(false);
+	            		rdbtnFourIsland.setSelected(false);
+	            		rdbtnSixIsland.setSelected(false);
+	            		rdbtnSevenIsland.setSelected(false);
+	            		rdbtnTrainerTower.setSelected(false);
+	        			CityPanel_list[i].setEnabled(false);
+	            	}
+	            }
+			}
+		});
+	
 		/**
 		 * Statistic Tab 
 		 */
@@ -373,25 +693,7 @@ public class Randomizer {
 		StatusValue = new JLabel("Not Detected");
 		JLabel FileInfoLabel = new JLabel("ROM File Information:");
 		FileInfoLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
-		
-		
-		
-		
-		
-		//StarterTab- RandomizePanel disabled unless hash value is correct
-		
-		Component [] RandomizePanel_list = RandomizePanel.getComponents();
-		for (int i = 0; i < RandomizePanel_list.length; i++) {
-			RandomizePanel_list[i].setEnabled(false);
-		}
-		
-		//TrainerTab- TrainerPanel disabled unless hash value is correct
-		
-		Component [] OpeningPanel_list = OpeningPanel.getComponents();
-		for (int i = 0; i < OpeningPanel_list.length; i++) {
-			OpeningPanel_list[i].setEnabled(false);
-		}
-		
+	
 		
 		
 		// Open Button
@@ -414,7 +716,18 @@ public class Randomizer {
 						for (int i = 0; i < RandomizePanel_list.length; i++) {
 							RandomizePanel_list[i].setEnabled(true);
 						}
-						//enable trainer tab randomize panel
+						
+						//Exception enabling starter tab level panel
+						Boundlbl.setEnabled(true);
+						ChckBxLevelRandom.setEnabled(true);
+						lblFrom.setEnabled(true);
+						lblTo.setEnabled(true);
+						LevelLabel.setEnabled(true);
+						
+						/*
+						 * /enable trainer tab randomize panel
+						 */
+						
 						for (int i = 0; i < OpeningPanel_list.length; i++) {
 							OpeningPanel_list[i].setEnabled(true);
 						}
@@ -425,12 +738,28 @@ public class Randomizer {
 						chckbxExcludeLegendaries.setEnabled(false);
 						tglButtonFul_Rand_Trainer_Type.setEnabled(false);
 						
-						//enabling starter tab level panel
-						Boundlbl.setEnabled(true);
-						ChckBxLevelRandom.setEnabled(true);
-						lblFrom.setEnabled(true);
-						lblTo.setEnabled(true);
-						LevelLabel.setEnabled(true);	
+						/*
+						 * /enable Field item tab randomize panel
+						 */
+						for (int i = 0; i < FieldMainPanel_list.length; i++) {
+							FieldMainPanel_list[i].setEnabled(true);
+						}
+						//enable Field item tab randomize sub panel
+						for (int i = 0; i < MainOptPanel_list.length; i++) {
+							MainOptPanel_list[i].setEnabled(true);
+						}
+						//enable Field item tab randomize sub panel
+						for (int i = 0; i < subOptPanel_list.length; i++) {
+							subOptPanel_list[i].setEnabled(true);
+						}
+						chckbxEnablePokeMart.setEnabled(true);
+						//enable wild item tab randomize sub panel
+						for (int i = 0; i < MainOptPanel_Wild_list.length; i++) {
+							MainOptPanel_Wild_list[i].setEnabled(true);
+						}
+						Openinglbl_Wild.setEnabled(true);
+						
+
 					}
 					//Incorrect ROM file loaded
 					if (openCloseROM.correcthash == false) {
@@ -452,11 +781,15 @@ public class Randomizer {
 		ImageIcon scaledImg = new ImageIcon(setImg);
 		CharImgLabel.setIcon(scaledImg);
 		
+		
+		
 		/**
-		 * Sub Tasks in each tab
+		 * Action Logic Configuration in each tab
 		 */
 		
-		// Wild Pokemon Sub Tasks enable checkbox
+		/*
+		 * / Wild Pokemon Sub Tasks enable checkbox
+		 */
 		ChckBxLevelRandom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (ChckBxLevelRandom.isSelected()) {
@@ -475,7 +808,9 @@ public class Randomizer {
 				
 			}
 		});
-		// Trainer Pokemon Sub tasks enable checkbox
+		/*
+		 * / Trainer Pokemon Sub tasks enable checkbox
+		 */
 		chckbxEnableTypeThemes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (chckbxEnableTypeThemes.isSelected()) {
@@ -498,6 +833,49 @@ public class Randomizer {
 	            	tglButtonFul_Rand_Trainer_Type.setSelected(false);
 				}
 				
+			}
+		});
+		/*
+		 * / Field Items Pokemon Sub tasks enable checkbox
+		 */
+		
+		
+		chckbxEnablePokeMart.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (chckbxEnablePokeMart.isSelected()) {
+					tglbtnRandomizeAllCities.setEnabled(true);
+					tglBtnPickCity.setEnabled(true);
+					btnMartNone.setEnabled(true);
+					
+					
+				}
+				else {					
+						tglbtnRandomizeAllCities.setSelected(false);
+						tglBtnPickCity.setSelected(false);
+						tglbtnRandomizeAllCities.setEnabled(false);
+						tglBtnPickCity.setEnabled(false);
+						btnMartNone.setEnabled(false);
+						btnMartNone.setSelected(true);
+						for (int i = 0; i < CityPanel_list.length; i++) {
+		            		rdbtnViridian.setSelected(false);
+		            		rdbtnPewter.setSelected(false);
+		            		rdbtnCerulean.setSelected(false);
+		            		rdbtnVermilion.setSelected(false);
+		            		rdbtnLavender.setSelected(false);
+		            		rdbtnSaffron.setSelected(false);
+		            		rdbtnFuchsia.setSelected(false);
+		            		rdbtnCinnabarIsland.setSelected(false);
+		            		rdbtnPokemonLeague.setSelected(false);
+		            		rdbtnThreeIsland.setSelected(false);
+		            		rdbtnCeladonCityDepartment.setSelected(false);
+		            		rdbtnFourIsland.setSelected(false);
+		            		rdbtnSixIsland.setSelected(false);
+		            		rdbtnSevenIsland.setSelected(false);
+		            		rdbtnTrainerTower.setSelected(false);
+		        			CityPanel_list[i].setEnabled(false);
+		            	}
+					
+				}
 			}
 		});
 		
