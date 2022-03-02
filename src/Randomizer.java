@@ -5,6 +5,7 @@ import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.LineBorder;
+import java.util.Random;
 
 
 public class Randomizer {
@@ -15,6 +16,7 @@ public class Randomizer {
 	private JTextField txtBoundTo;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private byte[] openedRom;
+	
 
 	OpenCloseROM openCloseROM = new OpenCloseROM();
 	EditRom editRom = new EditRom();
@@ -137,7 +139,7 @@ public class Randomizer {
 		txtBoundTo.setEditable(false);
 		txtBoundTo.setColumns(10);
 
-		JToggleButton tglButtonLevelRandomization = new JToggleButton(new AbstractAction("Level Randomization") {
+		JToggleButton tglButtonLevelRandomization = new JToggleButton(new AbstractAction("Verify Levels") {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				AbstractButton abstractButton = (AbstractButton) e.getSource();
@@ -153,7 +155,7 @@ public class Randomizer {
 						txtBoundFrom.setEditable(false);
 						txtBoundTo.setEditable(false);
 
-						if (tonum <= fromnum) {
+						if (tonum < fromnum) {
 							throw new ArithmeticException();
 						}
 
@@ -169,14 +171,13 @@ public class Randomizer {
 						txtBoundFrom.setEditable(true);
 						txtBoundTo.setEditable(true);
 						abstractButton.setSelected(false);
-						JOptionPane.showMessageDialog (null, "'To' number is greater or equal to 'From' number");
+						JOptionPane.showMessageDialog (null, "'To' number is greater than 'From' number");
 					}
 				}
 				else {
 					txtBoundFrom.setEditable(true);
 					txtBoundTo.setEditable(true);
-					txtBoundTo.setText("");
-					txtBoundFrom.setText("");
+					
 
 				}
 			}
@@ -412,6 +413,25 @@ public class Randomizer {
 				}else if (tglButtonTrainer_NoChg.isSelected()) {
 
 				} // End Pokemon Trainers Teams Module
+
+				//Starter Pokemon Module
+				StarterModule starterMod;
+				if(ChckBxLevelRandom.isSelected()){
+					starterMod = new StarterModule(editRom, Integer.parseInt(txtBoundFrom.getText()), Integer.parseInt(txtBoundTo.getText()));
+				}
+				else{
+					starterMod = new StarterModule(editRom);
+				}
+				if(tglButtonFul_Rand.isSelected()){
+					starterMod.randomizeStartersAllPokemon();
+				}
+				else if(tglButtonThreeStg.isSelected()){
+					starterMod.randomizeStarterThreeStage();
+				}
+				else if(exLegendButton.isSelected()){
+					starterMod.randomizeStartersAllPokemonNoLegendary();
+				}
+				//end StarterPokemon Module
 
 				openCloseROM.saveROM();
 			}
@@ -680,4 +700,6 @@ public class Randomizer {
 
 
 	}
+
+
 }
