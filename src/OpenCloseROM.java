@@ -21,8 +21,6 @@ public class OpenCloseROM {
         return OpenedRom;
     }
 
-    public void openROM(){
-        String romPath;
 
 
   public byte[] getRom(){
