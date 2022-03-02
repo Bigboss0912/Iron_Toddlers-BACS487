@@ -7,6 +7,11 @@ public class EditRom {
     protected byte[] rom;
     protected Random random;
 
+    public EditRom(){
+        Random random = new Random();
+        this.seed = random.nextLong();
+        this.random = new Random(this.seed);
+    }
 
     public EditRom(byte[] rom){
         this.rom = rom;
@@ -19,6 +24,10 @@ public class EditRom {
         this.rom = rom;
         this.seed = seed;
         this.random = new Random(this.seed);
+    }
+
+    public void setRom(byte newRom[]) {
+        this.rom = newRom;
     }
 
     public void setSeed(long seed){
@@ -43,11 +52,22 @@ public class EditRom {
         System.out.println("Random Bit -- Offset: " + index + "    New Byte: " +  Byte.toString(newByte));
 
     }
-
     public void setByte(int index, int value){
         byte newByte = (byte) value;
         this.rom[index] = newByte;
         System.out.println("Random Bit -- Offset: " + index + "    New Byte: " + Byte.toString(newByte));
+    }
+
+    public int chooseFromList(int[] list){
+        int upperBound = list.length;
+        int randomIndex = this.random.nextInt(upperBound);
+        return list[randomIndex];
+    }
+
+    public void setByte(int index, int value){
+        byte newByte = (byte) value;
+        this.rom[index] = newByte;
+        // System.out.println("Random Bit -- Offset: " + index + "    New Byte: " + Byte.toString(newByte));
     }
 
     public int chooseFromList(int[] list){
