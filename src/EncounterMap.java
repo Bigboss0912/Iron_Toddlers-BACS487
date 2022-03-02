@@ -44,20 +44,25 @@ public class EncounterMap {
                 setPokemon(curCounter, pokemon, editRom);
                 curCounter += 4;
             }
+            curCounter+= 8;
         }
+        
         if(this.water){
             for(int i = 1; i <= 5; i ++){
                 pokemon = editRom.chooseFromList(allPokemon);
                 setPokemon(curCounter, pokemon, editRom);
                 curCounter += 4;
             }
+            curCounter+= 8;
         }
+        
         if(this.tree){
             for(int i = 1; i <= 5; i++){
                 pokemon = editRom.chooseFromList(allPokemon);
                 setPokemon(curCounter, pokemon, editRom);
                 curCounter += 4;
             }
+            curCounter+= 8;
         }
         if(this.fishingRod){
             for(int i = 1; i <= 10; i++){
