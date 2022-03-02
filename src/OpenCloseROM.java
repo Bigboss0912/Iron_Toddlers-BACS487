@@ -24,6 +24,13 @@ public class OpenCloseROM {
     public void openROM(){
         String romPath;
 
+
+  public byte[] getRom(){
+      return this.OpenedRom;
+  }
+
+  public void openROM(){
+    String romPath;
         try{
 
             JFileChooser fc = new JFileChooser();
