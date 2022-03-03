@@ -15,12 +15,17 @@ public class Randomizer {
 	private JTextField txtBoundFrom;
 	private JTextField txtBoundTo;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private final ButtonGroup itemsbuttonGroup = new ButtonGroup();
+	private final ButtonGroup itemsbuttonGroup2 = new ButtonGroup();
+
+
 	private byte[] openedRom;
 	
 
 	OpenCloseROM openCloseROM = new OpenCloseROM();
 	EditRom editRom = new EditRom();
 	TrainerPokemon trainersPokemon = new TrainerPokemon();
+	ItemModule itemModule = new ItemModule(editRom);
 
 	/**
 	 * Create the application.
@@ -294,6 +299,45 @@ public class Randomizer {
 		JPanel FieldTab = new JPanel();
 		FieldTab.setBorder(new LineBorder(new Color(0, 0, 0)));
 		tabbedPane.addTab("Field Items", null, FieldTab, null);
+		FieldTab.setLayout(null);
+
+
+		JPanel itemOpeningPanel = new JPanel();
+		itemOpeningPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		itemOpeningPanel.setBounds(29, 27, 791, 344);
+		FieldTab.add(itemOpeningPanel);
+		itemOpeningPanel.setLayout(null);
+
+		JLabel itemOpeningLabel = new JLabel("Main Options:");
+		itemOpeningLabel.setBounds(10, 19, 112, 22);
+		itemOpeningLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
+		itemOpeningPanel.add(itemOpeningLabel);
+
+		JToggleButton itemtglButtonTrainer_NoChg = new JToggleButton("No Change");
+		itemsbuttonGroup.add(itemtglButtonTrainer_NoChg);
+		itemtglButtonTrainer_NoChg.setToolTipText("No randomization will be made");
+		itemtglButtonTrainer_NoChg.setBounds(37, 54, 232, 42);
+		itemOpeningPanel.add(itemtglButtonTrainer_NoChg);
+
+		JToggleButton groundItems = new JToggleButton("Randomize Ground Items");
+		// itemsbuttonGroup.add(groundItems);
+		groundItems.setToolTipText("All items found on the ground will be randomized\r\n"+ "");
+		groundItems.setBounds(37, 110, 232, 42);
+		itemOpeningPanel.add(groundItems);
+
+		JToggleButton earlyBike = new JToggleButton("Early Bike");
+		// itemsbuttonGroup.add(earlyBike);
+		earlyBike.setToolTipText("The Mach Bike will be available in Pallet Town\r\n"+ "");
+		earlyBike.setBounds(37, 164, 232, 42);
+		itemOpeningPanel.add(earlyBike);
+
+		JToggleButton allMartItems= new JToggleButton("Randomize all Mart Items");
+		// itemsbuttonGroup.add(earlyBike);
+		allMartItems.setToolTipText("Every item for sale in every PokeMart will be randomized\r\n"+ "");
+		allMartItems.setBounds(37, 210, 232, 42);
+		itemOpeningPanel.add(allMartItems);
+
+
 
 		/**
 		 * Statistic Tab
@@ -433,6 +477,16 @@ public class Randomizer {
 				}
 				//end StarterPokemon Module
 
+				// item module
+				if (earlyBike.isSelected()) {
+					itemModule.get_Bike_Early();
+				}
+				if (groundItems.isSelected()) {
+					itemModule.randomize_Ground_Items();
+				}
+				if (allMartItems.isSelected()) {
+					itemModule.randomize_All_Cities();
+				}
 				openCloseROM.saveROM();
 			}
 		});
@@ -472,6 +526,10 @@ public class Randomizer {
 			OpeningPanel_list[i].setEnabled(false);
 		}
 
+		Component [] itemOpeningPanel_list = itemOpeningPanel.getComponents();
+		for (int i = 0; i < itemOpeningPanel_list.length; i++) {
+			itemOpeningPanel_list[i].setEnabled(false);
+		}
 
 
 		// Open Button
@@ -502,6 +560,10 @@ public class Randomizer {
 					//enable trainer tab randomize panel
 					for (int i = 0; i < OpeningPanel_list.length; i++) {
 						OpeningPanel_list[i].setEnabled(true);
+					}
+
+					for (int i = 0; i < itemOpeningPanel_list.length; i++) {
+						itemOpeningPanel_list[i].setEnabled(true);
 					}
 					//Exception for the Trainer Pokemon theme subtasks
 					combx_type.setEnabled(false);
