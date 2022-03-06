@@ -14,9 +14,10 @@ public class Randomizer {
 	public JLabel StatusValue, ROMValue;
 	private JTextField txtBoundFrom;
 	private JTextField txtBoundTo;
-	private final ButtonGroup buttonGroup = new ButtonGroup();
-	private final ButtonGroup itemsbuttonGroup = new ButtonGroup();
-	private final ButtonGroup itemsbuttonGroup2 = new ButtonGroup();
+	private final ButtonGroup startersButtonGroup = new ButtonGroup();
+	private final ButtonGroup trainersButtonGroup = new ButtonGroup();
+	private final ButtonGroup itemsButtonGroup = new ButtonGroup();
+	private final ButtonGroup itemsButtonGroup2 = new ButtonGroup();
 
 
 	private byte[] openedRom;
@@ -72,19 +73,19 @@ public class Randomizer {
 		RandomizePanel.setLayout(null);
 
 		JToggleButton tglButtonNoChange = new JToggleButton("No Change");
-		buttonGroup.add(tglButtonNoChange);
+		startersButtonGroup.add(tglButtonNoChange);
 		tglButtonNoChange.setBounds(105, 58, 161, 36);
 		tglButtonNoChange.setToolTipText("No randomization will be made");
 		RandomizePanel.add(tglButtonNoChange);
 
 		JToggleButton tglButtonFul_Rand = new JToggleButton("Fully Randomized");
-		buttonGroup.add(tglButtonFul_Rand);
+		startersButtonGroup.add(tglButtonFul_Rand);
 		tglButtonFul_Rand.setBounds(105, 105, 161, 36);
 		tglButtonFul_Rand.setToolTipText("Completely randomize the starter pokemon to be any possible pokemon");
 		RandomizePanel.add(tglButtonFul_Rand);
 
 		JToggleButton tglButtonThreeStg = new JToggleButton("Three Stage");
-		buttonGroup.add(tglButtonThreeStg);
+		startersButtonGroup.add(tglButtonThreeStg);
 		tglButtonThreeStg.setBounds(105, 152, 161, 36);
 		tglButtonThreeStg.setToolTipText("Randomize the starters to be any one of the first stage pokemon in a \n three stage evolution (ex. Geodude but not Graveler or Golem)");
 		RandomizePanel.add(tglButtonThreeStg);
@@ -95,7 +96,7 @@ public class Randomizer {
 		RandomizePanel.add(StarterRandLabel);
 
 		JToggleButton exLegendButton = new JToggleButton("Exclude Legendaries");
-		buttonGroup.add(exLegendButton);
+		startersButtonGroup.add(exLegendButton);
 		exLegendButton.setToolTipText("TBD");
 		exLegendButton.setBounds(105, 199, 161, 36);
 		RandomizePanel.add(exLegendButton);
@@ -231,13 +232,13 @@ public class Randomizer {
 		OpeningPanel.add(OpeningLabel);
 
 		JToggleButton tglButtonTrainer_NoChg = new JToggleButton("No Change");
-		buttonGroup.add(tglButtonTrainer_NoChg);
+		trainersButtonGroup.add(tglButtonTrainer_NoChg);
 		tglButtonTrainer_NoChg.setToolTipText("No randomization will be made");
 		tglButtonTrainer_NoChg.setBounds(37, 54, 232, 42);
 		OpeningPanel.add(tglButtonTrainer_NoChg);
 
 		JToggleButton tglButtonFul_Rand_Trainer = new JToggleButton("Fully Randomized Teams");
-		buttonGroup.add(tglButtonFul_Rand_Trainer);
+		trainersButtonGroup.add(tglButtonFul_Rand_Trainer);
 		tglButtonFul_Rand_Trainer.setToolTipText("Trainers teams will be completely random\r\n"
 				+ "");
 		tglButtonFul_Rand_Trainer.setBounds(37, 110, 232, 42);
@@ -314,25 +315,25 @@ public class Randomizer {
 		itemOpeningPanel.add(itemOpeningLabel);
 
 		JToggleButton itemtglButtonTrainer_NoChg = new JToggleButton("No Change");
-		itemsbuttonGroup.add(itemtglButtonTrainer_NoChg);
+		itemsButtonGroup.add(itemtglButtonTrainer_NoChg);
 		itemtglButtonTrainer_NoChg.setToolTipText("No randomization will be made");
 		itemtglButtonTrainer_NoChg.setBounds(37, 54, 232, 42);
 		itemOpeningPanel.add(itemtglButtonTrainer_NoChg);
 
 		JToggleButton groundItems = new JToggleButton("Randomize Ground Items");
-		// itemsbuttonGroup.add(groundItems);
+		// itemsButtonGroup.add(groundItems);
 		groundItems.setToolTipText("All items found on the ground will be randomized\r\n"+ "");
 		groundItems.setBounds(37, 110, 232, 42);
 		itemOpeningPanel.add(groundItems);
 
 		JToggleButton earlyBike = new JToggleButton("Early Bike");
-		// itemsbuttonGroup.add(earlyBike);
+		// itemsButtonGroup.add(earlyBike);
 		earlyBike.setToolTipText("The Mach Bike will be available in Pallet Town\r\n"+ "");
 		earlyBike.setBounds(37, 164, 232, 42);
 		itemOpeningPanel.add(earlyBike);
 
 		JToggleButton allMartItems= new JToggleButton("Randomize all Mart Items");
-		// itemsbuttonGroup.add(earlyBike);
+		// itemsButtonGroup.add(earlyBike);
 		allMartItems.setToolTipText("Every item for sale in every PokeMart will be randomized\r\n"+ "");
 		allMartItems.setBounds(37, 210, 232, 42);
 		itemOpeningPanel.add(allMartItems);
