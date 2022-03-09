@@ -817,6 +817,10 @@ public class Randomizer {
 					SaveButton.setEnabled(true);
 					SettingButton.setEnabled(true);
 
+					openedRom = openCloseROM.getRom();
+					editRom.setRom(openedRom);
+					trainersPokemon.setEditRom(editRom);
+
 					//enable starter tab randomize panel
 					for (int i = 0; i < RandomizePanel_list.length; i++) {
 						RandomizePanel_list[i].setEnabled(true);
