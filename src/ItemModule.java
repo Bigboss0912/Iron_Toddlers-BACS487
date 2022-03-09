@@ -280,12 +280,154 @@ public class ItemModule {
             1830100,
             1830074,
             1830139,
-            1830113
+            1830113,
+            1828267, //Viridian Forest 1
+            1828280, //Viridian Forest 2
+            1828293, //Viridian Forest 3
+            1829580, //Viridian Forest 4
+            1828371, //Mt Moon 1.1 1
+            1828358, //Mt Moon 1.1 2
+            1828345, //Mt Moon 1.1 3
+            1828332, //Mt Moon 1.1 4
+            1828319, //Mt Moon 1.1 5
+            1828306, //Mt Moon 1.1 6
+            1828397, //Mt Moon 1.3 1
+            1829593, //Mt Moon 1.3 2
+            1828606, //Mt Moon 1.3 3
+            1828384, //Mt Moon 1.3 4
+            1828527, //SS Anne 1.10
+            1828449, //SS Anne 1.13
+            1828462, //SS Anne 1.19
+            1828475, //SS Anne 1.21
+            1828488, //SS Anne 1.25
+            1828501, //SS Anne 1.26
+            1828514, //SS Anne 1.28
+            1829333, //Victory Road 1.39 1
+            1829346, //Victory Road 1.39 2
+            1829359, //Victory Road 1.40 1
+            1829372, //Victory Road 1.40 2
+            1829385, //Victory Road 1.40 3
+            1829411, //Victory Road 1.41 1
+            1829424, //Victory Road 1.41 2
+            1828618, //Rocket Hideout 1.43 1
+            1828605, //Rocket Hideout 1.43 2
+            1828592, //Rocket Hideout 1.43 3
+            1828579, //Rocket Hideout 1.43 4
+            1828631, //Rocket Hideout 1.44 1
+            1828644, //Rocket Hideout 1.44 2
+            1829840, //Rocket Hideout 1.44 3
+            1828657, //Rocket Hideout 1.45 1
+            1828670, //Rocket Hideout 1.45 2
+            1828683, //Rocket Hideout 1.45 3
+            1828969, //Silph Co 1.49
+            1828982, //Silph Co 1.50 1
+            1828995, //Silph Co 1.50 2
+            1829008, //Silph Co 1.50 3
+            1830412, //Silph Co 1.50 4
+            1829021, //Silph Co 1.51 1
+            1829034, //Silph Co 1.51 2
+            1829047//Silph Co 1.51 3
+            //Silph Co 1.52 1
+            //Silph Co 1.52 2
+            //Silph Co 1.53 1
+            //Silph Co 1.53 2
+            //Silph Co 1.54
+            //Silph Co 1.56 1
+            //Silph Co 1.56 2 
+            //Silph Co 1.56 3
+            //Silph Co 1.57
+            //Pokemon Mansion 1.59 1
+            //Pokemon Mansion 1.59 2
+            //Pokemon Mansion 1.59 3
+            //Pokemon Mansion 1.60 1
+            //Pokemon Mansion 1.60 2
+            //Pokemon Mansion 1.60 3
+            //Pokemon Mansion 1.61 1
+            //Pokemon Mansion 1.61 2
+            //Pokemon Mansion 1.62 1
+            //Pokemon Mansion 1.62 2
+            //Pokemon Mansion 1.62 3
+            //Pokemon Mansion 1.62 4
+            //Safari Zone 1.63
+            //Safari Zone 1.64 1
+            //Safari Zone 1.64 2
+            //Safari Zone 1.64 3
+            //Safari Zone 1.64 4
+            //Safari Zone 1.65 1
+            //Safari Zone 1.65 2
+            //Safari Zone 1.65 3
+            //Safari Zone 1.66 1
+            //Safari Zone 1.66 2
+            //Safari Zone 1.66 3
+            //Safari Zone 1.66 4
+            //Cerulean Cave 1.72 1
+            //Cerulean Cave 1.72 2
+            //Cerulean Cave 1.72 3
+            //Cerulean Cave 1.73 1
+            //Cerulean Cave 1.73 2
+            //Cerulean Cave 1.73 3
+            //Cerulean Cave 1.74 1
+            //Cerulean Cave 1.74 2
+            //Rock Tunnel 1.81 1
+            //Rock Tunnel 1.81 2
+            //Rock Tunnel 1.81 3
+            //Rock Tunnel 1.82 1
+            //Rock Tunnel 1.82 2
+            //Seafoam Islands 1.83
+            //Seafoam Islands 1.84 1
+            //Seafoam Islands 1.84 2
+            //Seafoam Islands 1.85
+            //Seafoam Islands 1.87
+            //Seafoam Islands 1.90
+            //Seafoam Islands 1.91 1
+            //Seafoam Islands 1.91 2
+            //Seafoam Islands 1.91 3
+            //Seafoam Islands 1.92 1
+            //Seafoam Islands 1.92 2
+            //Seafoam Islands 1.93 1
+            //Seafoam Islands 1.93 2
+            //Power Plant 1
+            //Power Plant 2
+            //Power Plant 3
+            //Power Plant 4
+            //Power Plant 5
+            //Power Plant 6
+            //Power Plant 7
+            //Mt Ember 1.97 1
+            //Mt Ember 1.97 2
+            //Mt Ember 1.97 3
+            //Berry Forest 1
+            //Berry Forest 2
+            //Icefall Cave 1.111 1
+            //Icefall Cave 1.111 2
+            //Icefall Cave 1.112 1
+            //Icefall Cave 1.112 2
+            //Rocket Warehouse 1
+            //Rocket Warehouse 2
+            //Rocket Warehouse 3
+            //Rocket Warehouse 4
+            //Lost Cave 2.22 
+            //Lost Cave 2.23
+            //Lost Cave 2.23
+            //Lost Cave 2.24
+            //Lost Cave 2.25
+            //Lost Cave 2.26
+            //Fushia City 11.7
+            //Sevault Canyon 42.0
+
+
+
+
+
+
+
+            
             );
 
         for (int i = 0; i < ground_item_indexes.size(); i++) {
             int index = ground_item_indexes.get(i);
             editRom.editRom(index, allItems);
+            System.out.println("RANDOMIZED GROUND ITEM");
         }
     }
     
