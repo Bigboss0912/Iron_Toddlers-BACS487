@@ -505,10 +505,10 @@ public class Randomizer {
 		MainOptPanel.add(tglBtnRandWorldItems);
 		tglBtnRandWorldItems.setToolTipText("Randomize the items found and bought in the world ");
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("   Ground Item Randomization");
-		chckbxNewCheckBox.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		chckbxNewCheckBox.setBounds(143, 153, 258, 30);
-		FieldMainPanel.add(chckbxNewCheckBox);
+		JCheckBox chckbxGroundItems = new JCheckBox("   Ground Item Randomization");
+		chckbxGroundItems.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		chckbxGroundItems.setBounds(143, 153, 258, 30);
+		FieldMainPanel.add(chckbxGroundItems);
 		
 		JPanel subOptPanel = new JPanel();
 		subOptPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -770,13 +770,13 @@ public class Randomizer {
 				//end StarterPokemon Module
 
 				// item module
-				if (earlyBike.isSelected()) {
+				if (chckbxEarlyBike.isSelected()) {
 					itemModule.get_Bike_Early();
 				}
-				if (groundItems.isSelected()) {
+				if (chckbxGroundItems.isSelected()) {
 					itemModule.randomize_Ground_Items();
 				}
-				if (allMartItems.isSelected()) {
+				if (chckbxEnablePokeMart.isSelected()) {
 					itemModule.randomize_All_Cities();
 				}
 				openCloseROM.saveROM();
@@ -805,73 +805,36 @@ public class Randomizer {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-					//code
-					openCloseROM.openROM();
-					if (openCloseROM.correcthash == true) {
-		            	ROMValue.setText("Pokemon-FireRed Version (USA)");
-		            	StatusValue.setText("Success!!!");
-		            	//TODO Add a "loading..." message so user knows program isn't frozen
-		                JOptionPane.showMessageDialog(null, "ROM Loaded Successfully!");
-		                //enabling action panel
-		                SeedButton.setEnabled(true);
-						SaveButton.setEnabled(true);
-						SettingButton.setEnabled(true);
-						
-						//enable starter tab randomize panel
-						for (int i = 0; i < RandomizePanel_list.length; i++) {
-							RandomizePanel_list[i].setEnabled(true);
-						}
-						
-						//Exception enabling starter tab level panel
-						Boundlbl.setEnabled(true);
-						ChckBxLevelRandom.setEnabled(true);
-						lblFrom.setEnabled(true);
-						lblTo.setEnabled(true);
-						LevelLabel.setEnabled(true);
-						
-						/*
-						 * /enable trainer tab randomize panel
-						 */
-						
-						for (int i = 0; i < OpeningPanel_list.length; i++) {
-							OpeningPanel_list[i].setEnabled(true);
-						}
-						//Exception for the Trainer Pokemon theme subtasks
-						combx_type.setEnabled(false);
-						lbltype.setEnabled(false);
-						chckbxKeepGymLeader.setEnabled(false);
-						chckbxExcludeLegendaries.setEnabled(false);
-						tglButtonFul_Rand_Trainer_Type.setEnabled(false);
-						
-						/*
-						 * /enable Field item tab randomize panel
-						 */
-						for (int i = 0; i < FieldMainPanel_list.length; i++) {
-							FieldMainPanel_list[i].setEnabled(true);
-						}
-						//enable Field item tab randomize sub panel
-						for (int i = 0; i < MainOptPanel_list.length; i++) {
-							MainOptPanel_list[i].setEnabled(true);
-						}
-						//enable Field item tab randomize sub panel
-						for (int i = 0; i < subOptPanel_list.length; i++) {
-							subOptPanel_list[i].setEnabled(true);
-						}
-						chckbxEnablePokeMart.setEnabled(true);
-						//enable wild item tab randomize sub panel
-						for (int i = 0; i < MainOptPanel_Wild_list.length; i++) {
-							MainOptPanel_Wild_list[i].setEnabled(true);
-						}
-						Openinglbl_Wild.setEnabled(true);
-						
+				//code
+				openCloseROM.openROM();
+				if (openCloseROM.correcthash == true) {
+					ROMValue.setText("Pokemon-FireRed Version (USA)");
+					StatusValue.setText("Success!!!");
+					//TODO Add a "loading..." message so user knows program isn't frozen
+					JOptionPane.showMessageDialog(null, "ROM Loaded Successfully!");
+					//enabling action panel
+					SeedButton.setEnabled(true);
+					SaveButton.setEnabled(true);
+					SettingButton.setEnabled(true);
 
+					//enable starter tab randomize panel
+					for (int i = 0; i < RandomizePanel_list.length; i++) {
+						RandomizePanel_list[i].setEnabled(true);
 					}
-					//Incorrect ROM file loaded
-					if (openCloseROM.correcthash == false) {
-						JOptionPane.showMessageDialog(null, "Not Valid!! Please, reload the correct ROM file");
-						ROMValue.setText("");
-		            	StatusValue.setText("");
 
+					//Exception enabling starter tab level panel
+					Boundlbl.setEnabled(true);
+					ChckBxLevelRandom.setEnabled(true);
+					lblFrom.setEnabled(true);
+					lblTo.setEnabled(true);
+					LevelLabel.setEnabled(true);
+
+					/*
+					 * /enable trainer tab randomize panel
+					 */
+
+					for (int i = 0; i < OpeningPanel_list.length; i++) {
+						OpeningPanel_list[i].setEnabled(true);
 					}
 					//Exception for the Trainer Pokemon theme subtasks
 					combx_type.setEnabled(false);
@@ -880,21 +843,52 @@ public class Randomizer {
 					chckbxExcludeLegendaries.setEnabled(false);
 					tglButtonFul_Rand_Trainer_Type.setEnabled(false);
 
-					//enabling starter tab level panel
-					Boundlbl.setEnabled(true);
-					ChckBxLevelRandom.setEnabled(true);
-					lblFrom.setEnabled(true);
-					lblTo.setEnabled(true);
-					LevelLabel.setEnabled(true);
+					/*
+					 * /enable Field item tab randomize panel
+					 */
+					for (int i = 0; i < FieldMainPanel_list.length; i++) {
+						FieldMainPanel_list[i].setEnabled(true);
+					}
+					//enable Field item tab randomize sub panel
+					for (int i = 0; i < MainOptPanel_list.length; i++) {
+						MainOptPanel_list[i].setEnabled(true);
+					}
+					//enable Field item tab randomize sub panel
+					for (int i = 0; i < subOptPanel_list.length; i++) {
+						subOptPanel_list[i].setEnabled(true);
+					}
+					chckbxEnablePokeMart.setEnabled(true);
+					//enable wild item tab randomize sub panel
+					for (int i = 0; i < MainOptPanel_Wild_list.length; i++) {
+						MainOptPanel_Wild_list[i].setEnabled(true);
+					}
+					Openinglbl_Wild.setEnabled(true);
+
+
 				}
 				//Incorrect ROM file loaded
 				if (openCloseROM.correcthash == false) {
 					JOptionPane.showMessageDialog(null, "Not Valid!! Please, reload the correct ROM file");
 					ROMValue.setText("");
 					StatusValue.setText("");
+
 				}
+				//Exception for the Trainer Pokemon theme subtasks
+				combx_type.setEnabled(false);
+				lbltype.setEnabled(false);
+				chckbxKeepGymLeader.setEnabled(false);
+				chckbxExcludeLegendaries.setEnabled(false);
+				tglButtonFul_Rand_Trainer_Type.setEnabled(false);
+
+				//enabling starter tab level panel
+				Boundlbl.setEnabled(true);
+				ChckBxLevelRandom.setEnabled(true);
+				lblFrom.setEnabled(true);
+				lblTo.setEnabled(true);
+				LevelLabel.setEnabled(true);
 			}
-		});
+			}
+		);
 
 		/**
 		 * Picture Label (Charmander)
@@ -1124,7 +1118,8 @@ public class Randomizer {
 		ActionPanel.setLayout(gl_ActionPanel);
 		frmPokemon.getContentPane().setLayout(groupLayout);
 
-
+		}
 	}
 
-}
+
+
