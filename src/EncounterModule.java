@@ -32,6 +32,14 @@ public class EncounterModule{
 
     }
 
+    public void randomizeEncountersByArea(){
+        //todo: this
+    }
+
+    public void randomizeEncountersByPokemon(){
+        //todo: this
+    }
+
     public void fillBankOne(){
         EncounterMap map;
         map = new EncounterMap(1,0, 3962154,true, false, false, false);
