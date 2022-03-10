@@ -16,6 +16,7 @@ public class Randomizer {
 	private JTextField txtBoundFrom;
 	private JTextField txtBoundTo;
 	private final ButtonGroup Trainer_MainBtngrp = new ButtonGroup();
+	private final ButtonGroup FieldItem_MainOptBtnGrp = new ButtonGroup();
 	private final ButtonGroup MartBtngrp = new ButtonGroup();
 	private final ButtonGroup Starter_MainBtngrp = new ButtonGroup();
 	private final ButtonGroup Wild_MainBtngrp = new ButtonGroup();
@@ -494,13 +495,13 @@ public class Randomizer {
 		MainOptPanel.setLayout(null);
 		
 		JToggleButton tglButtonFieldItem_NoChg = new JToggleButton("No Change");
-		Trainer_MainBtngrp.add(tglButtonFieldItem_NoChg);
+		FieldItem_MainOptBtnGrp.add(tglButtonFieldItem_NoChg);
 		tglButtonFieldItem_NoChg.setBounds(23, 11, 213, 42);
 		MainOptPanel.add(tglButtonFieldItem_NoChg);
 		tglButtonFieldItem_NoChg.setToolTipText("No randomization will be made");
 		
 		JToggleButton tglBtnRandWorldItems = new JToggleButton("Randomize World Items");
-		Trainer_MainBtngrp.add(tglBtnRandWorldItems);
+		FieldItem_MainOptBtnGrp.add(tglBtnRandWorldItems);
 		tglBtnRandWorldItems.setBounds(23, 67, 213, 42);
 		MainOptPanel.add(tglBtnRandWorldItems);
 		tglBtnRandWorldItems.setToolTipText("Randomize the items found and bought in the world ");
