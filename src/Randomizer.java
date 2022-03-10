@@ -237,19 +237,25 @@ public class Randomizer {
 		JToggleButton tglBtnWild_NoChg_ = new JToggleButton("No Change");
 		Wild_MainBtngrp.add(tglBtnWild_NoChg_);
 		tglBtnWild_NoChg_.setToolTipText("No randomization will be made");
-		tglBtnWild_NoChg_.setBounds(23, 25, 294, 42);
+		tglBtnWild_NoChg_.setBounds(23, 25, 294, 40);
 		MainOptPanel_Wild.add(tglBtnWild_NoChg_);
-		
+
+		JToggleButton tglBtnWild_AllRandom = new JToggleButton("Complete Randomization");
+		Wild_MainBtngrp.add(tglBtnWild_AllRandom);
+		tglBtnWild_AllRandom.setToolTipText("Every random encounter slot will be fully randomized.");
+		tglBtnWild_AllRandom.setBounds(23, 83, 294, 40);
+		MainOptPanel_Wild.add(tglBtnWild_AllRandom);
+
 		JToggleButton tglbtn1to1AreaRandz = new JToggleButton("1-to-1 Area Randomization");
 		Wild_MainBtngrp.add(tglbtn1to1AreaRandz);
-		tglbtn1to1AreaRandz.setToolTipText("");
-		tglbtn1to1AreaRandz.setBounds(23, 107, 294, 42);
+		tglbtn1to1AreaRandz.setToolTipText("To be implemented");
+		tglbtn1to1AreaRandz.setBounds(23, 141, 294, 40);
 		MainOptPanel_Wild.add(tglbtn1to1AreaRandz);
 		
 		JToggleButton tglbtn1to1PokemonRandomization = new JToggleButton("1-to-1 Pokemon Randomization");
-		tglbtn1to1PokemonRandomization.setToolTipText("");
+		tglbtn1to1PokemonRandomization.setToolTipText("to be implemented");
 		Wild_MainBtngrp.add(tglbtn1to1PokemonRandomization);
-		tglbtn1to1PokemonRandomization.setBounds(23, 190, 294, 42);
+		tglbtn1to1PokemonRandomization.setBounds(23, 199, 294, 40);
 		MainOptPanel_Wild.add(tglbtn1to1PokemonRandomization);
 		
 		/**
@@ -780,6 +786,22 @@ public class Randomizer {
 				if (chckbxEnablePokeMart.isSelected()) {
 					itemModule.randomize_All_Cities();
 				}
+				// end Item Module
+
+				//start Wild Encounter module
+				EncounterModule encounterModule = new EncounterModule(editRom);
+				if(tglBtnWild_AllRandom.isSelected()){
+					encounterModule.randomizeEncounters();
+				}
+				if(tglbtn1to1AreaRandz.isSelected()){
+					encounterModule.randomizeEncountersByArea();
+				}
+				if(tglbtn1to1PokemonRandomization.isSelected()){
+					encounterModule.randomizeEncountersByPokemon();
+				}
+				//end Wild Encounter Module
+
+
 				openCloseROM.saveROM();
 			}
 		});
