@@ -326,94 +326,91 @@ public class ItemModule {
             1830412, //Silph Co 1.50 4
             1829021, //Silph Co 1.51 1
             1829034, //Silph Co 1.51 2
-            1829047//Silph Co 1.51 3
-            //Silph Co 1.52 1
-            //Silph Co 1.52 2
-            //Silph Co 1.53 1
-            //Silph Co 1.53 2
-            //Silph Co 1.54
-            //Silph Co 1.56 1
-            //Silph Co 1.56 2 
-            //Silph Co 1.56 3
-            //Silph Co 1.57
-            //Pokemon Mansion 1.59 1
-            //Pokemon Mansion 1.59 2
-            //Pokemon Mansion 1.59 3
-            //Pokemon Mansion 1.60 1
-            //Pokemon Mansion 1.60 2
-            //Pokemon Mansion 1.60 3
-            //Pokemon Mansion 1.61 1
-            //Pokemon Mansion 1.61 2
-            //Pokemon Mansion 1.62 1
-            //Pokemon Mansion 1.62 2
-            //Pokemon Mansion 1.62 3
-            //Pokemon Mansion 1.62 4
-            //Safari Zone 1.63
-            //Safari Zone 1.64 1
-            //Safari Zone 1.64 2
-            //Safari Zone 1.64 3
-            //Safari Zone 1.64 4
-            //Safari Zone 1.65 1
-            //Safari Zone 1.65 2
-            //Safari Zone 1.65 3
-            //Safari Zone 1.66 1
-            //Safari Zone 1.66 2
-            //Safari Zone 1.66 3
-            //Safari Zone 1.66 4
-            //Cerulean Cave 1.72 1
-            //Cerulean Cave 1.72 2
-            //Cerulean Cave 1.72 3
-            //Cerulean Cave 1.73 1
-            //Cerulean Cave 1.73 2
-            //Cerulean Cave 1.73 3
-            //Cerulean Cave 1.74 1
-            //Cerulean Cave 1.74 2
-            //Rock Tunnel 1.81 1
-            //Rock Tunnel 1.81 2
-            //Rock Tunnel 1.81 3
-            //Rock Tunnel 1.82 1
-            //Rock Tunnel 1.82 2
-            //Seafoam Islands 1.83
-            //Seafoam Islands 1.84 1
-            //Seafoam Islands 1.84 2
-            //Seafoam Islands 1.85
-            //Seafoam Islands 1.87
-            //Seafoam Islands 1.90
-            //Seafoam Islands 1.91 1
-            //Seafoam Islands 1.91 2
-            //Seafoam Islands 1.91 3
-            //Seafoam Islands 1.92 1
-            //Seafoam Islands 1.92 2
-            //Seafoam Islands 1.93 1
-            //Seafoam Islands 1.93 2
-            //Power Plant 1
-            //Power Plant 2
-            //Power Plant 3
-            //Power Plant 4
-            //Power Plant 5
-            //Power Plant 6
-            //Power Plant 7
-            //Mt Ember 1.97 1
-            //Mt Ember 1.97 2
-            //Mt Ember 1.97 3
-            //Berry Forest 1
-            //Berry Forest 2
-            //Icefall Cave 1.111 1
-            //Icefall Cave 1.111 2
-            //Icefall Cave 1.112 1
-            //Icefall Cave 1.112 2
-            //Rocket Warehouse 1
-            //Rocket Warehouse 2
-            //Rocket Warehouse 3
-            //Rocket Warehouse 4
-            //Lost Cave 2.22 
-            //Lost Cave 2.23
-            //Lost Cave 2.23
-            //Lost Cave 2.24
-            //Lost Cave 2.25
-            //Lost Cave 2.26
-            //Fushia City 11.7
-            //Sevault Canyon 42.0
+            1829047, //Silph Co 1.51 3
+            1829060, //Silph Co 1.52 1
+            1829073, //Silph Co 1.52 2
+            1829086, //Silph Co 1.53 1
+            1829099, //Silph Co 1.53 2
+            1829710, //Silph Co 1.54
+            1829112, //Silph Co 1.56 1
+            1829125, //Silph Co 1.56 2 
+            1829138, //Silph Co 1.56 3
+            1829723, //Silph Co 1.57
+            1829736, //Pokemon Mansion 1.59 1
+            1829216, //Pokemon Mansion 1.59 2
+            1829229, //Pokemon Mansion 1.59 3
+            1829242, //Pokemon Mansion 1.60 1
+            1829749, //Pokemon Mansion 1.60 2
+            1829762, //Pokemon Mansion 1.60 3
+            1829255, //Pokemon Mansion 1.61 1
+            1829268, //Pokemon Mansion 1.61 2
+            1829281, //Pokemon Mansion 1.62 1
+            1829294, //Pokemon Mansion 1.62 2
+            1829307, //Pokemon Mansion 1.62 3
+            1829320, //Pokemon Mansion 1.62 4
+            1828826, //Safari Zone 1.63
+            1828839, //Safari Zone 1.64 1
+            1828852, //Safari Zone 1.64 2
+            1828865, //Safari Zone 1.64 3
+            1828878, //Safari Zone 1.64 4
+            1828891, //Safari Zone 1.65 1
+            1828904, //Safari Zone 1.65 2
+            1829853, //Safari Zone 1.65 3
+            1828943, //Safari Zone 1.66 1
+            1828956, //Safari Zone 1.66 2
+            1828930, //Safari Zone 1.66 3
+            1828917, //Safari Zone 1.66 4
+            1829437, //Cerulean Cave 1.72 1
+            1829450, //Cerulean Cave 1.72 2
+            1829463, //Cerulean Cave 1.72 3
+            1829476, //Cerulean Cave 1.73 1
+            1829489, //Cerulean Cave 1.73 2
+            1829502, //Cerulean Cave 1.73 3
+            1829515, //Cerulean Cave 1.74 1
+            1829528, //Cerulean Cave 1.74 2
+            1829645, //Rock Tunnel 1.81 1
+            1829658, //Rock Tunnel 1.81 2
+            1829671, //Rock Tunnel 1.81 3
+            1829684, //Rock Tunnel 1.82 1
+            1829697, //Rock Tunnel 1.82 2
+            1829866, //Seafoam Islands 1.83
+            1829879, //Seafoam Islands 1.84 1
+            1829892, //Seafoam Islands 1.84 2
+            1829905, //Seafoam Islands 1.85
+            1829918, //Seafoam Islands 1.87
+            1828696, //Pokemon Tower 1.90
+            1828709, //Pokemon Tower 1.91 1
+            1828722, //Pokemon Tower 1.91 2
+            1828735, //Pokemon Tower 1.91 3
+            1828748, //Pokemon Tower 1.92 1
+            1829814, //Pokemon Tower 1.92 2
+            1828761, //Pokemon Tower 1.93 1
+            1828774, //Pokemon Tower 1.93 2
+            1829151, //Power Plant 1
+            1829164, //Power Plant 2
+            1829177, //Power Plant 3
+            1829190, //Power Plant 4
+            1829203, //Power Plant 5
+            1830217, //Mt Ember 1.97 1
+            1830204, //Mt Ember 1.97 2
+            1830191, //Mt Ember 1.97 3
+            1830152, //Berry Forest 1
+            1830165, //Berry Forest 2
+            1830178, //Berry Forest 3
+            1830230, //Icefall Cave 1.111 1
+            1830256, //Icefall Cave 1.112 1
+            1830269, //Icefall Cave 1.112 2
+            1830321, //Rocket Warehouse 1
+            1830308, //Rocket Warehouse 2
+            1830295, //Rocket Warehouse 3
+            1830282, //Rocket Warehouse 4
+            1830334, //Lost Cave 2.22 
+            1830347, //Lost Cave 2.23
+            1830360, //Lost Cave 2.24
+            1830373, //Lost Cave 2.25
+            1830386, //Lost Cave 2.26
+            1829541, //Fushia City 11.7
+            1830399 //Sevault Canyon 42.0
 
 
 
