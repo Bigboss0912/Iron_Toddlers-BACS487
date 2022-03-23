@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class EditRom {
@@ -24,6 +25,11 @@ public class EditRom {
         this.rom = rom;
         this.seed = seed;
         this.random = new Random(this.seed);
+    }
+
+    public byte getByte(int index){
+        byte currentValue = rom[index];
+        return currentValue;
     }
 
     public void setRom(byte newRom[]) {
@@ -69,6 +75,11 @@ public class EditRom {
         int upperBound = list.length;
         int randomIndex = this.random.nextInt(upperBound);
         return list[randomIndex];
+    }
+    public int chooseFromList(ArrayList<Integer> list){
+        int upperBound = list.size();
+        int randomIndex = this.random.nextInt(upperBound);
+        return list.get(randomIndex);
     }
 
     public void editRom(int index, int[] possibleValuesInt){
