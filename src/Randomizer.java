@@ -16,9 +16,13 @@ public class Randomizer {
 	private JTextField txtBoundFrom;
 	private JTextField txtBoundTo;
 	private final ButtonGroup Trainer_MainBtngrp = new ButtonGroup();
+	private final ButtonGroup FieldItem_MainOptBtnGrp = new ButtonGroup();
 	private final ButtonGroup MartBtngrp = new ButtonGroup();
 	private final ButtonGroup Starter_MainBtngrp = new ButtonGroup();
 	private final ButtonGroup Wild_MainBtngrp = new ButtonGroup();
+	private final ButtonGroup StatTab_MainOptBtnGrp = new ButtonGroup();
+	
+	
 
 
 
@@ -30,6 +34,9 @@ public class Randomizer {
 	EditRom editRom = new EditRom();
 	TrainerPokemon trainersPokemon = new TrainerPokemon();
 	ItemModule itemModule = new ItemModule(editRom);
+	private JTextField delta_input;
+	private JTextField Sum_txtField;
+	
 
 	/**
 	 * Create the application.
@@ -236,19 +243,25 @@ public class Randomizer {
 		JToggleButton tglBtnWild_NoChg_ = new JToggleButton("No Change");
 		Wild_MainBtngrp.add(tglBtnWild_NoChg_);
 		tglBtnWild_NoChg_.setToolTipText("No randomization will be made");
-		tglBtnWild_NoChg_.setBounds(23, 25, 294, 42);
+		tglBtnWild_NoChg_.setBounds(23, 25, 294, 40);
 		MainOptPanel_Wild.add(tglBtnWild_NoChg_);
-		
+
+		JToggleButton tglBtnWild_AllRandom = new JToggleButton("Complete Randomization");
+		Wild_MainBtngrp.add(tglBtnWild_AllRandom);
+		tglBtnWild_AllRandom.setToolTipText("Every random encounter slot will be fully randomized.");
+		tglBtnWild_AllRandom.setBounds(23, 83, 294, 40);
+		MainOptPanel_Wild.add(tglBtnWild_AllRandom);
+
 		JToggleButton tglbtn1to1AreaRandz = new JToggleButton("1-to-1 Area Randomization");
 		Wild_MainBtngrp.add(tglbtn1to1AreaRandz);
-		tglbtn1to1AreaRandz.setToolTipText("");
-		tglbtn1to1AreaRandz.setBounds(23, 107, 294, 42);
+		tglbtn1to1AreaRandz.setToolTipText("To be implemented");
+		tglbtn1to1AreaRandz.setBounds(23, 141, 294, 40);
 		MainOptPanel_Wild.add(tglbtn1to1AreaRandz);
 		
 		JToggleButton tglbtn1to1PokemonRandomization = new JToggleButton("1-to-1 Pokemon Randomization");
-		tglbtn1to1PokemonRandomization.setToolTipText("");
+		tglbtn1to1PokemonRandomization.setToolTipText("to be implemented");
 		Wild_MainBtngrp.add(tglbtn1to1PokemonRandomization);
-		tglbtn1to1PokemonRandomization.setBounds(23, 190, 294, 42);
+		tglbtn1to1PokemonRandomization.setBounds(23, 199, 294, 40);
 		MainOptPanel_Wild.add(tglbtn1to1PokemonRandomization);
 		
 		/**
@@ -494,21 +507,21 @@ public class Randomizer {
 		MainOptPanel.setLayout(null);
 		
 		JToggleButton tglButtonFieldItem_NoChg = new JToggleButton("No Change");
-		Trainer_MainBtngrp.add(tglButtonFieldItem_NoChg);
+		FieldItem_MainOptBtnGrp.add(tglButtonFieldItem_NoChg);
 		tglButtonFieldItem_NoChg.setBounds(23, 11, 213, 42);
 		MainOptPanel.add(tglButtonFieldItem_NoChg);
 		tglButtonFieldItem_NoChg.setToolTipText("No randomization will be made");
 		
 		JToggleButton tglBtnRandWorldItems = new JToggleButton("Randomize World Items");
-		Trainer_MainBtngrp.add(tglBtnRandWorldItems);
+		FieldItem_MainOptBtnGrp.add(tglBtnRandWorldItems);
 		tglBtnRandWorldItems.setBounds(23, 67, 213, 42);
 		MainOptPanel.add(tglBtnRandWorldItems);
 		tglBtnRandWorldItems.setToolTipText("Randomize the items found and bought in the world ");
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("   Ground Item Randomization");
-		chckbxNewCheckBox.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		chckbxNewCheckBox.setBounds(143, 153, 258, 30);
-		FieldMainPanel.add(chckbxNewCheckBox);
+		JCheckBox chckbxGroundItems = new JCheckBox("   Ground Item Randomization");
+		chckbxGroundItems.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		chckbxGroundItems.setBounds(143, 153, 258, 30);
+		FieldMainPanel.add(chckbxGroundItems);
 		
 		JPanel subOptPanel = new JPanel();
 		subOptPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -634,17 +647,83 @@ public class Randomizer {
 		/**
 		 * Statistic Tab
 		 */
+		
 		JPanel StatsTabs = new JPanel();
 		StatsTabs.setBorder(new LineBorder(new Color(0, 0, 0)));
-		tabbedPane.addTab("Pokemon Stats", null, StatsTabs, null);
-
-		/**
-		 * Moves Tab
-		 */
-
-		JPanel CompMovesTab = new JPanel();
-		CompMovesTab.setBorder(new LineBorder(new Color(0, 0, 0)));
-		tabbedPane.addTab("Compatability & Moves", null, CompMovesTab, null);
+		tabbedPane.addTab("Pokemon Moves and Stats", null, StatsTabs, null);
+		StatsTabs.setLayout(null);
+		
+		JLabel MainOptlbl_stats = new JLabel("Main Options:");
+		MainOptlbl_stats.setFont(new Font("Tahoma", Font.BOLD, 16));
+		MainOptlbl_stats.setBounds(26, 47, 112, 22);
+		StatsTabs.add(MainOptlbl_stats);
+		
+		JPanel MainOptPanel_stats = new JPanel();
+		MainOptPanel_stats.setLayout(null);
+		MainOptPanel_stats.setBorder(new LineBorder(new Color(0, 0, 0)));
+		MainOptPanel_stats.setBounds(148, 47, 258, 304);
+		StatsTabs.add(MainOptPanel_stats);
+		
+		JToggleButton tglButtonStatsTab_NoChg = new JToggleButton("No Change");
+		StatTab_MainOptBtnGrp.add(tglButtonStatsTab_NoChg);
+		tglButtonStatsTab_NoChg.setToolTipText("No randomization will be made");
+		tglButtonStatsTab_NoChg.setBounds(23, 24, 213, 42);
+		MainOptPanel_stats.add(tglButtonStatsTab_NoChg);
+		
+		JToggleButton tglbtnFullStatRandomization = new JToggleButton("Full Stat Randomization");
+		StatTab_MainOptBtnGrp.add(tglbtnFullStatRandomization);
+		tglbtnFullStatRandomization.setToolTipText("Completely Randomize all pokemons stats ");
+		tglbtnFullStatRandomization.setBounds(23, 77, 213, 42);
+		MainOptPanel_stats.add(tglbtnFullStatRandomization);
+		
+		JToggleButton tglbtnVerify_DeltaRandomization = new JToggleButton("Verify Delta Randomization");
+		StatTab_MainOptBtnGrp.add(tglbtnVerify_DeltaRandomization);
+		tglbtnVerify_DeltaRandomization.setToolTipText("Randomize stats based on a given value (if you enter 5, each stat will change from between -5 to +5) ");
+		tglbtnVerify_DeltaRandomization.setBounds(23, 232, 213, 42);
+		MainOptPanel_stats.add(tglbtnVerify_DeltaRandomization);
+		tglbtnVerify_DeltaRandomization.addActionListener(null);
+		
+		
+		JLabel deltaValuelbl = new JLabel("Enter Delta Value (1-9):");
+		deltaValuelbl.setFont(new Font("Tahoma", Font.BOLD, 12));
+		deltaValuelbl.setBounds(23, 188, 155, 20);
+		MainOptPanel_stats.add(deltaValuelbl);
+		
+		delta_input = new JTextField();
+		delta_input.setHorizontalAlignment(SwingConstants.RIGHT);
+		delta_input.setBounds(184, 189, 52, 20);
+		MainOptPanel_stats.add(delta_input);
+		delta_input.setColumns(10);
+		
+		JCheckBox chckbxEnableDeltaRand = new JCheckBox("Enable Delta Randomization");
+		chckbxEnableDeltaRand.setFont(new Font("Tahoma", Font.BOLD, 12));
+		chckbxEnableDeltaRand.setBounds(23, 146, 213, 23);
+		MainOptPanel_stats.add(chckbxEnableDeltaRand);
+		
+		JLabel SubOptlbl_stats = new JLabel("Sub Options:");
+		SubOptlbl_stats.setFont(new Font("Tahoma", Font.BOLD, 16));
+		SubOptlbl_stats.setBounds(466, 47, 112, 22);
+		StatsTabs.add(SubOptlbl_stats);
+		
+		JPanel SubOptPanel_stats = new JPanel();
+		SubOptPanel_stats.setBorder(new LineBorder(new Color(0, 0, 0)));
+		SubOptPanel_stats.setBounds(588, 47, 258, 160);
+		StatsTabs.add(SubOptPanel_stats);
+		SubOptPanel_stats.setLayout(null);
+		
+		JCheckBox chckbxEnable_stat = new JCheckBox("Enable TM/HM Compatibility");
+		chckbxEnable_stat.setFont(new Font("Tahoma", Font.BOLD, 12));
+		chckbxEnable_stat.setBounds(22, 25, 218, 31);
+		SubOptPanel_stats.add(chckbxEnable_stat);
+		
+		JCheckBox chckbxTMComp = new JCheckBox("Change TM Compatibility");
+		chckbxTMComp.setBounds(43, 69, 178, 23);
+		SubOptPanel_stats.add(chckbxTMComp);
+		
+		JCheckBox chckbxHM_Comp = new JCheckBox("Change HM Compatibility");
+		chckbxHM_Comp.setToolTipText("Make all HMs compatible with any pokemon");
+		chckbxHM_Comp.setBounds(43, 95, 178, 23);
+		SubOptPanel_stats.add(chckbxHM_Comp);
 
 		/**
 		 * Summary Tab
@@ -653,6 +732,21 @@ public class Randomizer {
 		JPanel SummaryTab = new JPanel();
 		SummaryTab.setBorder(new LineBorder(new Color(0, 0, 0)));
 		tabbedPane.addTab("Summary", null, SummaryTab, null);
+		SummaryTab.setLayout(null);
+		
+		JLabel Summarylbl = new JLabel("Summary of your Randomization");
+		Summarylbl.setFont(new Font("Tahoma", Font.BOLD, 16));
+		Summarylbl.setBounds(36, 31, 516, 22);
+		SummaryTab.add(Summarylbl);
+		
+		Sum_txtField = new JTextField();
+		Sum_txtField.setBounds(36, 65, 632, 301);
+		SummaryTab.add(Sum_txtField);
+		Sum_txtField.setColumns(10);
+		
+		JButton btnClear = new JButton("Clear");
+		btnClear.setBounds(712, 334, 194, 32);
+		SummaryTab.add(btnClear);
 
 
 		/**
@@ -770,15 +864,31 @@ public class Randomizer {
 				//end StarterPokemon Module
 
 				// item module
-				if (earlyBike.isSelected()) {
+				if (chckbxEarlyBike.isSelected()) {
 					itemModule.get_Bike_Early();
 				}
-				if (groundItems.isSelected()) {
+				if (chckbxGroundItems.isSelected()) {
 					itemModule.randomize_Ground_Items();
 				}
-				if (allMartItems.isSelected()) {
+				if (chckbxEnablePokeMart.isSelected()) {
 					itemModule.randomize_All_Cities();
 				}
+				// end Item Module
+
+				//start Wild Encounter module
+				EncounterModule encounterModule = new EncounterModule(editRom);
+				if(tglBtnWild_AllRandom.isSelected()){
+					encounterModule.randomizeEncounters();
+				}
+				if(tglbtn1to1AreaRandz.isSelected()){
+					encounterModule.randomizeEncountersByArea();
+				}
+				if(tglbtn1to1PokemonRandomization.isSelected()){
+					encounterModule.randomizeEncountersByPokemon();
+				}
+				//end Wild Encounter Module
+
+
 				openCloseROM.saveROM();
 			}
 		});
@@ -805,73 +915,40 @@ public class Randomizer {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-					//code
-					openCloseROM.openROM();
-					if (openCloseROM.correcthash == true) {
-		            	ROMValue.setText("Pokemon-FireRed Version (USA)");
-		            	StatusValue.setText("Success!!!");
-		            	//TODO Add a "loading..." message so user knows program isn't frozen
-		                JOptionPane.showMessageDialog(null, "ROM Loaded Successfully!");
-		                //enabling action panel
-		                SeedButton.setEnabled(true);
-						SaveButton.setEnabled(true);
-						SettingButton.setEnabled(true);
-						
-						//enable starter tab randomize panel
-						for (int i = 0; i < RandomizePanel_list.length; i++) {
-							RandomizePanel_list[i].setEnabled(true);
-						}
-						
-						//Exception enabling starter tab level panel
-						Boundlbl.setEnabled(true);
-						ChckBxLevelRandom.setEnabled(true);
-						lblFrom.setEnabled(true);
-						lblTo.setEnabled(true);
-						LevelLabel.setEnabled(true);
-						
-						/*
-						 * /enable trainer tab randomize panel
-						 */
-						
-						for (int i = 0; i < OpeningPanel_list.length; i++) {
-							OpeningPanel_list[i].setEnabled(true);
-						}
-						//Exception for the Trainer Pokemon theme subtasks
-						combx_type.setEnabled(false);
-						lbltype.setEnabled(false);
-						chckbxKeepGymLeader.setEnabled(false);
-						chckbxExcludeLegendaries.setEnabled(false);
-						tglButtonFul_Rand_Trainer_Type.setEnabled(false);
-						
-						/*
-						 * /enable Field item tab randomize panel
-						 */
-						for (int i = 0; i < FieldMainPanel_list.length; i++) {
-							FieldMainPanel_list[i].setEnabled(true);
-						}
-						//enable Field item tab randomize sub panel
-						for (int i = 0; i < MainOptPanel_list.length; i++) {
-							MainOptPanel_list[i].setEnabled(true);
-						}
-						//enable Field item tab randomize sub panel
-						for (int i = 0; i < subOptPanel_list.length; i++) {
-							subOptPanel_list[i].setEnabled(true);
-						}
-						chckbxEnablePokeMart.setEnabled(true);
-						//enable wild item tab randomize sub panel
-						for (int i = 0; i < MainOptPanel_Wild_list.length; i++) {
-							MainOptPanel_Wild_list[i].setEnabled(true);
-						}
-						Openinglbl_Wild.setEnabled(true);
-						
+				//code
+				openCloseROM.openROM();
+				if (openCloseROM.correcthash == true) {
+					ROMValue.setText("Pokemon-FireRed Version (USA)");
+					StatusValue.setText("Success!!!");
+					//TODO Add a "loading..." message so user knows program isn't frozen
+					JOptionPane.showMessageDialog(null, "ROM Loaded Successfully!");
+					//enabling action panel
+					SeedButton.setEnabled(true);
+					SaveButton.setEnabled(true);
+					SettingButton.setEnabled(true);
 
+					openedRom = openCloseROM.getRom();
+					editRom.setRom(openedRom);
+					trainersPokemon.setEditRom(editRom);
+
+					//enable starter tab randomize panel
+					for (int i = 0; i < RandomizePanel_list.length; i++) {
+						RandomizePanel_list[i].setEnabled(true);
 					}
-					//Incorrect ROM file loaded
-					if (openCloseROM.correcthash == false) {
-						JOptionPane.showMessageDialog(null, "Not Valid!! Please, reload the correct ROM file");
-						ROMValue.setText("");
-		            	StatusValue.setText("");
 
+					//Exception enabling starter tab level panel
+					Boundlbl.setEnabled(true);
+					ChckBxLevelRandom.setEnabled(true);
+					lblFrom.setEnabled(true);
+					lblTo.setEnabled(true);
+					LevelLabel.setEnabled(true);
+
+					/*
+					 * /enable trainer tab randomize panel
+					 */
+
+					for (int i = 0; i < OpeningPanel_list.length; i++) {
+						OpeningPanel_list[i].setEnabled(true);
 					}
 					//Exception for the Trainer Pokemon theme subtasks
 					combx_type.setEnabled(false);
@@ -880,21 +957,52 @@ public class Randomizer {
 					chckbxExcludeLegendaries.setEnabled(false);
 					tglButtonFul_Rand_Trainer_Type.setEnabled(false);
 
-					//enabling starter tab level panel
-					Boundlbl.setEnabled(true);
-					ChckBxLevelRandom.setEnabled(true);
-					lblFrom.setEnabled(true);
-					lblTo.setEnabled(true);
-					LevelLabel.setEnabled(true);
+					/*
+					 * /enable Field item tab randomize panel
+					 */
+					for (int i = 0; i < FieldMainPanel_list.length; i++) {
+						FieldMainPanel_list[i].setEnabled(true);
+					}
+					//enable Field item tab randomize sub panel
+					for (int i = 0; i < MainOptPanel_list.length; i++) {
+						MainOptPanel_list[i].setEnabled(true);
+					}
+					//enable Field item tab randomize sub panel
+					for (int i = 0; i < subOptPanel_list.length; i++) {
+						subOptPanel_list[i].setEnabled(true);
+					}
+					chckbxEnablePokeMart.setEnabled(true);
+					//enable wild item tab randomize sub panel
+					for (int i = 0; i < MainOptPanel_Wild_list.length; i++) {
+						MainOptPanel_Wild_list[i].setEnabled(true);
+					}
+					Openinglbl_Wild.setEnabled(true);
+
+
 				}
 				//Incorrect ROM file loaded
 				if (openCloseROM.correcthash == false) {
 					JOptionPane.showMessageDialog(null, "Not Valid!! Please, reload the correct ROM file");
 					ROMValue.setText("");
 					StatusValue.setText("");
+
 				}
+				//Exception for the Trainer Pokemon theme subtasks
+				combx_type.setEnabled(false);
+				lbltype.setEnabled(false);
+				chckbxKeepGymLeader.setEnabled(false);
+				chckbxExcludeLegendaries.setEnabled(false);
+				tglButtonFul_Rand_Trainer_Type.setEnabled(false);
+
+				//enabling starter tab level panel
+				Boundlbl.setEnabled(true);
+				ChckBxLevelRandom.setEnabled(true);
+				lblFrom.setEnabled(true);
+				lblTo.setEnabled(true);
+				LevelLabel.setEnabled(true);
 			}
-		});
+			}
+		);
 
 		/**
 		 * Picture Label (Charmander)
@@ -1011,6 +1119,34 @@ public class Randomizer {
 			}
 		});
 		
+		/*
+		 * / Moves and Stats Tab -----------------------------------
+		 */
+		
+		//Delta exception verification
+		
+		tglbtnVerify_DeltaRandomization.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String str_delta = delta_input.getText();
+				try {
+					int num_delta = Integer.parseInt(str_delta);
+					if (num_delta < 1 || num_delta > 9) {
+						throw new Exception();
+					}
+				}catch (NumberFormatException ex) {
+					tglbtnVerify_DeltaRandomization.setSelected(false);
+					JOptionPane.showMessageDialog(null, "Please enter a number NOT letters");
+					delta_input.setText("");
+					
+					
+				} catch (Exception e1) {
+					tglbtnVerify_DeltaRandomization.setSelected(false);
+					JOptionPane.showMessageDialog(null, "Number is not between 1 to 9!!!\nPlease enter a number from 1 to 9!!!");
+				}
+				
+			}
+		});
+		
 		
 		/**
 		 * All Layout component and configurations
@@ -1124,7 +1260,9 @@ public class Randomizer {
 		ActionPanel.setLayout(gl_ActionPanel);
 		frmPokemon.getContentPane().setLayout(groupLayout);
 
-
+		}
+	
 	}
 
-}
+
+
