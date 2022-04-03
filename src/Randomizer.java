@@ -21,6 +21,7 @@ public class Randomizer {
 	private final ButtonGroup Starter_MainBtngrp = new ButtonGroup();
 	private final ButtonGroup Wild_MainBtngrp = new ButtonGroup();
 	private final ButtonGroup StatTab_MainOptBtnGrp = new ButtonGroup();
+	private final ButtonGroup StatTab_ExceptionBtnGrp = new ButtonGroup();
 	
 	
 
@@ -36,7 +37,6 @@ public class Randomizer {
 	ItemModule itemModule = new ItemModule(editRom);
 	private JTextField delta_input;
 	private JTextField Sum_txtField;
-	
 
 	/**
 	 * Create the application.
@@ -661,7 +661,7 @@ public class Randomizer {
 		JPanel MainOptPanel_stats = new JPanel();
 		MainOptPanel_stats.setLayout(null);
 		MainOptPanel_stats.setBorder(new LineBorder(new Color(0, 0, 0)));
-		MainOptPanel_stats.setBounds(148, 47, 258, 304);
+		MainOptPanel_stats.setBounds(148, 47, 258, 337);
 		StatsTabs.add(MainOptPanel_stats);
 		
 		JToggleButton tglButtonStatsTab_NoChg = new JToggleButton("No Change");
@@ -677,28 +677,38 @@ public class Randomizer {
 		MainOptPanel_stats.add(tglbtnFullStatRandomization);
 		
 		JToggleButton tglbtnVerify_DeltaRandomization = new JToggleButton("Verify Delta Randomization");
-		StatTab_MainOptBtnGrp.add(tglbtnVerify_DeltaRandomization);
+		StatTab_ExceptionBtnGrp.add(tglbtnVerify_DeltaRandomization);
 		tglbtnVerify_DeltaRandomization.setToolTipText("Randomize stats based on a given value (if you enter 5, each stat will change from between -5 to +5) ");
 		tglbtnVerify_DeltaRandomization.setBounds(23, 232, 213, 42);
+		tglbtnVerify_DeltaRandomization.setEnabled(false);
 		MainOptPanel_stats.add(tglbtnVerify_DeltaRandomization);
-		tglbtnVerify_DeltaRandomization.addActionListener(null);
 		
 		
 		JLabel deltaValuelbl = new JLabel("Enter Delta Value (1-9):");
 		deltaValuelbl.setFont(new Font("Tahoma", Font.BOLD, 12));
 		deltaValuelbl.setBounds(23, 188, 155, 20);
+		deltaValuelbl.setEnabled(false);
 		MainOptPanel_stats.add(deltaValuelbl);
 		
 		delta_input = new JTextField();
 		delta_input.setHorizontalAlignment(SwingConstants.RIGHT);
 		delta_input.setBounds(184, 189, 52, 20);
+		delta_input.setEnabled(false);
 		MainOptPanel_stats.add(delta_input);
 		delta_input.setColumns(10);
 		
 		JCheckBox chckbxEnableDeltaRand = new JCheckBox("Enable Delta Randomization");
 		chckbxEnableDeltaRand.setFont(new Font("Tahoma", Font.BOLD, 12));
 		chckbxEnableDeltaRand.setBounds(23, 146, 213, 23);
+		StatTab_MainOptBtnGrp.add(chckbxEnableDeltaRand);
 		MainOptPanel_stats.add(chckbxEnableDeltaRand);
+		
+		JToggleButton tglBtnStatsTab_ReSelect = new JToggleButton("Re-Enter Value");
+		StatTab_ExceptionBtnGrp.add(tglBtnStatsTab_ReSelect);
+		tglBtnStatsTab_ReSelect.setToolTipText("No randomization will be made");
+		tglBtnStatsTab_ReSelect.setBounds(23, 284, 213, 42);
+		tglBtnStatsTab_ReSelect.setEnabled(false);
+		MainOptPanel_stats.add(tglBtnStatsTab_ReSelect);
 		
 		JLabel SubOptlbl_stats = new JLabel("Sub Options:");
 		SubOptlbl_stats.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -718,11 +728,13 @@ public class Randomizer {
 		
 		JCheckBox chckbxTMComp = new JCheckBox("Change TM Compatibility");
 		chckbxTMComp.setBounds(43, 69, 178, 23);
+		chckbxTMComp.setEnabled(false);
 		SubOptPanel_stats.add(chckbxTMComp);
 		
 		JCheckBox chckbxHM_Comp = new JCheckBox("Change HM Compatibility");
 		chckbxHM_Comp.setToolTipText("Make all HMs compatible with any pokemon");
 		chckbxHM_Comp.setBounds(43, 95, 178, 23);
+		chckbxHM_Comp.setEnabled(false);
 		SubOptPanel_stats.add(chckbxHM_Comp);
 
 		/**
@@ -1123,30 +1135,102 @@ public class Randomizer {
 		 * / Moves and Stats Tab -----------------------------------
 		 */
 		
-		//Delta exception verification
+		//Delta exception verification and Main Opt Exceptions handling
+		
+		chckbxEnableDeltaRand.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (chckbxEnableDeltaRand.isSelected()) {
+					tglbtnVerify_DeltaRandomization.setEnabled(true);
+					deltaValuelbl.setEnabled(true);
+					delta_input.setEnabled(true);
+					
+					
+				}
+				else if (!chckbxEnableDeltaRand.isSelected()) {
+					tglbtnVerify_DeltaRandomization.setEnabled(false);
+					tglbtnVerify_DeltaRandomization.setSelected(false);
+					tglBtnStatsTab_ReSelect.setSelected(false);
+					deltaValuelbl.setEnabled(false);
+					delta_input.setEnabled(false);
+					delta_input.setText("");
+				}
+			}
+		});
+		
 		
 		tglbtnVerify_DeltaRandomization.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				AbstractButton abstractButton = (AbstractButton) e.getSource();
+				boolean selected = abstractButton.getModel().isSelected();
 				String str_delta = delta_input.getText();
 				try {
 					int num_delta = Integer.parseInt(str_delta);
 					if (num_delta < 1 || num_delta > 9) {
+						tglBtnStatsTab_ReSelect.setSelected(true);
 						throw new Exception();
 					}
 				}catch (NumberFormatException ex) {
-					tglbtnVerify_DeltaRandomization.setSelected(false);
-					JOptionPane.showMessageDialog(null, "Please enter a number NOT letters");
 					delta_input.setText("");
-					
+					tglBtnStatsTab_ReSelect.setSelected(true);
+					JOptionPane.showMessageDialog(null, "Please enter a number NOT letters");
 					
 				} catch (Exception e1) {
-					tglbtnVerify_DeltaRandomization.setSelected(false);
-					JOptionPane.showMessageDialog(null, "Number is not between 1 to 9!!!\nPlease enter a number from 1 to 9!!!");
+					delta_input.setText("");
+					tglBtnStatsTab_ReSelect.setSelected(true);
+					JOptionPane.showMessageDialog(null, "Please enter a number from 1 to 9!!!");
 				}
 				
 			}
 		});
 		
+		tglButtonStatsTab_NoChg.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (tglButtonStatsTab_NoChg.isSelected()) {
+					tglbtnVerify_DeltaRandomization.setEnabled(false);
+					deltaValuelbl.setEnabled(false);
+					delta_input.setText("");
+					delta_input.setEnabled(false);
+					tglbtnVerify_DeltaRandomization.setSelected(false);
+					chckbxEnableDeltaRand.setSelected(false);
+					tglBtnStatsTab_ReSelect.setSelected(true);
+					
+				}
+			}
+		});
+		tglbtnFullStatRandomization.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (tglbtnFullStatRandomization.isSelected()) {
+					tglbtnVerify_DeltaRandomization.setEnabled(false);
+					deltaValuelbl.setEnabled(false);
+					delta_input.setText("");
+					delta_input.setEnabled(false);
+					tglbtnVerify_DeltaRandomization.setSelected(false);
+					chckbxEnableDeltaRand.setSelected(false);
+					tglBtnStatsTab_ReSelect.setSelected(true);
+				}
+			}
+		});
+		
+		/*
+		 * Sub Option of Stats and Moves
+		 */
+		
+		chckbxEnable_stat.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (chckbxEnable_stat.isSelected()) {
+					chckbxTMComp.setEnabled(true);
+					chckbxHM_Comp.setEnabled(true);
+					
+				}
+				else if (!chckbxEnable_stat.isSelected()) {
+					chckbxTMComp.setEnabled(false);
+					chckbxTMComp.setSelected(false);
+					chckbxHM_Comp.setEnabled(false);
+					chckbxHM_Comp.setSelected(false);
+					
+				}
+			}
+		});
 		
 		/**
 		 * All Layout component and configurations
@@ -1261,7 +1345,6 @@ public class Randomizer {
 		frmPokemon.getContentPane().setLayout(groupLayout);
 
 		}
-	
 	}
 
 
