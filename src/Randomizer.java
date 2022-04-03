@@ -36,7 +36,7 @@ public class Randomizer {
 	TrainerPokemon trainersPokemon = new TrainerPokemon();
 	ItemModule itemModule = new ItemModule(editRom);
 	private JTextField delta_input;
-	private JTextField Sum_txtField;
+	private JTextArea Sum_txtField;
 
 	/**
 	 * Create the application.
@@ -83,13 +83,38 @@ public class Randomizer {
 		RandomizePanel.setLayout(null);
 
 		JToggleButton tglButtonNoChange = new JToggleButton("No Change");
+		tglButtonNoChange.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AbstractButton abstractButton = (AbstractButton) e.getSource();
+				boolean selected = abstractButton.getModel().isSelected();
+				// if selected print selected in console
+				if (selected) {
+					Sum_txtField.append("Starter Tab: No Change\n");
+				}
+				if (!selected) {
+					Sum_txtField.replaceSelection("");
+				}
+			}
+		});
 		Starter_MainBtngrp.add(tglButtonNoChange);
-
 		tglButtonNoChange.setBounds(105, 58, 161, 36);
 		tglButtonNoChange.setToolTipText("No randomization will be made");
 		RandomizePanel.add(tglButtonNoChange);
 
 		JToggleButton tglButtonFul_Rand = new JToggleButton("Fully Randomized");
+		tglButtonFul_Rand.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AbstractButton abstractButton = (AbstractButton) e.getSource();
+				boolean selected = abstractButton.getModel().isSelected();
+				// if selected print selected in console
+				if (selected) {
+					Sum_txtField.append("Starter Tab: Fully Randomized\n");
+				}
+				if (!selected) {
+					Sum_txtField.replaceSelection("");
+				}
+			}
+		});
 		Starter_MainBtngrp.add(tglButtonFul_Rand);
 
 		tglButtonFul_Rand.setBounds(105, 105, 161, 36);
@@ -97,6 +122,20 @@ public class Randomizer {
 		RandomizePanel.add(tglButtonFul_Rand);
 
 		JToggleButton tglButtonThreeStg = new JToggleButton("Three Stage");
+		tglButtonThreeStg.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AbstractButton abstractButton = (AbstractButton) e.getSource();
+				boolean selected = abstractButton.getModel().isSelected();
+				// if selected print selected in console
+				if (selected) {
+					Sum_txtField.append("Starter Tab: Three Stage\n");
+				}
+				if (!selected) {
+					Sum_txtField.replaceSelection("");
+				}
+			}
+			
+		});
 		Starter_MainBtngrp.add(tglButtonThreeStg);
 
 		tglButtonThreeStg.setBounds(105, 152, 161, 36);
@@ -109,6 +148,19 @@ public class Randomizer {
 		RandomizePanel.add(StarterRandLabel);
 
 		JToggleButton exLegendButton = new JToggleButton("Exclude Legendaries");
+		exLegendButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AbstractButton abstractButton = (AbstractButton) e.getSource();
+				boolean selected = abstractButton.getModel().isSelected();
+				// if selected print selected in console
+				if (selected) {
+					Sum_txtField.append("Starter Tab: Exclude Legendaries\n");
+				}
+				if (!selected) {
+					Sum_txtField.replaceSelection("");
+				}
+			}
+		});
 		Starter_MainBtngrp.add(exLegendButton);
 
 		exLegendButton.setToolTipText("TBD");
@@ -757,14 +809,29 @@ public class Randomizer {
 		Summarylbl.setBounds(36, 31, 516, 22);
 		SummaryTab.add(Summarylbl);
 		
-		Sum_txtField = new JTextField();
-		Sum_txtField.setBounds(36, 65, 632, 301);
-		SummaryTab.add(Sum_txtField);
-		Sum_txtField.setColumns(10);
+		Sum_txtField = new JTextArea();
+		Sum_txtField.setFont(new Font("Century Gothic", Font.PLAIN, 10));
+		Sum_txtField.setEditable(false);
+		Sum_txtField.setLineWrap(true);
 		
-		JButton btnClear = new JButton("Clear");
-		btnClear.setBounds(712, 334, 194, 32);
-		SummaryTab.add(btnClear);
+		JScrollPane scroll = new JScrollPane(Sum_txtField);
+        scroll.setSize(700, 500);
+        scroll.setBounds(36, 65, 632, 301);
+        SummaryTab.add(scroll);
+        
+        JButton btnClear = new JButton("Clear");
+        btnClear.setBounds(699, 325, 193, 41);
+        SummaryTab.add(btnClear);
+        
+        btnClear.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		if(btnClear.isSelected()) {
+        			System.out.println("Click");
+        		}
+        	}
+        });
+      
+
 
 
 		/**
