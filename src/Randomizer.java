@@ -656,6 +656,7 @@ public class Randomizer {
 		JLabel MainOptlbl_stats = new JLabel("Main Options:");
 		MainOptlbl_stats.setFont(new Font("Tahoma", Font.BOLD, 16));
 		MainOptlbl_stats.setBounds(26, 47, 112, 22);
+		MainOptlbl_stats.setEnabled(false);
 		StatsTabs.add(MainOptlbl_stats);
 		
 		JPanel MainOptPanel_stats = new JPanel();
@@ -668,12 +669,14 @@ public class Randomizer {
 		StatTab_MainOptBtnGrp.add(tglButtonStatsTab_NoChg);
 		tglButtonStatsTab_NoChg.setToolTipText("No randomization will be made");
 		tglButtonStatsTab_NoChg.setBounds(23, 24, 213, 42);
+		tglButtonStatsTab_NoChg.setEnabled(false);
 		MainOptPanel_stats.add(tglButtonStatsTab_NoChg);
 		
 		JToggleButton tglbtnFullStatRandomization = new JToggleButton("Full Stat Randomization");
 		StatTab_MainOptBtnGrp.add(tglbtnFullStatRandomization);
 		tglbtnFullStatRandomization.setToolTipText("Completely Randomize all pokemons stats ");
 		tglbtnFullStatRandomization.setBounds(23, 77, 213, 42);
+		tglbtnFullStatRandomization.setEnabled(false);
 		MainOptPanel_stats.add(tglbtnFullStatRandomization);
 		
 		JToggleButton tglbtnVerify_DeltaRandomization = new JToggleButton("Verify Delta Randomization");
@@ -700,10 +703,11 @@ public class Randomizer {
 		JCheckBox chckbxEnableDeltaRand = new JCheckBox("Enable Delta Randomization");
 		chckbxEnableDeltaRand.setFont(new Font("Tahoma", Font.BOLD, 12));
 		chckbxEnableDeltaRand.setBounds(23, 146, 213, 23);
+		chckbxEnableDeltaRand.setEnabled(false);
 		StatTab_MainOptBtnGrp.add(chckbxEnableDeltaRand);
 		MainOptPanel_stats.add(chckbxEnableDeltaRand);
 		
-		JToggleButton tglBtnStatsTab_ReSelect = new JToggleButton("Re-Enter Value");
+		JToggleButton tglBtnStatsTab_ReSelect = new JToggleButton("Enter an Integer Value");
 		StatTab_ExceptionBtnGrp.add(tglBtnStatsTab_ReSelect);
 		tglBtnStatsTab_ReSelect.setToolTipText("No randomization will be made");
 		tglBtnStatsTab_ReSelect.setBounds(23, 284, 213, 42);
@@ -713,6 +717,7 @@ public class Randomizer {
 		JLabel SubOptlbl_stats = new JLabel("Sub Options:");
 		SubOptlbl_stats.setFont(new Font("Tahoma", Font.BOLD, 16));
 		SubOptlbl_stats.setBounds(466, 47, 112, 22);
+		SubOptlbl_stats.setEnabled(false);
 		StatsTabs.add(SubOptlbl_stats);
 		
 		JPanel SubOptPanel_stats = new JPanel();
@@ -724,6 +729,7 @@ public class Randomizer {
 		JCheckBox chckbxEnable_stat = new JCheckBox("Enable TM/HM Compatibility");
 		chckbxEnable_stat.setFont(new Font("Tahoma", Font.BOLD, 12));
 		chckbxEnable_stat.setBounds(22, 25, 218, 31);
+		chckbxEnable_stat.setEnabled(false);
 		SubOptPanel_stats.add(chckbxEnable_stat);
 		
 		JCheckBox chckbxTMComp = new JCheckBox("Change TM Compatibility");
@@ -989,6 +995,14 @@ public class Randomizer {
 						MainOptPanel_Wild_list[i].setEnabled(true);
 					}
 					Openinglbl_Wild.setEnabled(true);
+					
+					//enable components for stat tab
+					chckbxEnable_stat.setEnabled(true);
+					SubOptlbl_stats.setEnabled(true);
+					chckbxEnableDeltaRand.setEnabled(true);
+					tglbtnFullStatRandomization.setEnabled(true);
+					tglButtonStatsTab_NoChg.setEnabled(true);
+					MainOptlbl_stats.setEnabled(true);
 
 
 				}
