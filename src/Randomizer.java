@@ -85,15 +85,7 @@ public class Randomizer {
 		JToggleButton tglButtonNoChange = new JToggleButton("No Change");
 		tglButtonNoChange.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AbstractButton abstractButton = (AbstractButton) e.getSource();
-				boolean selected = abstractButton.getModel().isSelected();
-				// if selected print selected in console
-				if (selected) {
 					Sum_txtField.append("Starter Tab: No Change\n");
-				}
-				if (!selected) {
-					Sum_txtField.replaceSelection("");
-				}
 			}
 		});
 		Starter_MainBtngrp.add(tglButtonNoChange);
@@ -104,19 +96,10 @@ public class Randomizer {
 		JToggleButton tglButtonFul_Rand = new JToggleButton("Fully Randomized");
 		tglButtonFul_Rand.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AbstractButton abstractButton = (AbstractButton) e.getSource();
-				boolean selected = abstractButton.getModel().isSelected();
-				// if selected print selected in console
-				if (selected) {
 					Sum_txtField.append("Starter Tab: Fully Randomized\n");
-				}
-				if (!selected) {
-					Sum_txtField.replaceSelection("");
-				}
 			}
 		});
 		Starter_MainBtngrp.add(tglButtonFul_Rand);
-
 		tglButtonFul_Rand.setBounds(105, 105, 161, 36);
 		tglButtonFul_Rand.setToolTipText("Completely randomize the starter pokemon to be any possible pokemon");
 		RandomizePanel.add(tglButtonFul_Rand);
@@ -124,20 +107,10 @@ public class Randomizer {
 		JToggleButton tglButtonThreeStg = new JToggleButton("Three Stage");
 		tglButtonThreeStg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AbstractButton abstractButton = (AbstractButton) e.getSource();
-				boolean selected = abstractButton.getModel().isSelected();
-				// if selected print selected in console
-				if (selected) {
 					Sum_txtField.append("Starter Tab: Three Stage\n");
-				}
-				if (!selected) {
-					Sum_txtField.replaceSelection("");
-				}
 			}
-			
 		});
 		Starter_MainBtngrp.add(tglButtonThreeStg);
-
 		tglButtonThreeStg.setBounds(105, 152, 161, 36);
 		tglButtonThreeStg.setToolTipText("Randomize the starters to be any one of the first stage pokemon in a \n three stage evolution (ex. Geodude but not Graveler or Golem)");
 		RandomizePanel.add(tglButtonThreeStg);
@@ -150,19 +123,10 @@ public class Randomizer {
 		JToggleButton exLegendButton = new JToggleButton("Exclude Legendaries");
 		exLegendButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AbstractButton abstractButton = (AbstractButton) e.getSource();
-				boolean selected = abstractButton.getModel().isSelected();
-				// if selected print selected in console
-				if (selected) {
 					Sum_txtField.append("Starter Tab: Exclude Legendaries\n");
-				}
-				if (!selected) {
-					Sum_txtField.replaceSelection("");
-				}
 			}
 		});
 		Starter_MainBtngrp.add(exLegendButton);
-
 		exLegendButton.setToolTipText("TBD");
 		exLegendButton.setBounds(105, 199, 161, 36);
 		RandomizePanel.add(exLegendButton);
@@ -261,7 +225,7 @@ public class Randomizer {
 		tglButtonLevelRandomization.setEnabled(false);
 
 		JLabel LevelLabel = new JLabel("Press Button to Activate");
-		LevelLabel.setBounds(20, 130, 161, 14);
+		LevelLabel.setBounds(20, 130, 194, 14);
 		LevelLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
 		LevelPanel.add(LevelLabel);
 		LevelLabel.setEnabled(false);
@@ -293,24 +257,44 @@ public class Randomizer {
 		WildTab.add(MainOptPanel_Wild);
 		
 		JToggleButton tglBtnWild_NoChg_ = new JToggleButton("No Change");
+		tglBtnWild_NoChg_.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					Sum_txtField.append("Wild Pokemon Tab: No Change\n");
+			}
+		});
 		Wild_MainBtngrp.add(tglBtnWild_NoChg_);
 		tglBtnWild_NoChg_.setToolTipText("No randomization will be made");
 		tglBtnWild_NoChg_.setBounds(23, 25, 294, 40);
 		MainOptPanel_Wild.add(tglBtnWild_NoChg_);
 
 		JToggleButton tglBtnWild_AllRandom = new JToggleButton("Complete Randomization");
+		tglBtnWild_AllRandom.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sum_txtField.append("Wild Pokemon Tab: Complete Randomization\n");
+			}
+		});
 		Wild_MainBtngrp.add(tglBtnWild_AllRandom);
 		tglBtnWild_AllRandom.setToolTipText("Every random encounter slot will be fully randomized.");
 		tglBtnWild_AllRandom.setBounds(23, 83, 294, 40);
 		MainOptPanel_Wild.add(tglBtnWild_AllRandom);
 
 		JToggleButton tglbtn1to1AreaRandz = new JToggleButton("1-to-1 Area Randomization");
+		tglbtn1to1AreaRandz.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					Sum_txtField.append("Wild Pokemon Tab: 1-to-1 Area Randomization\n");
+			}
+		});
 		Wild_MainBtngrp.add(tglbtn1to1AreaRandz);
 		tglbtn1to1AreaRandz.setToolTipText("To be implemented");
 		tglbtn1to1AreaRandz.setBounds(23, 141, 294, 40);
 		MainOptPanel_Wild.add(tglbtn1to1AreaRandz);
 		
 		JToggleButton tglbtn1to1PokemonRandomization = new JToggleButton("1-to-1 Pokemon Randomization");
+		tglbtn1to1PokemonRandomization.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					Sum_txtField.append("Wild Pokemon Tab: 1-to-1 Pokemon Randomization\n");
+			}
+		});
 		tglbtn1to1PokemonRandomization.setToolTipText("to be implemented");
 		Wild_MainBtngrp.add(tglbtn1to1PokemonRandomization);
 		tglbtn1to1PokemonRandomization.setBounds(23, 199, 294, 40);
@@ -338,12 +322,22 @@ public class Randomizer {
 
 		
 		JToggleButton tglButtonTrainer_NoChg = new JToggleButton("No Change");
+		tglButtonTrainer_NoChg.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sum_txtField.append("Trainer Tab: No Change\n");
+			}
+		});
 		Trainer_MainBtngrp.add(tglButtonTrainer_NoChg);
 		tglButtonTrainer_NoChg.setToolTipText("No randomization will be made");
 		tglButtonTrainer_NoChg.setBounds(37, 54, 232, 42);
 		OpeningPanel.add(tglButtonTrainer_NoChg);
 		
 		JToggleButton tglButtonFul_Rand_Trainer = new JToggleButton("Fully Randomized Teams");
+		tglButtonFul_Rand_Trainer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sum_txtField.append("Trainer Tab: Fully Randomized Teams\n");
+			}
+		});
 		Trainer_MainBtngrp.add(tglButtonFul_Rand_Trainer);
 		tglButtonFul_Rand_Trainer.setToolTipText("Trainers teams will be completely random\r\n"
 				+ "");
@@ -363,6 +357,7 @@ public class Randomizer {
 
 		
 		JCheckBox chckbxKeepGymLeader = new JCheckBox("  Keep Gym Leader Type Theme");
+		
 		chckbxKeepGymLeader.setBounds(315, 235, 232, 23);
 		OpeningPanel.add(chckbxKeepGymLeader);
 		
@@ -372,6 +367,11 @@ public class Randomizer {
 		
 
 		JCheckBox chckbxEnableTypeThemes = new JCheckBox("Enable Type Themes Randomization");
+		chckbxEnableTypeThemes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sum_txtField.append("Trainer Tab: Enable Type Themes Randomization\n");
+			}
+		});
 		chckbxEnableTypeThemes.setHorizontalAlignment(SwingConstants.LEFT);
 		chckbxEnableTypeThemes.setBounds(37, 186, 262, 23);
 		OpeningPanel.add(chckbxEnableTypeThemes);
@@ -461,6 +461,11 @@ public class Randomizer {
 		MartsPanel.setLayout(null);
 		
 		JCheckBox chckbxEnablePokeMart = new JCheckBox(" Enable Poke Marts Items");
+		chckbxEnablePokeMart.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sum_txtField.append("Field Items Tab: Enable Poke Marts Items\n");
+			}
+		});
 		chckbxEnablePokeMart.setToolTipText("Randomize the items sold in Pokemarts");
 		chckbxEnablePokeMart.setBounds(6, 18, 171, 23);
 		MartsPanel.add(chckbxEnablePokeMart);
@@ -474,6 +479,11 @@ public class Randomizer {
 		
 
 		JToggleButton tglBtnPickCity = new JToggleButton("Choose Cities");
+		tglBtnPickCity.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sum_txtField.append("Field Items Tab/Poke Mart: A City was chosen\n");
+			}
+		});
 		MartBtngrp.add(tglBtnPickCity);
 		tglBtnPickCity.setBounds(17, 66, 152, 36);
 		MartsPanel.add(tglBtnPickCity);
@@ -541,12 +551,22 @@ public class Randomizer {
 		CityPanel.add(rdbtnTrainerTower);
 		
 		JToggleButton tglbtnRandomizeAllCities = new JToggleButton("Randomize all Cities");
+		tglbtnRandomizeAllCities.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sum_txtField.append("Field Items Tab/Poke Mart: Randomize all Cities\n");
+			}
+		});
 		MartBtngrp.add(tglbtnRandomizeAllCities);
 		tglbtnRandomizeAllCities.setToolTipText("Randomize all cities Pokemarts");
 		tglbtnRandomizeAllCities.setBounds(16, 113, 153, 36);
 		MartsPanel.add(tglbtnRandomizeAllCities);
 		
 		JToggleButton btnMartNone = new JToggleButton("None");
+		btnMartNone.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sum_txtField.append("Field Items Tab/Poke Mart: No cities option was chosen\n");
+			}
+		});
 		btnMartNone.setBounds(17, 160, 152, 36);
 		MartBtngrp.add(btnMartNone);
 		btnMartNone.setEnabled(false);
@@ -559,21 +579,28 @@ public class Randomizer {
 		MainOptPanel.setLayout(null);
 		
 		JToggleButton tglButtonFieldItem_NoChg = new JToggleButton("No Change");
+		tglButtonFieldItem_NoChg.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sum_txtField.append("Field Items Tab: No Change\n");
+			}
+		});
 		FieldItem_MainOptBtnGrp.add(tglButtonFieldItem_NoChg);
 		tglButtonFieldItem_NoChg.setBounds(23, 11, 213, 42);
 		MainOptPanel.add(tglButtonFieldItem_NoChg);
 		tglButtonFieldItem_NoChg.setToolTipText("No randomization will be made");
 		
-		JToggleButton tglBtnRandWorldItems = new JToggleButton("Randomize World Items");
-		FieldItem_MainOptBtnGrp.add(tglBtnRandWorldItems);
-		tglBtnRandWorldItems.setBounds(23, 67, 213, 42);
-		MainOptPanel.add(tglBtnRandWorldItems);
-		tglBtnRandWorldItems.setToolTipText("Randomize the items found and bought in the world ");
-		
 		JCheckBox chckbxGroundItems = new JCheckBox("   Ground Item Randomization");
+		chckbxGroundItems.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sum_txtField.append("Field Items Tab: Ground Item Randomization\n");
+			}
+		});
+		chckbxGroundItems.setBounds(23, 71, 213, 30);
+		MainOptPanel.add(chckbxGroundItems);
+		FieldItem_MainOptBtnGrp.add(chckbxGroundItems);
 		chckbxGroundItems.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		chckbxGroundItems.setBounds(143, 153, 258, 30);
-		FieldMainPanel.add(chckbxGroundItems);
+		chckbxGroundItems.setToolTipText("Randomizes all items found on the ground in the overworld\r\n"
+				+ "");
 		
 		JPanel subOptPanel = new JPanel();
 		subOptPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
@@ -582,11 +609,21 @@ public class Randomizer {
 		subOptPanel.setLayout(null);
 		
 		JCheckBox chckbxExcludeKeyItem = new JCheckBox("  Exclude Key Items");
+		chckbxExcludeKeyItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sum_txtField.append("Field Items Tab: Exclude Key Items Selected\n");
+			}
+		});
 		chckbxExcludeKeyItem.setToolTipText("Exclude key items from the possible items being randomized ");
 		chckbxExcludeKeyItem.setBounds(6, 7, 167, 23);
 		subOptPanel.add(chckbxExcludeKeyItem);
 		
 		JCheckBox chckbxEarlyBike = new JCheckBox("  Early Bike");
+		chckbxEarlyBike.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sum_txtField.append("Field Items Tab: Early Bike Selected\n");
+			}
+		});
 		chckbxEarlyBike.setBounds(6, 38, 110, 23);
 		subOptPanel.add(chckbxEarlyBike);
 		
@@ -718,6 +755,11 @@ public class Randomizer {
 		StatsTabs.add(MainOptPanel_stats);
 		
 		JToggleButton tglButtonStatsTab_NoChg = new JToggleButton("No Change");
+		tglButtonStatsTab_NoChg.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sum_txtField.append("Moves and Stats Items Tab: No Change\n");
+			}
+		});
 		StatTab_MainOptBtnGrp.add(tglButtonStatsTab_NoChg);
 		tglButtonStatsTab_NoChg.setToolTipText("No randomization will be made");
 		tglButtonStatsTab_NoChg.setBounds(23, 24, 213, 42);
@@ -725,6 +767,11 @@ public class Randomizer {
 		MainOptPanel_stats.add(tglButtonStatsTab_NoChg);
 		
 		JToggleButton tglbtnFullStatRandomization = new JToggleButton("Full Stat Randomization");
+		tglbtnFullStatRandomization.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sum_txtField.append("Moves and Stats Items Tab: Full Stat Randomization\n");
+			}
+		});
 		StatTab_MainOptBtnGrp.add(tglbtnFullStatRandomization);
 		tglbtnFullStatRandomization.setToolTipText("Completely Randomize all pokemons stats ");
 		tglbtnFullStatRandomization.setBounds(23, 77, 213, 42);
@@ -753,6 +800,11 @@ public class Randomizer {
 		delta_input.setColumns(10);
 		
 		JCheckBox chckbxEnableDeltaRand = new JCheckBox("Enable Delta Randomization");
+		chckbxEnableDeltaRand.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sum_txtField.append("Moves and Stats Items Tab: Enable Delta Randomization\n");
+			}
+		});
 		chckbxEnableDeltaRand.setFont(new Font("Tahoma", Font.BOLD, 12));
 		chckbxEnableDeltaRand.setBounds(23, 146, 213, 23);
 		chckbxEnableDeltaRand.setEnabled(false);
@@ -779,17 +831,32 @@ public class Randomizer {
 		SubOptPanel_stats.setLayout(null);
 		
 		JCheckBox chckbxEnable_stat = new JCheckBox("Enable TM/HM Compatibility");
+		chckbxEnable_stat.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sum_txtField.append("Moves and Stats Items Tab: Enable TM/HM Compatibility\n");
+			}
+		});
 		chckbxEnable_stat.setFont(new Font("Tahoma", Font.BOLD, 12));
 		chckbxEnable_stat.setBounds(22, 25, 218, 31);
 		chckbxEnable_stat.setEnabled(false);
 		SubOptPanel_stats.add(chckbxEnable_stat);
 		
 		JCheckBox chckbxTMComp = new JCheckBox("Change TM Compatibility");
+		chckbxTMComp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sum_txtField.append("Moves and Stats Items Tab: Change TM Compatibility selected\n");
+			}
+		});
 		chckbxTMComp.setBounds(43, 69, 178, 23);
 		chckbxTMComp.setEnabled(false);
 		SubOptPanel_stats.add(chckbxTMComp);
 		
 		JCheckBox chckbxHM_Comp = new JCheckBox("Change HM Compatibility");
+		chckbxHM_Comp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sum_txtField.append("Moves and Stats Items Tab: Change HM Compatibility selected\n");
+			}
+		});
 		chckbxHM_Comp.setToolTipText("Make all HMs compatible with any pokemon");
 		chckbxHM_Comp.setBounds(43, 95, 178, 23);
 		chckbxHM_Comp.setEnabled(false);
@@ -799,41 +866,39 @@ public class Randomizer {
 		 * Summary Tab
 		 */
 
-		JPanel SummaryTab = new JPanel();
-		SummaryTab.setBorder(new LineBorder(new Color(0, 0, 0)));
-		tabbedPane.addTab("Summary", null, SummaryTab, null);
-		SummaryTab.setLayout(null);
+		JPanel UserLogTab = new JPanel();
+		UserLogTab.setBorder(new LineBorder(new Color(0, 0, 0)));
+		tabbedPane.addTab("User Log", null, UserLogTab, null);
+		UserLogTab.setLayout(null);
 		
 		JLabel Summarylbl = new JLabel("Summary of your Randomization");
 		Summarylbl.setFont(new Font("Tahoma", Font.BOLD, 16));
 		Summarylbl.setBounds(36, 31, 516, 22);
-		SummaryTab.add(Summarylbl);
+		UserLogTab.add(Summarylbl);
 		
 		Sum_txtField = new JTextArea();
-		Sum_txtField.setFont(new Font("Century Gothic", Font.PLAIN, 10));
-		Sum_txtField.setEditable(false);
 		Sum_txtField.setLineWrap(true);
+		Sum_txtField.setEditable(false);
+		Sum_txtField.setFont(new Font("Century Gothic", Font.PLAIN, 14));
+		
 		
 		JScrollPane scroll = new JScrollPane(Sum_txtField);
         scroll.setSize(700, 500);
         scroll.setBounds(36, 65, 632, 301);
-        SummaryTab.add(scroll);
+        UserLogTab.add(scroll);
         
-        JButton btnClear = new JButton("Clear");
+        
+		JButton btnClear = new JButton(new AbstractAction("Clear") {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Sum_txtField.setText("");
+			}
+		});
         btnClear.setBounds(699, 325, 193, 41);
-        SummaryTab.add(btnClear);
+        UserLogTab.add(btnClear);
         
-        btnClear.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		if(btnClear.isSelected()) {
-        			System.out.println("Click");
-        		}
-        	}
-        });
+  
       
-
-
-
 		/**
 		 * Action Panel Component
 		 */
@@ -1125,6 +1190,8 @@ public class Randomizer {
 					txtBoundFrom.setEditable(true);
 					txtBoundTo.setEditable(true);
 					tglButtonLevelRandomization.setEnabled(true);
+					Sum_txtField.append("Starter Tab: Level Random || ENABLED \n");
+					
 				}
 				else {
 					txtBoundFrom.setText("");
