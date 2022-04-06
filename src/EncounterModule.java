@@ -1,6 +1,5 @@
 import java.util.List;
 import java.util.HashMap;
-import javax.swing.plaf.basic.BasicTreeUI.TreeCancelEditingAction;
 import java.util.ArrayList;
 
 public class EncounterModule{
