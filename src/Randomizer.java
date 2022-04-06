@@ -506,16 +506,10 @@ public class Randomizer {
 		MainOptPanel.add(tglButtonFieldItem_NoChg);
 		tglButtonFieldItem_NoChg.setToolTipText("No randomization will be made");
 		
-		JToggleButton tglBtnRandWorldItems = new JToggleButton("Randomize World Items");
-		FieldItem_MainOptBtnGrp.add(tglBtnRandWorldItems);
-		tglBtnRandWorldItems.setBounds(23, 67, 213, 42);
-		MainOptPanel.add(tglBtnRandWorldItems);
-		tglBtnRandWorldItems.setToolTipText("Randomize the items found and bought in the world ");
-		
 		JCheckBox chckbxGroundItems = new JCheckBox("   Ground Item Randomization");
+		chckbxGroundItems.setBounds(23, 71, 213, 30);
+		MainOptPanel.add(chckbxGroundItems);
 		chckbxGroundItems.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		chckbxGroundItems.setBounds(143, 153, 258, 30);
-		FieldMainPanel.add(chckbxGroundItems);
 		
 		JPanel subOptPanel = new JPanel();
 		subOptPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
