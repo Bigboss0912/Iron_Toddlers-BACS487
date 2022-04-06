@@ -509,7 +509,10 @@ public class Randomizer {
 		JCheckBox chckbxGroundItems = new JCheckBox("   Ground Item Randomization");
 		chckbxGroundItems.setBounds(23, 71, 213, 30);
 		MainOptPanel.add(chckbxGroundItems);
+		FieldItem_MainOptBtnGrp.add(chckbxGroundItems);
 		chckbxGroundItems.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		chckbxGroundItems.setToolTipText("Randomizes all items found on the ground in the overworld\r\n"
+				+ "");
 		
 		JPanel subOptPanel = new JPanel();
 		subOptPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
