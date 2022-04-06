@@ -248,12 +248,12 @@ public class Randomizer {
 
 		JToggleButton tglbtn1to1AreaRandz = new JToggleButton("1-to-1 Area Randomization");
 		Wild_MainBtngrp.add(tglbtn1to1AreaRandz);
-		tglbtn1to1AreaRandz.setToolTipText("To be implemented");
+		tglbtn1to1AreaRandz.setToolTipText("By area map, each pokemon will be replaced by the same random pokemon.");
 		tglbtn1to1AreaRandz.setBounds(23, 141, 294, 40);
 		MainOptPanel_Wild.add(tglbtn1to1AreaRandz);
 		
 		JToggleButton tglbtn1to1PokemonRandomization = new JToggleButton("1-to-1 Pokemon Randomization");
-		tglbtn1to1PokemonRandomization.setToolTipText("to be implemented");
+		tglbtn1to1PokemonRandomization.setToolTipText("Each encounter will have a random pokemon based off original possible encounter.");
 		Wild_MainBtngrp.add(tglbtn1to1PokemonRandomization);
 		tglbtn1to1PokemonRandomization.setBounds(23, 199, 294, 40);
 		MainOptPanel_Wild.add(tglbtn1to1PokemonRandomization);
@@ -786,7 +786,9 @@ public class Randomizer {
 				// end Item Module
 
 				//start Wild Encounter module
-				EncounterModule encounterModule = new EncounterModule(editRom);
+				boolean allowWildEncounterLegendary = true;
+				boolean allowOneAppearanceWildEncounter = true;
+				EncounterModule encounterModule = new EncounterModule(editRom, allowWildEncounterLegendary, allowOneAppearanceWildEncounter);
 				if(tglBtnWild_AllRandom.isSelected()){
 					encounterModule.randomizeEncounters();
 				}
