@@ -297,11 +297,11 @@ public class Randomizer {
                 }
 			}
 		});
+
 		Wild_MainBtngrp.add(tglBtnWild_AllRandom);
 		tglBtnWild_AllRandom.setToolTipText("Every random encounter slot will be fully randomized.");
 		tglBtnWild_AllRandom.setBounds(23, 83, 294, 40);
 		MainOptPanel_Wild.add(tglBtnWild_AllRandom);
-			
 
 		JToggleButton tglbtn1to1AreaRandz = new JToggleButton("1-to-1 Area Randomization");
 		tglbtn1to1AreaRandz.setBounds(10, 7, 284, 40);
@@ -343,7 +343,6 @@ public class Randomizer {
 		JCheckBox chckbxWhenever = new JCheckBox("Can be selected whenever");
 		chckbxWhenever.setBounds(23, 261, 294, 23);
 		MainOptPanel_Wild.add(chckbxWhenever);
-		
 		
 		
 		/**
@@ -630,6 +629,7 @@ public class Randomizer {
 				Sum_txtField.append("Field Items Tab: No Change\n");
 			}
 		});
+
 		FieldItem_MainOptBtnGrp.add(tglButtonFieldItem_NoChg);
 		tglButtonFieldItem_NoChg.setBounds(23, 11, 213, 42);
 		MainOptPanel.add(tglButtonFieldItem_NoChg);
@@ -641,6 +641,7 @@ public class Randomizer {
 				Sum_txtField.append("Field Items Tab: Ground Item Randomization\n");
 			}
 		});
+
 		chckbxGroundItems.setBounds(23, 71, 213, 30);
 		MainOptPanel.add(chckbxGroundItems);
 		FieldItem_MainOptBtnGrp.add(chckbxGroundItems);
@@ -1072,7 +1073,11 @@ public class Randomizer {
 				// end Item Module
 
 				//start Wild Encounter module
-				EncounterModule encounterModule = new EncounterModule(editRom);
+
+				boolean allowWildEncounterLegendary = true;
+				boolean allowOneAppearanceWildEncounter = true;
+				EncounterModule encounterModule = new EncounterModule(editRom, allowWildEncounterLegendary, allowOneAppearanceWildEncounter);
+        
 				if(tglBtnWild_AllRandom.isSelected()){
 					encounterModule.randomizeEncounters();
 				}
@@ -1145,6 +1150,7 @@ public class Randomizer {
 					tglbtn1to1AreaRandz.setEnabled(true);
 					tglbtn1to1PokemonRandomization.setEnabled(true);
 
+
 					/*
 					 * /enable trainer tab randomize panel
 					 */
@@ -1189,7 +1195,6 @@ public class Randomizer {
 					MainOptlbl_stats.setEnabled(true);
 					
 					chckbxWhenever.setEnabled(true);
-
 
 				}
 				//Incorrect ROM file loaded
