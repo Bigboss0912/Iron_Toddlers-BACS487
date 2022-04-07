@@ -253,13 +253,31 @@ public class Randomizer {
 		JPanel MainOptPanel_Wild = new JPanel();
 		MainOptPanel_Wild.setLayout(null);
 		MainOptPanel_Wild.setBorder(new LineBorder(new Color(0, 0, 0)));
-		MainOptPanel_Wild.setBounds(170, 38, 340, 269);
+		MainOptPanel_Wild.setBounds(170, 38, 630, 308);
 		WildTab.add(MainOptPanel_Wild);
+		
+		JPanel OneTo1panel = new JPanel();
+		OneTo1panel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		OneTo1panel.setBounds(23, 134, 544, 110);
+		MainOptPanel_Wild.add(OneTo1panel);
+		OneTo1panel.setLayout(null);
+		
+		JCheckBox chckbxBasedOnCondition = new JCheckBox("Based on 1-1 Area/Pokemon");
+		chckbxBasedOnCondition.setBounds(318, 67, 220, 23);
+		OneTo1panel.add(chckbxBasedOnCondition);
+		chckbxBasedOnCondition.setEnabled(false);
 		
 		JToggleButton tglBtnWild_NoChg_ = new JToggleButton("No Change");
 		tglBtnWild_NoChg_.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					Sum_txtField.append("Wild Pokemon Tab: No Change\n");
+					AbstractButton abstractButton = (AbstractButton) e.getSource();
+	                boolean selected = abstractButton.getModel().isSelected();
+	                if (selected) {
+	                	chckbxBasedOnCondition.setEnabled(false);
+	                	chckbxBasedOnCondition.setSelected(false);
+	                }
+					
 			}
 		});
 		Wild_MainBtngrp.add(tglBtnWild_NoChg_);
@@ -271,34 +289,62 @@ public class Randomizer {
 		tglBtnWild_AllRandom.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sum_txtField.append("Wild Pokemon Tab: Complete Randomization\n");
+				AbstractButton abstractButton = (AbstractButton) e.getSource();
+                boolean selected = abstractButton.getModel().isSelected();
+                if (selected) {
+                	chckbxBasedOnCondition.setEnabled(false);
+                	chckbxBasedOnCondition.setSelected(false);
+                }
 			}
 		});
 		Wild_MainBtngrp.add(tglBtnWild_AllRandom);
 		tglBtnWild_AllRandom.setToolTipText("Every random encounter slot will be fully randomized.");
 		tglBtnWild_AllRandom.setBounds(23, 83, 294, 40);
 		MainOptPanel_Wild.add(tglBtnWild_AllRandom);
+			
 
 		JToggleButton tglbtn1to1AreaRandz = new JToggleButton("1-to-1 Area Randomization");
+		tglbtn1to1AreaRandz.setBounds(10, 7, 284, 40);
+		OneTo1panel.add(tglbtn1to1AreaRandz);
 		tglbtn1to1AreaRandz.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					Sum_txtField.append("Wild Pokemon Tab: 1-to-1 Area Randomization\n");
+				Sum_txtField.append("Wild Pokemon Tab: 1-to-1 Area Randomization\n");
+				AbstractButton abstractButton = (AbstractButton) e.getSource();
+                boolean selected = abstractButton.getModel().isSelected();
+                if (selected) {
+                	chckbxBasedOnCondition.setEnabled(true);
+                }
+					
 			}
 		});
 		Wild_MainBtngrp.add(tglbtn1to1AreaRandz);
+		tglbtn1to1AreaRandz.setEnabled(false);
 		tglbtn1to1AreaRandz.setToolTipText("To be implemented");
-		tglbtn1to1AreaRandz.setBounds(23, 141, 294, 40);
-		MainOptPanel_Wild.add(tglbtn1to1AreaRandz);
 		
 		JToggleButton tglbtn1to1PokemonRandomization = new JToggleButton("1-to-1 Pokemon Randomization");
+		tglbtn1to1PokemonRandomization.setBounds(10, 58, 284, 40);
+		OneTo1panel.add(tglbtn1to1PokemonRandomization);
 		tglbtn1to1PokemonRandomization.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					Sum_txtField.append("Wild Pokemon Tab: 1-to-1 Pokemon Randomization\n");
+					
+					AbstractButton abstractButton = (AbstractButton) e.getSource();
+	                boolean selected = abstractButton.getModel().isSelected();
+	                if (selected) {
+	                	chckbxBasedOnCondition.setEnabled(true);
+	                }
+					
 			}
 		});
+		tglbtn1to1PokemonRandomization.setEnabled(false);
 		tglbtn1to1PokemonRandomization.setToolTipText("to be implemented");
 		Wild_MainBtngrp.add(tglbtn1to1PokemonRandomization);
-		tglbtn1to1PokemonRandomization.setBounds(23, 199, 294, 40);
-		MainOptPanel_Wild.add(tglbtn1to1PokemonRandomization);
+		
+		JCheckBox chckbxWhenever = new JCheckBox("Can be selected whenever");
+		chckbxWhenever.setBounds(23, 261, 294, 23);
+		MainOptPanel_Wild.add(chckbxWhenever);
+		
+		
 		
 		/**
 		 * Trainer Tab 
@@ -1092,6 +1138,12 @@ public class Randomizer {
 					lblFrom.setEnabled(true);
 					lblTo.setEnabled(true);
 					LevelLabel.setEnabled(true);
+					
+					/*
+					 * Wild Pokemon area enable function/
+					 */
+					tglbtn1to1AreaRandz.setEnabled(true);
+					tglbtn1to1PokemonRandomization.setEnabled(true);
 
 					/*
 					 * /enable trainer tab randomize panel
@@ -1135,6 +1187,8 @@ public class Randomizer {
 					tglbtnFullStatRandomization.setEnabled(true);
 					tglButtonStatsTab_NoChg.setEnabled(true);
 					MainOptlbl_stats.setEnabled(true);
+					
+					chckbxWhenever.setEnabled(true);
 
 
 				}
@@ -1204,6 +1258,8 @@ public class Randomizer {
 
 			}
 		});
+		
+		
 
 		/*
 		 * / Trainer Pokemon Sub tasks enable checkbox
