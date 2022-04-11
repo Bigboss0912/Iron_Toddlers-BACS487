@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< Updated upstream
-    <list default="true" id="92359fc7-fba7-4bf2-a6ce-635f6fcad6e1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="fa6774eb-6a50-40e2-97f7-fff22a2a71ec" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Randomizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Randomizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SettingForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SettingForm.java" afterDir="false" />
     </list>
-=======
-    <list default="true" id="21575b80-8f52-4378-8f22-6c6be8a72f07" name="Changes" comment="" />
->>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +17,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="26CwXs7MvEWlXaeFPF0cFC02Jzx" />
+  <component name="ProjectId" id="27fSfZO15UxYkRtgDnCggLPb5x7" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -28,11 +25,6 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-<<<<<<< Updated upstream
-=======
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
->>>>>>> Stashed changes
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -51,11 +43,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="92359fc7-fba7-4bf2-a6ce-635f6fcad6e1" name="Changes" comment="" />
-      <created>1646940921710</created>
+      <changelist id="fa6774eb-6a50-40e2-97f7-fff22a2a71ec" name="Changes" comment="" />
+      <created>1649709750696</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1646940921710</updated>
+      <updated>1649709750696</updated>
     </task>
     <servers />
   </component>
