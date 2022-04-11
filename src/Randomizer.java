@@ -11,7 +11,7 @@ import javax.swing.border.BevelBorder;
 
 public class Randomizer {
 
-	private JFrame frmPokemon;
+	public JFrame frmPokemon;
 	public JLabel StatusValue, ROMValue;
 	private JTextField txtBoundFrom;
 	private JTextField txtBoundTo;
@@ -38,6 +38,10 @@ public class Randomizer {
 	private JTextField delta_input;
 	private JTextArea Sum_txtField;
 
+
+
+
+
 	/**
 	 * Create the application.
 	 */
@@ -55,10 +59,11 @@ public class Randomizer {
 		 */
 
 		frmPokemon = new JFrame();
-		frmPokemon.setTitle("Pokemon Randomizer");
+		frmPokemon.setTitle("Pokemon Randomizer: Pokemon-FireRed Version (USA)");
 		frmPokemon.setSize(1000, 800);
 		frmPokemon.setVisible(true);
 		frmPokemon.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 
 
 		/**
@@ -957,30 +962,11 @@ public class Randomizer {
 		ActionLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
 		ActionLabel.setBounds(10, 18, 68, 14);
 
-		//Action Panel Buttons
 
-		JButton SeedButton = new JButton(new AbstractAction("Seed Modification") {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (openCloseROM.correcthash == true){
-					new SeedMod();
-				}
-			}
-		});
-		SeedButton.setEnabled(false);
 
-		JButton SettingButton = new JButton(new AbstractAction("Setting") {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (openCloseROM.correcthash == true){
-					new SettingForm();
-				}
-			}
-		});
-		SettingButton.setEnabled(false);
 
 		//Save Button
-		JButton SaveButton = new JButton(new AbstractAction("Randomize ROM File") {
+		JButton SaveButton = new JButton(new AbstractAction("Save New ROM File") {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//code
@@ -1110,6 +1096,33 @@ public class Randomizer {
 		StatusValue = new JLabel("Not Detected");
 		JLabel FileInfoLabel = new JLabel("ROM File Information:");
 		FileInfoLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
+
+		/*
+		/Action Panel Buttons
+		 */
+
+		//Seed button logic
+		JButton SeedButton = new JButton(new AbstractAction("Seed Modification") {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (openCloseROM.correcthash == true){
+					new SeedMod();
+				}
+			}
+		});
+		SeedButton.setEnabled(false);
+
+		//setting button logic
+		JButton SettingButton = new JButton(new AbstractAction("Setting") {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				SettingForm setting_theme = new SettingForm(frmPokemon);
+				setting_theme.initialize_setting();
+
+
+			}
+		});
+		SettingButton.setEnabled(false);
 
 		// Open Button
 		JButton OpenButton = new JButton(new AbstractAction("Open ROM File") {
@@ -1440,7 +1453,9 @@ public class Randomizer {
 				}
 			}
 		});
-		
+
+
+
 		/**
 		 * All Layout component and configurations
 		 */
