@@ -1,0 +1,8 @@
+________xx     Random seed
+________       Starter Modification
+1. level random enable
+2-3. bottom bound 
+4-5. upper bound 
+6. Full Random
+7. Three Stage
+8. Exclude Legendary 

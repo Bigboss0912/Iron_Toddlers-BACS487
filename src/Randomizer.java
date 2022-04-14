@@ -31,6 +31,7 @@ public class Randomizer {
 	EditRom editRom = new EditRom();
 	TrainerPokemon trainersPokemon = new TrainerPokemon();
 	ItemModule itemModule = new ItemModule(editRom);
+	Seed configSeed = new Seed(editRom, editRom.getSeed());
 
 	/**
 	 * Create the application.
@@ -756,24 +757,29 @@ public class Randomizer {
 
 				//Starter Pokemon Module
 				StarterModule starterMod;
+				String starterModuleConfigString = "";
 				if(ChckBxLevelRandom.isSelected()){
 					starterMod = new StarterModule(editRom, Integer.parseInt(txtBoundFrom.getText()), Integer.parseInt(txtBoundTo.getText()));
+					starterModuleConfigString += "1" + String.format("%02d", Integer.parseInt(txtBoundFrom.getText())) + String.format("%02d", Integer.parseInt(txtBoundTo.getText()));
 				}
 				else{
 					starterMod = new StarterModule(editRom);
+					starterModuleConfigString += "00505";
 				}
 				if(tglButtonFul_Rand.isSelected()){
 					starterMod.randomizeStartersAllPokemon();
+					starterModuleConfigString += "100";
 				}
 				else if(tglButtonThreeStg.isSelected()){
 					starterMod.randomizeStarterThreeStage();
+					starterModuleConfigString += "010";
 				}
 				else if(exLegendButton.isSelected()){
 					starterMod.randomizeStartersAllPokemonNoLegendary();
+					starterModuleConfigString += "001";
 				}
-				//end StarterPokemon Module
-
-				// item module
+				configSeed.setStarterString(starterModuleConfigString);
+				
 				if (chckbxEarlyBike.isSelected()) {
 					itemModule.get_Bike_Early();
 				}
@@ -800,7 +806,8 @@ public class Randomizer {
 				}
 				//end Wild Encounter Module
 
-
+				System.out.println(configSeed.returnConfigString());
+				configSeed.randomizeStarter();
 				openCloseROM.saveROM();
 			}
 		});

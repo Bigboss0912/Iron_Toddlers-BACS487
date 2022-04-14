@@ -10,13 +10,31 @@ public class Seed{
     private String pokeStatsString;
     private String movesString;
     private String summaryString;
+    private EditRom editRom;
     
-    public Seed(){
-
+    public Seed(EditRom editRom, Long seed){
+        this.randomSeed = seed;
+        this.editRom = editRom;
     }
 
     public void randomizeStarter(){
+        Boolean levelRandom = 
+        this.starterString.charAt(0) == 1 ? true : false;
+        int lowerBound = 
+        levelRandom ? Integer.parseInt(this.starterString.substring(1, 3)) : 5;
+        int upperBound = 
+        levelRandom ? Integer.parseInt(this.starterString.substring(3, 5)) : 5;
         
+        StarterModule start = new StarterModule(this.editRom, lowerBound, upperBound);
+        if(this.starterString.charAt(5) == '1'){
+            start.randomizeStartersAllPokemon();
+        }
+        else if(this.starterString.charAt(6) == '1'){
+            start.randomizeStarterThreeStage();
+        }
+        else if(this.starterString.charAt(7) == '1'){
+            start.randomizeStartersAllPokemonNoLegendary();
+        }
     }
 
     public void processConfigString(){
@@ -26,8 +44,9 @@ public class Seed{
         this.wildString = this.configString.substring(endOfRandomSeed + 10, endOfRandomSeed + 15);
     }
 
-    public String returnConfig(){
-        return this.configString();
+    public String returnConfigString(){
+        this.configString = this.randomSeed + "xx" + this.starterString;
+        return this.configString;
     }
 
     public long getSeed(){
@@ -36,5 +55,13 @@ public class Seed{
 
     public void setSeed(long seed){
         this.randomSeed = seed;
+    }
+
+    public void setStarterString(String x){
+        this.starterString = x;
+    }
+
+    public void test(){
+        
     }
 }

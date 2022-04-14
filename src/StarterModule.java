@@ -14,6 +14,7 @@ public class StarterModule{
 
     public StarterModule( EditRom editRom){
         this.editRom = editRom;
+        
     }
 
     public StarterModule(EditRom editRom, int starterLevelLowerBound, int starterLevelUpperBound){
