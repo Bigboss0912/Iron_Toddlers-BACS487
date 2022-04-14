@@ -35,6 +35,7 @@ public class Randomizer {
 	EditRom editRom = new EditRom();
 	TrainerPokemon trainersPokemon = new TrainerPokemon();
 	ItemModule itemModule = new ItemModule(editRom);
+	StatsModule statsModule = new StatsModule();
 	private JTextField delta_input;
 	private JTextArea Sum_txtField;
 
@@ -970,7 +971,7 @@ public class Randomizer {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//code
-
+				
 				// Code for Trainers Teams
 				if(tglButtonFul_Rand_Trainer.isSelected()) {
 					String pokemonSetType;
@@ -1144,6 +1145,7 @@ public class Randomizer {
 					openedRom = openCloseROM.getRom();
 					editRom.setRom(openedRom);
 					trainersPokemon.setEditRom(editRom);
+					statsModule.setEditRom(editRom);
 
 					//enable starter tab randomize panel
 					for (int i = 0; i < RandomizePanel_list.length; i++) {
