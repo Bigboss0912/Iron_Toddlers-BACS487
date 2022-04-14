@@ -1076,6 +1076,17 @@ public class Randomizer {
 				}
 				//end Wild Encounter Module
 
+				// Start Stats Module
+				if (tglbtnFullStatRandomization.isSelected()) {
+					statsModule.randomizePokemonBaseStats();
+					statsModule.randomizePokemonMiscStats();
+					statsModule.randomizePokemonCatchRateAndBaseExp();
+				} else if (chckbxEnableDeltaRand.isSelected()) {
+					String deltaStr = delta_input.getText();
+					int delta = Integer.parseInt(deltaStr);
+					statsModule.randomizeBaseStatsByDelta(delta);
+				} // End Stats Module
+
 
 				openCloseROM.saveROM();
 			}
