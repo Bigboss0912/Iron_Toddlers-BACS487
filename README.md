@@ -4,6 +4,7 @@ Things to note before use:
 - You must have a CLEAN FireRed (USA) ROM to use the application - It will not save over your clean ROM but backups are recommended.
 - This application was tested using mGBA but should theoretically work on any GBA emulator.  
 - This application was developed using Java, thus you may need Java installed as well 
+- Randomizing a file that has already been randomized is not recommended and we suggest closing the randomizer before using it again
 --------------------------------------------------------------------------------------------------
 Getting Started:
 1. Boot up the application 
