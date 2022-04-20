@@ -24,6 +24,13 @@ public class StatsModule {
         return retValue;
     }
 
+    public byte randStatSmall() {
+        int randVal = rand.nextInt(80);
+        randVal = randVal + 10;
+        byte retValue = (byte)randVal;
+        return retValue;
+    }
+
     public void randomizePokemonBaseStats() {
         int j = 0;
         int stop = 2443168+6;
@@ -44,11 +51,11 @@ public class StatsModule {
 
     public void randomizePokemonCatchRateAndBaseExp() {
         int j = 0;
-        int stop = 2443176+2;
+        int stop = 2443176+1;
         int newJ = 2443176;
         for (int i = 0; i < 387; i++) {
             for (j = newJ; j < stop; j++) {
-                editRom.editRom(j, randStat());
+                editRom.editRom(j, randStatSmall());
             }
             newJ += 28;
             stop = newJ+2;
@@ -64,11 +71,11 @@ public class StatsModule {
     // and growthrate
     public void randomizePokemonMiscStats() {
         int j = 0;
-        int stop = 2443184+4;
+        int stop = 2443184+1;
         int newJ = 2443184;
         for (int i = 0; i < 387; i++) {
             for (j = newJ; j < stop; j++) {
-                editRom.editRom(j, randStat());
+                editRom.editRom(j, randStatSmall());
             }
             newJ += 28;
             stop = newJ+4;
