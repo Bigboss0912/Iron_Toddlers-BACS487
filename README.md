@@ -24,6 +24,15 @@ Getting the ROM:
 5. Once downloaded, find the .zip file in your file browser and extract the file to where ever you wish it
 6. Inside the extracted file should be a .gba file of the same or similar name, that is the ROM and what you will use for the application
 --------------------------------------------------------------------------------------------------
+Sharing Randomization Seed with a friend (optional):
+ - If you and a friend would like to randomize the game to get the same results, follow these steps.
+ 1. Boot up he application.
+ 2. Hit "Open ROM File" on the left
+ 3. Find and select your CLEAN ROM.
+ 4. Click "Seed Modification"
+ 5. Agree on a number, and both players must enter that number here. 
+ 6. Both players must choose the same randomization options, or results will be completely different. 
+--------------------------------------------------------------------------------------------------
 Getting mGBA (optional):
 1. Follow this link https://mgba.io/ or you can google mGBA and it should be the first link 
 2. Go to the "Downloads" section in the upper right 
