@@ -10,10 +10,12 @@ public class StatsModule {
 
     public StatsModule(EditRom editRom) {
         this.editRom = editRom;
+        this.rand = editRom.getRandom();
     }
 
     public void setEditRom(EditRom newEditRom) {
         this.editRom = newEditRom;
+        this.rand = newEditRom.getRandom();
     }
 
     public byte randStat() {
