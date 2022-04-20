@@ -12,6 +12,10 @@ public class ItemModule {
         this.editRom = editRom;
     }
 
+    public void setEditRom(EditRom editRom){
+        this.editRom = editRom;
+    }
+
     // Array of items excluding key items, HMs, and unknown items
     public int[] getUsableItems(){
         return new int[] {

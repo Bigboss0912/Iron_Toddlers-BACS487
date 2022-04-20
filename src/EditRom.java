@@ -27,6 +27,10 @@ public class EditRom {
         this.random = new Random(this.seed);
     }
 
+    public Random getRandom(){
+        return this.random;
+    }
+
     public byte getByte(int index){
         byte currentValue = rom[index];
         return currentValue;

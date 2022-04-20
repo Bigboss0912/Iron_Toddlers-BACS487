@@ -1,6 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
-
+import java.util.Random;
 import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -11,6 +11,8 @@ import javax.swing.border.BevelBorder;
 
 public class Randomizer {
 
+	private static Random seedGenerator = new Random();
+	public static long FinalRandomSeed = seedGenerator.nextLong();
 	public JFrame frmPokemon;
 	public JLabel StatusValue, ROMValue;
 	private JTextField txtBoundFrom;
@@ -38,6 +40,11 @@ public class Randomizer {
 	StatsModule statsModule = new StatsModule();
 	private JTextField delta_input;
 	private JTextArea Sum_txtField;
+	private Randomizer thisRandomizer = this;
+
+	public void addToSumTextField(String s){
+		Sum_txtField.append(s);
+	}
 
 
 
@@ -133,7 +140,7 @@ public class Randomizer {
 			}
 		});
 		Starter_MainBtngrp.add(exLegendButton);
-		exLegendButton.setToolTipText("TBD");
+		exLegendButton.setToolTipText("Legendaries won't be chosen as starter pokemon.");
 		exLegendButton.setBounds(105, 199, 161, 36);
 		RandomizePanel.add(exLegendButton);
 
@@ -259,17 +266,17 @@ public class Randomizer {
 		JPanel MainOptPanel_Wild = new JPanel();
 		MainOptPanel_Wild.setLayout(null);
 		MainOptPanel_Wild.setBorder(new LineBorder(new Color(0, 0, 0)));
-		MainOptPanel_Wild.setBounds(170, 38, 630, 308);
+		MainOptPanel_Wild.setBounds(170, 38, 640, 308);
 		WildTab.add(MainOptPanel_Wild);
 		
 		JPanel OneTo1panel = new JPanel();
 		OneTo1panel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		OneTo1panel.setBounds(23, 134, 544, 110);
+		OneTo1panel.setBounds(23, 134, 560, 110);
 		MainOptPanel_Wild.add(OneTo1panel);
 		OneTo1panel.setLayout(null);
 		
-		JCheckBox chckbxBasedOnCondition = new JCheckBox("Based on 1-1 Area/Pokemon");
-		chckbxBasedOnCondition.setBounds(318, 67, 220, 23);
+		JCheckBox chckbxBasedOnCondition = new JCheckBox("Each Pokemon can only be chosen once");
+		chckbxBasedOnCondition.setBounds(294, 67, 253, 23);
 		OneTo1panel.add(chckbxBasedOnCondition);
 		chckbxBasedOnCondition.setEnabled(false);
 		
@@ -325,7 +332,7 @@ public class Randomizer {
 		});
 		Wild_MainBtngrp.add(tglbtn1to1AreaRandz);
 		tglbtn1to1AreaRandz.setEnabled(false);
-		tglbtn1to1AreaRandz.setToolTipText("To be implemented");
+		tglbtn1to1AreaRandz.setToolTipText("In each area, every instance of a pokemon will be replaced by the same pokemon.");
 		
 		JToggleButton tglbtn1to1PokemonRandomization = new JToggleButton("1-to-1 Pokemon Randomization");
 		tglbtn1to1PokemonRandomization.setBounds(10, 58, 284, 40);
@@ -343,10 +350,10 @@ public class Randomizer {
 			}
 		});
 		tglbtn1to1PokemonRandomization.setEnabled(false);
-		tglbtn1to1PokemonRandomization.setToolTipText("to be implemented");
+		tglbtn1to1PokemonRandomization.setToolTipText("Every instance of a pokemon will be replaced by the same pokemon.");
 		Wild_MainBtngrp.add(tglbtn1to1PokemonRandomization);
 		
-		JCheckBox chckbxWhenever = new JCheckBox("Can be selected whenever");
+		JCheckBox chckbxWhenever = new JCheckBox("Legendary Pokemon in Random Pool");
 		chckbxWhenever.setBounds(23, 261, 294, 23);
 		MainOptPanel_Wild.add(chckbxWhenever);
 		
@@ -934,7 +941,6 @@ public class Randomizer {
 		Sum_txtField.setEditable(false);
 		Sum_txtField.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		
-		
 		JScrollPane scroll = new JScrollPane(Sum_txtField);
         scroll.setSize(700, 500);
         scroll.setBounds(36, 65, 632, 301);
@@ -971,6 +977,14 @@ public class Randomizer {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//code
+				//Ensure that each module is sharing the same EditRom instance
+				Randomizer.FinalRandomSeed = editRom.getSeed();
+				EditRom finalEditRom = new EditRom(openedRom, Randomizer.FinalRandomSeed);
+				trainersPokemon.setEditRom(finalEditRom);
+				itemModule.setEditRom(finalEditRom);
+				statsModule.setEditRom(finalEditRom);
+				
+				
 				
 				// Code for Trainers Teams
 				if(tglButtonFul_Rand_Trainer.isSelected()) {
@@ -1031,10 +1045,10 @@ public class Randomizer {
 				//Starter Pokemon Module
 				StarterModule starterMod;
 				if(ChckBxLevelRandom.isSelected()){
-					starterMod = new StarterModule(editRom, Integer.parseInt(txtBoundFrom.getText()), Integer.parseInt(txtBoundTo.getText()));
+					starterMod = new StarterModule(finalEditRom, Integer.parseInt(txtBoundFrom.getText()), Integer.parseInt(txtBoundTo.getText()));
 				}
 				else{
-					starterMod = new StarterModule(editRom);
+					starterMod = new StarterModule(finalEditRom);
 				}
 				if(tglButtonFul_Rand.isSelected()){
 					starterMod.randomizeStartersAllPokemon();
@@ -1061,9 +1075,9 @@ public class Randomizer {
 
 				//start Wild Encounter module
 
-				boolean allowWildEncounterLegendary = true;
-				boolean allowOneAppearanceWildEncounter = true;
-				EncounterModule encounterModule = new EncounterModule(editRom, allowWildEncounterLegendary, allowOneAppearanceWildEncounter);
+				boolean allowWildEncounterLegendary = chckbxWhenever.isSelected();
+				boolean allowOneAppearanceWildEncounter = chckbxBasedOnCondition.isSelected();
+				EncounterModule encounterModule = new EncounterModule(finalEditRom, allowWildEncounterLegendary, allowOneAppearanceWildEncounter);
         
 				if(tglBtnWild_AllRandom.isSelected()){
 					encounterModule.randomizeEncounters();
@@ -1118,7 +1132,7 @@ public class Randomizer {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (openCloseROM.correcthash == true){
-					new SeedMod();
+					new SeedMod(thisRandomizer);
 				}
 			}
 		});

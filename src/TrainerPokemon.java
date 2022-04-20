@@ -3,21 +3,24 @@ import java.util.Random;
 public class TrainerPokemon {
 
     private EditRom editRom;
+    private Random rand;
 
     public TrainerPokemon() {
     }
 
     public TrainerPokemon(EditRom editRom) {
         this.editRom = editRom;
+        this.rand = editRom.getRandom();
     }
 
     public void setEditRom(EditRom newEditRom) {
         this.editRom = newEditRom;
+        this.rand = newEditRom.getRandom();
     }
 
     public int randPokemon(int[] arrPokemon) {
-        int rand = new Random().nextInt(arrPokemon.length);
-        return arrPokemon[rand];
+        int randInt = this.rand.nextInt(arrPokemon.length);
+        return arrPokemon[randInt];
     }
 
     public void setPokemon(int startIndex, int pokemon){

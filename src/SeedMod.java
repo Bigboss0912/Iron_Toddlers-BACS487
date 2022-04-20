@@ -9,10 +9,10 @@ public class SeedMod implements ActionListener {
 	JFrame frmseedmod = new JFrame();
 	JButton DoneButton;
 	private JTextField SeedField;
-	private JTextField ConfigField;
+	Randomizer parentClass;
 	
-	SeedMod(){
-		
+	SeedMod(Randomizer parentClass){
+		this.parentClass = parentClass;
 		//Forms Initiation
 		frmseedmod.setTitle("Seed Modification");
 		frmseedmod.setSize(710, 275);
@@ -25,11 +25,8 @@ public class SeedMod implements ActionListener {
 		DoneButton.addActionListener(this);
 		frmseedmod.getContentPane().add(DoneButton);
 		
-		JButton LoadButton = new JButton("Load File");
-		LoadButton.setBounds(82, 185, 163, 23);
-		frmseedmod.getContentPane().add(LoadButton);
 		
-		JLabel InfoLabel = new JLabel(" Below are the setting to produce the same randomization product that you did! Share it with friends!");
+		JLabel InfoLabel = new JLabel("Enter a Seed value shared from a friend below. Value must be a number.");
 		InfoLabel.setBounds(24, 22, 710, 23);
 		frmseedmod.getContentPane().add(InfoLabel);
 		
@@ -37,29 +34,13 @@ public class SeedMod implements ActionListener {
 		RandomLabel.setBounds(34, 64, 117, 23);
 		frmseedmod.getContentPane().add(RandomLabel);
 		
-		JLabel ConfigLabel = new JLabel("File Config String:");
-		ConfigLabel.setBounds(24, 103, 127, 23);
-		frmseedmod.getContentPane().add(ConfigLabel);
-		
 		SeedField = new JTextField();
 		SeedField.setBackground(Color.WHITE);
-		SeedField.setEditable(false);
+		SeedField.setEditable(true);
 		SeedField.setBounds(161, 65, 471, 20);
 		frmseedmod.getContentPane().add(SeedField);
 		SeedField.setColumns(10);
-		
-		
-		ConfigField = new JTextField();
-		ConfigField.setBackground(Color.WHITE);
-		ConfigField.setEditable(false);
-		ConfigField.setColumns(10);
-		ConfigField.setBounds(161, 104, 471, 20);
-		frmseedmod.getContentPane().add(ConfigField);
-		
-		JLabel OrLabel = new JLabel("Or you can load your current randomized file!");
-		OrLabel.setBounds(24, 141, 482, 23);
-		frmseedmod.getContentPane().add(OrLabel);
-		
+	
 		
 		
 	}
@@ -67,7 +48,11 @@ public class SeedMod implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
 		//Done Buttons
 		if(event.getSource()==DoneButton) {
+			Randomizer.FinalRandomSeed = Long.parseLong(SeedField.getText());
+			System.out.println(Double.parseDouble(SeedField.getText()));
+			this.parentClass.addToSumTextField("Current Randomization Seed: " + Randomizer.FinalRandomSeed + "\n");
 			frmseedmod.dispose();
+			
 		}
 		
 	}
