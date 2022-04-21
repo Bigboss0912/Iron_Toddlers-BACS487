@@ -103,7 +103,7 @@ public class Randomizer {
 		});
 		Starter_MainBtngrp.add(tglButtonNoChange);
 		tglButtonNoChange.setBounds(105, 58, 161, 36);
-		tglButtonNoChange.setToolTipText("No randomization will be made");
+		tglButtonNoChange.setToolTipText("Ensures there is no change");
 		RandomizePanel.add(tglButtonNoChange);
 
 		JToggleButton tglButtonFul_Rand = new JToggleButton("Fully Randomized");
@@ -140,7 +140,7 @@ public class Randomizer {
 			}
 		});
 		Starter_MainBtngrp.add(exLegendButton);
-		exLegendButton.setToolTipText("Legendaries won't be chosen as starter pokemon.");
+		exLegendButton.setToolTipText("Randomize to be any possible Pokemon except legendary pokemon \n");
 		exLegendButton.setBounds(105, 199, 161, 36);
 		RandomizePanel.add(exLegendButton);
 
@@ -234,7 +234,7 @@ public class Randomizer {
 
 		tglButtonLevelRandomization.setBounds(217, 120, 161, 36);
 		LevelPanel.add(tglButtonLevelRandomization);
-		tglButtonLevelRandomization.setToolTipText("Randomize the starters initial level");
+		tglButtonLevelRandomization.setToolTipText("Randomize the starters initial levels");
 		tglButtonLevelRandomization.setEnabled(false);
 
 		JLabel LevelLabel = new JLabel("Press Button to Activate");
@@ -279,6 +279,8 @@ public class Randomizer {
 		chckbxBasedOnCondition.setBounds(294, 67, 253, 23);
 		OneTo1panel.add(chckbxBasedOnCondition);
 		chckbxBasedOnCondition.setEnabled(false);
+		chckbxBasedOnCondition.setToolTipText("Removes a pokemon from the possible pool once it is chosen once for randomizing \n");
+
 		
 		JToggleButton tglBtnWild_NoChg_ = new JToggleButton("No Change");
 		tglBtnWild_NoChg_.addActionListener(new ActionListener() {
@@ -294,7 +296,7 @@ public class Randomizer {
 			}
 		});
 		Wild_MainBtngrp.add(tglBtnWild_NoChg_);
-		tglBtnWild_NoChg_.setToolTipText("No randomization will be made");
+		tglBtnWild_NoChg_.setToolTipText("Ensures there is no change");
 		tglBtnWild_NoChg_.setBounds(23, 25, 294, 40);
 		MainOptPanel_Wild.add(tglBtnWild_NoChg_);
 
@@ -312,7 +314,7 @@ public class Randomizer {
 		});
 
 		Wild_MainBtngrp.add(tglBtnWild_AllRandom);
-		tglBtnWild_AllRandom.setToolTipText("Every random encounter slot will be fully randomized.");
+		tglBtnWild_AllRandom.setToolTipText("Wild pokemon will be completely randomized for each encounter \n");
 		tglBtnWild_AllRandom.setBounds(23, 83, 294, 40);
 		MainOptPanel_Wild.add(tglBtnWild_AllRandom);
 
@@ -332,7 +334,7 @@ public class Randomizer {
 		});
 		Wild_MainBtngrp.add(tglbtn1to1AreaRandz);
 		tglbtn1to1AreaRandz.setEnabled(false);
-		tglbtn1to1AreaRandz.setToolTipText("In each area, every instance of a pokemon will be replaced by the same pokemon.");
+		tglbtn1to1AreaRandz.setToolTipText("Each pokemon in an area is replaced by a random pokemon \n");
 		
 		JToggleButton tglbtn1to1PokemonRandomization = new JToggleButton("1-to-1 Pokemon Randomization");
 		tglbtn1to1PokemonRandomization.setBounds(10, 58, 284, 40);
@@ -350,11 +352,12 @@ public class Randomizer {
 			}
 		});
 		tglbtn1to1PokemonRandomization.setEnabled(false);
-		tglbtn1to1PokemonRandomization.setToolTipText("Every instance of a pokemon will be replaced by the same pokemon.");
+		tglbtn1to1PokemonRandomization.setToolTipText("Every pokemon in the region is replaced by another random pokemon\n");
 		Wild_MainBtngrp.add(tglbtn1to1PokemonRandomization);
 		
 		JCheckBox chckbxWhenever = new JCheckBox("Legendary Pokemon in Random Pool");
 		chckbxWhenever.setBounds(23, 261, 294, 23);
+		chckbxWhenever.setToolTipText("Adds legendary pokemon to the possible choices for randomization \n");
 		MainOptPanel_Wild.add(chckbxWhenever);
 		
 		
@@ -415,16 +418,18 @@ public class Randomizer {
 
 		
 		JCheckBox chckbxKeepGymLeader = new JCheckBox("  Keep Gym Leader Type Theme");
-		
+		chckbxKeepGymLeader.setToolTipText("Gym leaders teams will be randomized according to their type themes\n");
 		chckbxKeepGymLeader.setBounds(315, 235, 232, 23);
 		OpeningPanel.add(chckbxKeepGymLeader);
 		
 		JCheckBox chckbxExcludeLegendaries = new JCheckBox("  Exclude legendaries");
+		chckbxExcludeLegendaries.setToolTipText("Trainers will not have legendary pokemon ");
 		chckbxExcludeLegendaries.setBounds(570, 235, 201, 23);
 		OpeningPanel.add(chckbxExcludeLegendaries);
 		
 
 		JCheckBox chckbxEnableTypeThemes = new JCheckBox("Enable Type Themes Randomization");
+		chckbxEnableTypeThemes.setToolTipText("Select a type theme for trainers to have when randomizing (Pairs with Keep Gym Leader Type Theme)\r\n"+ "");
 		chckbxEnableTypeThemes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Sum_txtField.append("Trainer Tab: Enable Type Themes Randomization\n");
@@ -436,7 +441,7 @@ public class Randomizer {
 
 		
 		JToggleButton tglButtonFul_Rand_Trainer_Type = new JToggleButton("Randomized with Type Themes");
-		tglButtonFul_Rand_Trainer_Type.setToolTipText("Select a type theme for trainers to have when randomizing (Pairs with Keep Gym Leader Type Theme)\r\n"+ "");
+		tglButtonFul_Rand_Trainer_Type.setToolTipText("Enables chosen options");
 		tglButtonFul_Rand_Trainer_Type.setBounds(37, 277, 232, 42);
 		OpeningPanel.add(tglButtonFul_Rand_Trainer_Type);
 		
@@ -646,7 +651,7 @@ public class Randomizer {
 		FieldItem_MainOptBtnGrp.add(tglButtonFieldItem_NoChg);
 		tglButtonFieldItem_NoChg.setBounds(23, 11, 213, 42);
 		MainOptPanel.add(tglButtonFieldItem_NoChg);
-		tglButtonFieldItem_NoChg.setToolTipText("No randomization will be made");
+		tglButtonFieldItem_NoChg.setToolTipText("Ensures there is no change");
 		
 		JCheckBox chckbxGroundItems = new JCheckBox("   Ground Item Randomization");
 		chckbxGroundItems.addActionListener(new ActionListener() {
@@ -685,6 +690,7 @@ public class Randomizer {
 			}
 		});
 		chckbxEarlyBike.setBounds(6, 38, 110, 23);
+		chckbxEarlyBike.setToolTipText("Get the bike early on (Speak to the woman in the lower right of Pallet Town facing the sign) \n");
 		subOptPanel.add(chckbxEarlyBike);
 		
 		JLabel SubOptlbl_FieldItem = new JLabel("Sub Options:");
@@ -877,50 +883,7 @@ public class Randomizer {
 		tglBtnStatsTab_ReSelect.setBounds(23, 284, 213, 42);
 		tglBtnStatsTab_ReSelect.setEnabled(false);
 		MainOptPanel_stats.add(tglBtnStatsTab_ReSelect);
-		
-		JLabel SubOptlbl_stats = new JLabel("Sub Options:");
-		SubOptlbl_stats.setFont(new Font("Tahoma", Font.BOLD, 16));
-		SubOptlbl_stats.setBounds(466, 47, 112, 22);
-		SubOptlbl_stats.setEnabled(false);
-		StatsTabs.add(SubOptlbl_stats);
-		
-		JPanel SubOptPanel_stats = new JPanel();
-		SubOptPanel_stats.setBorder(new LineBorder(new Color(0, 0, 0)));
-		SubOptPanel_stats.setBounds(588, 47, 258, 160);
-		StatsTabs.add(SubOptPanel_stats);
-		SubOptPanel_stats.setLayout(null);
-		
-		JCheckBox chckbxEnable_stat = new JCheckBox("Enable TM/HM Compatibility");
-		chckbxEnable_stat.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Sum_txtField.append("Moves and Stats Items Tab: Enable TM/HM Compatibility\n");
-			}
-		});
-		chckbxEnable_stat.setFont(new Font("Tahoma", Font.BOLD, 12));
-		chckbxEnable_stat.setBounds(22, 25, 218, 31);
-		chckbxEnable_stat.setEnabled(false);
-		SubOptPanel_stats.add(chckbxEnable_stat);
-		
-		JCheckBox chckbxTMComp = new JCheckBox("Change TM Compatibility");
-		chckbxTMComp.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Sum_txtField.append("Moves and Stats Items Tab: Change TM Compatibility selected\n");
-			}
-		});
-		chckbxTMComp.setBounds(43, 69, 178, 23);
-		chckbxTMComp.setEnabled(false);
-		SubOptPanel_stats.add(chckbxTMComp);
-		
-		JCheckBox chckbxHM_Comp = new JCheckBox("Change HM Compatibility");
-		chckbxHM_Comp.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Sum_txtField.append("Moves and Stats Items Tab: Change HM Compatibility selected\n");
-			}
-		});
-		chckbxHM_Comp.setToolTipText("Make all HMs compatible with any pokemon");
-		chckbxHM_Comp.setBounds(43, 95, 178, 23);
-		chckbxHM_Comp.setEnabled(false);
-		SubOptPanel_stats.add(chckbxHM_Comp);
+
 
 		/**
 		 * Summary Tab
@@ -939,6 +902,7 @@ public class Randomizer {
 		Sum_txtField = new JTextArea();
 		Sum_txtField.setLineWrap(true);
 		Sum_txtField.setEditable(false);
+		Sum_txtField.setToolTipText("Displays options that had been previously chosen ");
 		Sum_txtField.setFont(new Font("Century Gothic", Font.PLAIN, 14));
 		
 		JScrollPane scroll = new JScrollPane(Sum_txtField);
@@ -1104,6 +1068,7 @@ public class Randomizer {
 			}
 		});
 		SaveButton.setEnabled(false);
+		SaveButton.setToolTipText("Save the chosen options to your ROM");
 
 
 
@@ -1115,8 +1080,10 @@ public class Randomizer {
 		ROMPanel.setBorder(new LineBorder(Color.BLACK));
 
 		JLabel FileLabel = new JLabel("ROM File:");
+		FileLabel.setToolTipText("Shows ROM name");
 		ROMValue = new JLabel("NONE LOADED");
 		JLabel StatusLabel = new JLabel("Status:");
+		StatusLabel.setToolTipText("Shows if ROM is loaded");
 		StatusValue = new JLabel("Not Detected");
 		JLabel FileInfoLabel = new JLabel("ROM File Information:");
 		FileInfoLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -1135,6 +1102,7 @@ public class Randomizer {
 			}
 		});
 		SeedButton.setEnabled(false);
+		SeedButton.setToolTipText("Enter in seeds before hand for specific outcomes");
 
 		//setting button logic
 		JButton SettingButton = new JButton(new AbstractAction("Setting") {
@@ -1147,6 +1115,7 @@ public class Randomizer {
 			}
 		});
 		SettingButton.setEnabled(false);
+		SettingButton.setToolTipText("Opens settings box");
 
 		// Open Button
 		JButton OpenButton = new JButton(new AbstractAction("Open ROM File") {
@@ -1225,8 +1194,6 @@ public class Randomizer {
 					Openinglbl_Wild.setEnabled(true);
 					
 					//enable components for stat tab
-					chckbxEnable_stat.setEnabled(true);
-					SubOptlbl_stats.setEnabled(true);
 					chckbxEnableDeltaRand.setEnabled(true);
 					tglbtnFullStatRandomization.setEnabled(true);
 					tglButtonStatsTab_NoChg.setEnabled(true);
@@ -1258,6 +1225,7 @@ public class Randomizer {
 			}
 			}
 		);
+		OpenButton.setToolTipText("Browse your files and select a valid FireRed ROM file to use");
 
 		/**
 		 * Picture Label (Charmander)
@@ -1454,27 +1422,6 @@ public class Randomizer {
 					tglbtnVerify_DeltaRandomization.setSelected(false);
 					chckbxEnableDeltaRand.setSelected(false);
 					tglBtnStatsTab_ReSelect.setSelected(true);
-				}
-			}
-		});
-		
-		/*
-		 * Sub Option of Stats and Moves
-		 */
-		
-		chckbxEnable_stat.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (chckbxEnable_stat.isSelected()) {
-					chckbxTMComp.setEnabled(true);
-					chckbxHM_Comp.setEnabled(true);
-					
-				}
-				else if (!chckbxEnable_stat.isSelected()) {
-					chckbxTMComp.setEnabled(false);
-					chckbxTMComp.setSelected(false);
-					chckbxHM_Comp.setEnabled(false);
-					chckbxHM_Comp.setSelected(false);
-					
 				}
 			}
 		});

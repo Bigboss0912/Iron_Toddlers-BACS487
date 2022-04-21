@@ -39,11 +39,13 @@ public class SettingForm {
 		themePanel.add(ThemeLabel);
 
 		DefaultCheck = new JCheckBox("Default");
+		DefaultCheck.setToolTipText("Keeps the UI mainly white");
 		buttonGroup.add(DefaultCheck);
 		DefaultCheck.setBounds(20, 32, 121, 23);
 		themePanel.add(DefaultCheck);
 
 		DarkCheck = new JCheckBox("Dark");
+		DarkCheck.setToolTipText("Switches UI to a darker color");
 		buttonGroup.add(DarkCheck);
 		DarkCheck.setBounds(165, 32, 99, 23);
 		themePanel.add(DarkCheck);
