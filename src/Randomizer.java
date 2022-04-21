@@ -54,7 +54,13 @@ public class Randomizer {
 	 * Create the application.
 	 */
 	public Randomizer() {
-		initialize();
+		System.out.println("testhere");
+		try {
+			initialize();
+		}
+		catch(NullPointerException e) {
+			System.out.println("NullPointerException thrown");
+		}
 	}
 
 	/**

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Iron_Toddlers-BACS487:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Iron_Toddlers_BACS487_jar</output-path>
+    <root id="archive" name="Iron_Toddlers-BACS487.jar">
+      <element id="module-output" name="Iron_Toddlers-BACS487" />
+    </root>
+  </artifact>
+</component>

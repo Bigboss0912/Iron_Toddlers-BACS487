@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Main-Class: MainClass
+Class-Path: "C:\Users\justi\BACS488\Iron_Toddlers-BACS487\classes\MainCl
+ ass.class"
+

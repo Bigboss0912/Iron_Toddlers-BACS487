@@ -1,59 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Iron_Toddlers-BACS487:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="fa6774eb-6a50-40e2-97f7-fff22a2a71ec" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/EditRom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/EditRom.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/ItemModule.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/ItemModule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$14.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$15.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$16.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$17.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$18.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$19.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$20.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$21.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$22.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$23.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$24.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$24.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$25.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$26.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$26.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$27.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$27.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$28.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$28.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$29.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$29.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$30.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$30.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$31.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$31.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$32.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$32.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$33.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$33.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$34.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$34.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$35.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$35.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$36.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$36.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$37.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$37.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$38.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$38.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$39.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$39.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$40.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$40.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$41.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$41.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$42.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$42.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$43.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$43.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/Randomizer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/SeedMod.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/SeedMod.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/StatsModule.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/StatsModule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/TrainerPokemon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Iron_Toddlers-BACS487/TrainerPokemon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Randomizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Randomizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StatsModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StatsModule.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,14 +33,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mike_/Documents/GitHub/Iron_Toddlers-BACS487&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/justi/BACS488/Iron_Toddlers-BACS487",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+    <configuration name="MainClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MainClass" />
       <module name="Iron_Toddlers-BACS487" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -94,7 +55,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.MainClass" />
       </list>
     </recent_temporary>
   </component>
@@ -106,8 +67,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1649709750696</updated>
+      <workItem from="1650578452053" duration="1228000" />
+      <workItem from="1650579746268" duration="3833000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
