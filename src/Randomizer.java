@@ -59,7 +59,7 @@ public class Randomizer {
 			initialize();
 		}
 		catch(NullPointerException e) {
-			System.out.println("NullPointerException thrown!");
+			System.out.println("NullPointerException thrown");
 		}
 	}
 
