@@ -11,8 +11,8 @@ Getting Started:
 2. Hit "Open ROM File" on the left 
 3. Find your CLEAN ROM 
 4. Select your randomization preferences
-5. The "Summary" Tab will show what is going to be changed 
-6. When you've selected everything, hit "Randomize ROM File" 
+5. The "User Log" Tab will show what you have changed so far 
+6. When you've selected everything, hit "Save New ROM File" 
 7. Choose where you'd like to save your randomized ROM and give it a name 
 8. Load the new file in your emulator and enjoy :) 
 --------------------------------------------------------------------------------------------------
@@ -25,7 +25,7 @@ Getting the ROM:
 6. Inside the extracted file should be a .gba file of the same or similar name, that is the ROM and what you will use for the application
 --------------------------------------------------------------------------------------------------
 Sharing Randomization Seed with a friend (optional):
- - If you and a friend would like to randomize the game to get the same results, follow these steps.
+ - If you and a friend would like to randomize the game to get the same results, follow these steps:
  1. Boot up he application.
  2. Hit "Open ROM File" on the left
  3. Find and select your CLEAN ROM.
