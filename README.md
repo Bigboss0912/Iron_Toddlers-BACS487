@@ -7,14 +7,16 @@ Things to note before use:
 - Randomizing a file that has already been randomized is not recommended and we suggest closing the randomizer before using it again
 --------------------------------------------------------------------------------------------------
 Getting Started:
-1. Boot up the application 
-2. Hit "Open ROM File" on the left 
-3. Find your CLEAN ROM 
-4. Select your randomization preferences
-5. The "User Log" Tab will show what you have changed so far 
-6. When you've selected everything, hit "Save New ROM File" 
-7. Choose where you'd like to save your randomized ROM and give it a name 
-8. Load the new file in your emulator and enjoy :) 
+1. In the Main branch of the repo, find the "out" folder, open it then the "artifacts/FireRedRandomizer_jar"
+2. Iron_Toddlers-BACS487.jar is the application 
+3. Boot up the application 
+4. Hit "Open ROM File" on the left 
+5. Find your CLEAN ROM 
+6. Select your randomization preferences
+7. The "User Log" Tab will show what you have changed so far 
+8. When you've selected everything, hit "Save New ROM File" 
+9. Choose where you'd like to save your randomized ROM and give it a name 
+10. Load the new file in your emulator and enjoy :) 
 --------------------------------------------------------------------------------------------------
 Getting the ROM:
 1. Follow this link https://archive.org/download/No-Intro-Collection_2016-01-03_Fixed - (note from Simon: I've used this link to get ROMs for the last two years and can vouch for the safety and integrity of these files) 
